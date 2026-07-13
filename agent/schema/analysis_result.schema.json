@@ -1,0 +1,202 @@
+{
+  "$defs": {
+    "Evidence": {
+      "description": "A concrete log line backing a claim. line_number must exist in the input.",
+      "properties": {
+        "line_number": {
+          "title": "Line Number",
+          "type": "integer"
+        },
+        "raw_text": {
+          "default": "",
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "timestamp": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timestamp"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "why_relevant": {
+          "title": "Why Relevant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "line_number",
+        "why_relevant"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Incident": {
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "human_explanation": {
+          "description": "2-4 plain-English sentences a non-technical reader can follow.",
+          "title": "Human Explanation",
+          "type": "string"
+        },
+        "possible_solutions": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 1,
+          "title": "Possible Solutions",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "affected_sources": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Affected Sources",
+          "type": "array"
+        },
+        "first_seen": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Seen"
+        },
+        "last_seen": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Seen"
+        }
+      },
+      "required": [
+        "title",
+        "severity",
+        "confidence",
+        "human_explanation",
+        "possible_solutions"
+      ],
+      "title": "Incident",
+      "type": "object"
+    },
+    "Stats": {
+      "properties": {
+        "total_lines": {
+          "default": 0,
+          "title": "Total Lines",
+          "type": "integer"
+        },
+        "error_lines": {
+          "default": 0,
+          "title": "Error Lines",
+          "type": "integer"
+        },
+        "warning_lines": {
+          "default": 0,
+          "title": "Warning Lines",
+          "type": "integer"
+        }
+      },
+      "title": "Stats",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "analysis_id": {
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "generated_at": {
+      "title": "Generated At",
+      "type": "string"
+    },
+    "log_source": {
+      "title": "Log Source",
+      "type": "string"
+    },
+    "overall_status": {
+      "enum": [
+        "critical",
+        "degraded",
+        "healthy",
+        "inconclusive"
+      ],
+      "title": "Overall Status",
+      "type": "string"
+    },
+    "stats": {
+      "$ref": "#/$defs/Stats"
+    },
+    "incidents": {
+      "items": {
+        "$ref": "#/$defs/Incident"
+      },
+      "maxItems": 3,
+      "title": "Incidents",
+      "type": "array"
+    }
+  },
+  "required": [
+    "analysis_id",
+    "generated_at",
+    "log_source",
+    "overall_status",
+    "stats"
+  ],
+  "title": "AnalysisResult",
+  "type": "object"
+}

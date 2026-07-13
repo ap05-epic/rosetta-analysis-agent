@@ -1,0 +1,30 @@
+2026-07-11 13:58:41,220 INFO  order-service - Handled POST /orders in 88ms (200)
+2026-07-11 13:59:02,417 INFO  order-service - Handled GET /orders/55190 in 12ms (200)
+2026-07-11 13:59:30,051 INFO  health-checker - order-service liveness OK (3/3 pods)
+2026-07-11 14:00:02,113 INFO  deploy-agent - Deployment started: order-service v2.4.1 (commit 9f31c2a)
+2026-07-11 14:00:41,900 INFO  deploy-agent - Deployment finished: order-service v2.4.1 now live on 3/3 pods
+2026-07-11 14:00:55,310 INFO  order-service - Handled GET /orders/55191 in 14ms (200)
+2026-07-11 14:01:05,214 ERROR order-service - Unhandled exception processing POST /orders
+java.lang.NullPointerException: Cannot invoke "PricingRule.apply()" because "rule" is null
+	at com.shop.orders.PricingEngine.total(PricingEngine.java:112)
+	at com.shop.orders.OrderController.create(OrderController.java:57)
+192.168.3.40 - - [11/Jul/2026:14:01:05 +0000] "POST /orders HTTP/1.1" 500 87 "-" "okhttp/4.12"
+2026-07-11 14:01:19,466 ERROR order-service - Unhandled exception processing POST /orders
+java.lang.NullPointerException: Cannot invoke "PricingRule.apply()" because "rule" is null
+	at com.shop.orders.PricingEngine.total(PricingEngine.java:112)
+192.168.3.41 - - [11/Jul/2026:14:01:19 +0000] "POST /orders HTTP/1.1" 500 87 "-" "okhttp/4.12"
+2026-07-11 14:01:31,209 INFO  order-service - Handled GET /orders/55192 in 11ms (200)
+2026-07-11 14:01:44,590 ERROR order-service - Unhandled exception processing POST /orders
+java.lang.NullPointerException: Cannot invoke "PricingRule.apply()" because "rule" is null
+	at com.shop.orders.PricingEngine.total(PricingEngine.java:112)
+192.168.3.44 - - [11/Jul/2026:14:01:44 +0000] "POST /orders HTTP/1.1" 500 87 "-" "okhttp/4.12"
+2026-07-11 14:02:00,118 WARN  alerting - order-service 5xx rate 34% over last 1m (threshold 5%)
+2026-07-11 14:02:12,801 ERROR order-service - Unhandled exception processing POST /orders
+java.lang.NullPointerException: Cannot invoke "PricingRule.apply()" because "rule" is null
+	at com.shop.orders.PricingEngine.total(PricingEngine.java:112)
+192.168.3.45 - - [11/Jul/2026:14:02:12 +0000] "POST /orders HTTP/1.1" 500 87 "-" "okhttp/4.12"
+2026-07-11 14:02:30,014 INFO  health-checker - order-service liveness OK (3/3 pods)
+2026-07-11 14:02:47,332 ERROR order-service - Unhandled exception processing POST /orders
+java.lang.NullPointerException: Cannot invoke "PricingRule.apply()" because "rule" is null
+	at com.shop.orders.PricingEngine.total(PricingEngine.java:112)
+192.168.3.47 - - [11/Jul/2026:14:02:47 +0000] "POST /orders HTTP/1.1" 500 87 "-" "okhttp/4.12"

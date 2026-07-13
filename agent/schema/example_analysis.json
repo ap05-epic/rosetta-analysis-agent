@@ -1,0 +1,134 @@
+{
+  "analysis_id": "a3f1c2d4-0000-4000-8000-example00001",
+  "generated_at": "2026-07-13T12:00:00+00:00",
+  "log_source": "db_pool_exhaustion.log",
+  "overall_status": "critical",
+  "stats": {
+    "total_lines": 30,
+    "error_lines": 13,
+    "warning_lines": 4
+  },
+  "incidents": [
+    {
+      "title": "Database connection pool exhaustion",
+      "severity": "critical",
+      "confidence": 0.9,
+      "human_explanation": "The logs show 9 occurrence(s) of this problem affecting payments-service between 2026-07-13T08:02:01.230Z and 2026-07-13T08:02:31.996Z. The recurring message looks like: \"ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30001ms (pool exhausted, 50\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
+      "possible_solutions": [
+        "Increase the database connection pool size (or lower per-request hold time) and restart the affected service.",
+        "Check the database server for slow queries or locks that are holding connections open.",
+        "Add a circuit breaker / timeout so dependent services fail fast instead of queueing."
+      ],
+      "evidence": [
+        {
+          "line_number": 14,
+          "raw_text": "2026-07-13T08:02:14.512Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30001ms (pool exhausted, 50/50 active)",
+          "timestamp": "2026-07-13T08:02:14.512Z",
+          "source": "payments-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 15,
+          "raw_text": "2026-07-13T08:02:15.118Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30004ms (pool exhausted, 50/50 active)",
+          "timestamp": "2026-07-13T08:02:15.118Z",
+          "source": "payments-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 17,
+          "raw_text": "2026-07-13T08:02:17.204Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30002ms (pool exhausted, 50/50 active)",
+          "timestamp": "2026-07-13T08:02:17.204Z",
+          "source": "payments-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 23,
+          "raw_text": "2026-07-13T08:02:22.480Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30000ms (pool exhausted, 50/50 active)",
+          "timestamp": "2026-07-13T08:02:22.480Z",
+          "source": "payments-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        }
+      ],
+      "affected_sources": [
+        "payments-service"
+      ],
+      "first_seen": "2026-07-13T08:02:01.230Z",
+      "last_seen": "2026-07-13T08:02:31.996Z"
+    },
+    {
+      "title": "Downstream timeouts",
+      "severity": "high",
+      "confidence": 0.9,
+      "human_explanation": "The logs show 5 occurrence(s) of this problem affecting api-gateway, checkout-service between 2026-07-13T08:02:18.771Z and 2026-07-13T08:02:25.671Z. The recurring message looks like: \"ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
+      "possible_solutions": [
+        "Identify the slow dependency and confirm it is healthy before restarting callers.",
+        "Raise or tune the client timeout only after the root bottleneck is fixed."
+      ],
+      "evidence": [
+        {
+          "line_number": 18,
+          "raw_text": "2026-07-13T08:02:18.771Z ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms",
+          "timestamp": "2026-07-13T08:02:18.771Z",
+          "source": "checkout-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 21,
+          "raw_text": "2026-07-13T08:02:20.316Z ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms",
+          "timestamp": "2026-07-13T08:02:20.316Z",
+          "source": "checkout-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 25,
+          "raw_text": "2026-07-13T08:02:24.905Z ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms",
+          "timestamp": "2026-07-13T08:02:24.905Z",
+          "source": "checkout-service",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 19,
+          "raw_text": "2026-07-13T08:02:19.020Z ERROR [api-gateway] upstream timeout: POST /api/v1/checkout responded 504 after 30012ms",
+          "timestamp": "2026-07-13T08:02:19.020Z",
+          "source": "api-gateway",
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        }
+      ],
+      "affected_sources": [
+        "api-gateway",
+        "checkout-service"
+      ],
+      "first_seen": "2026-07-13T08:02:18.771Z",
+      "last_seen": "2026-07-13T08:02:25.671Z"
+    },
+    {
+      "title": "Application errors (HTTP 5xx)",
+      "severity": "high",
+      "confidence": 0.7,
+      "human_explanation": "The logs show 2 occurrence(s) of this problem affecting the logs between 13/Jul/2026:08:02:19 +0000 and 13/Jul/2026:08:02:23 +0000. The recurring message looks like: \"10.20.4.18 - - [13/Jul/2026:08:02:19 +0000] \"POST /api/v1/checkout HTTP/1.1\" 504 0 \"-\" \"Mozilla/5.0\"\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
+      "possible_solutions": [
+        "Inspect the stack trace at the cited lines and fix the failing code path.",
+        "Roll back if the errors began right after a deployment."
+      ],
+      "evidence": [
+        {
+          "line_number": 20,
+          "raw_text": "10.20.4.18 - - [13/Jul/2026:08:02:19 +0000] \"POST /api/v1/checkout HTTP/1.1\" 504 0 \"-\" \"Mozilla/5.0\"",
+          "timestamp": "13/Jul/2026:08:02:19 +0000",
+          "source": null,
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        },
+        {
+          "line_number": 24,
+          "raw_text": "10.20.4.19 - - [13/Jul/2026:08:02:23 +0000] \"POST /api/v1/checkout HTTP/1.1\" 504 0 \"-\" \"curl/8.5.0\"",
+          "timestamp": "13/Jul/2026:08:02:23 +0000",
+          "source": null,
+          "why_relevant": "Occurrence of the failing pattern this incident is based on."
+        }
+      ],
+      "affected_sources": [],
+      "first_seen": "13/Jul/2026:08:02:19 +0000",
+      "last_seen": "13/Jul/2026:08:02:23 +0000"
+    }
+  ]
+}

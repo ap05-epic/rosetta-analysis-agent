@@ -1,0 +1,13 @@
+{
+  "filename": "auth_service.log",
+  "entries": [
+    {"time": "2026-07-10T09:14:01Z", "file": "auth-service", "status": "INFO", "description": "Login OK for user 4471", "raw": "2026-07-10T09:14:01Z INFO auth-service Login OK for user 4471", "line_number": 1},
+    {"time": "2026-07-10T09:14:03Z", "file": "auth-service", "status": "INFO", "description": "Login OK for user 8112", "raw": "2026-07-10T09:14:03Z INFO auth-service Login OK for user 8112", "line_number": 2},
+    {"time": "2026-07-10T09:14:09Z", "file": "token-store", "status": "WARN", "description": "Token cache eviction rate high", "raw": "2026-07-10T09:14:09Z WARN token-store Token cache eviction rate high", "line_number": 3},
+    {"time": "2026-07-10T09:14:11Z", "file": "auth-service", "status": "ERROR", "description": "Login failed for user 5520: token store unreachable", "raw": "2026-07-10T09:14:11Z ERROR auth-service Login failed for user 5520: token store unreachable", "line_number": 4},
+    {"time": "2026-07-10T09:14:12Z", "file": "auth-service", "status": "ERROR", "description": "Login failed for user 7301: token store unreachable", "raw": "2026-07-10T09:14:12Z ERROR auth-service Login failed for user 7301: token store unreachable", "line_number": 5},
+    {"time": "2026-07-10T09:14:13Z", "file": "token-store", "status": "ERROR", "description": "Connection refused to redis:6379", "raw": "2026-07-10T09:14:13Z ERROR token-store Connection refused to redis:6379", "line_number": 6},
+    {"time": "2026-07-10T09:14:15Z", "file": "auth-service", "status": "ERROR", "description": "Login failed for user 1188: token store unreachable", "raw": "2026-07-10T09:14:15Z ERROR auth-service Login failed for user 1188: token store unreachable", "line_number": 7},
+    {"time": "2026-07-10T09:14:20Z", "file": "auth-service", "status": "INFO", "description": "Circuit breaker OPEN for token-store", "raw": "2026-07-10T09:14:20Z INFO auth-service Circuit breaker OPEN for token-store", "line_number": 8}
+  ]
+}

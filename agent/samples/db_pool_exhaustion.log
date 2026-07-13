@@ -1,0 +1,30 @@
+2026-07-13T08:01:50.114Z INFO  [api-gateway] GET /api/v1/orders 200 41ms
+2026-07-13T08:01:51.008Z INFO  [payments-service] Processed payment txn=88121 in 138ms
+2026-07-13T08:01:51.420Z INFO  [checkout-service] Order 55201 confirmed for customer 9911
+2026-07-13T08:01:52.101Z INFO  [payments-service] Processed payment txn=88123 in 142ms
+2026-07-13T08:01:53.320Z INFO  [api-gateway] GET /api/v1/catalog 200 22ms
+10.20.4.11 - - [13/Jul/2026:08:01:54 +0000] "POST /api/v1/checkout HTTP/1.1" 200 512 "-" "Mozilla/5.0"
+2026-07-13T08:01:56.740Z INFO  [payments-service] Processed payment txn=88127 in 151ms
+2026-07-13T08:02:01.230Z WARN  [payments-service] HikariPool-1 - Connection pool usage at 84% (42/50 active)
+2026-07-13T08:02:03.882Z INFO  [checkout-service] Order 55207 confirmed for customer 4410
+Jul 13 08:02:05 prod-db-01 postgres[2211]: LOG:  duration: 8412.331 ms  statement: SELECT * FROM ledger WHERE settled = false
+2026-07-13T08:02:06.114Z WARN  [payments-service] HikariPool-1 - Connection pool usage at 92% (46/50 active)
+2026-07-13T08:02:08.905Z WARN  [payments-service] HikariPool-1 - Connection pool usage at 98% (49/50 active)
+2026-07-13T08:02:10.559Z INFO  [api-gateway] GET /api/v1/orders 200 44ms
+2026-07-13T08:02:14.512Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30001ms (pool exhausted, 50/50 active)
+2026-07-13T08:02:15.118Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30004ms (pool exhausted, 50/50 active)
+2026-07-13T08:02:16.010Z ERROR [payments-service] Failed to charge txn=88141: could not acquire DB connection from pool
+2026-07-13T08:02:17.204Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30002ms (pool exhausted, 50/50 active)
+2026-07-13T08:02:18.771Z ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms
+2026-07-13T08:02:19.020Z ERROR [api-gateway] upstream timeout: POST /api/v1/checkout responded 504 after 30012ms
+10.20.4.18 - - [13/Jul/2026:08:02:19 +0000] "POST /api/v1/checkout HTTP/1.1" 504 0 "-" "Mozilla/5.0"
+2026-07-13T08:02:20.316Z ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms
+Jul 13 08:02:21 prod-db-01 postgres[2211]: LOG:  unexpected EOF on client connection with an open transaction
+2026-07-13T08:02:22.480Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30000ms (pool exhausted, 50/50 active)
+10.20.4.19 - - [13/Jul/2026:08:02:23 +0000] "POST /api/v1/checkout HTTP/1.1" 504 0 "-" "curl/8.5.0"
+2026-07-13T08:02:24.905Z ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms
+2026-07-13T08:02:25.671Z ERROR [api-gateway] upstream timeout: POST /api/v1/checkout responded 504 after 30009ms
+2026-07-13T08:02:27.114Z WARN  [checkout-service] Retry budget exhausted for payments-service, failing fast
+2026-07-13T08:02:29.301Z INFO  [api-gateway] GET /api/v1/catalog 200 25ms
+2026-07-13T08:02:31.996Z ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30003ms (pool exhausted, 50/50 active)
+2026-07-13T08:02:33.410Z INFO  [inventory-service] Stock sync completed: 1204 SKUs in 3.1s
