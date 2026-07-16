@@ -145,6 +145,59 @@ def test_evidence_verification_drops_fabricated_lines():
     assert inc.confidence <= 0.3             # and confidence knocked down
 
 
+def test_provider_selection_from_llm_env(monkeypatch):
+    from agent.providers import get_provider
+    monkeypatch.setenv("LLM_BASE_URL", "https://example.openai.azure.com/openai/v1/")
+    monkeypatch.setenv("LLM_API_KEY", "test-key")
+    monkeypatch.delenv("ROSETTA_PROVIDER", raising=False)
+    monkeypatch.delenv("AZURE_OPENAI_API_KEY", raising=False)
+    p = get_provider()
+    assert p.name == "openai-compat"
+    assert p.model == "gpt-5.4"                      # default model
+    monkeypatch.setenv("LLM_MODEL", "gpt-5.4-mini")
+    assert get_provider().model == "gpt-5.4-mini"
+    monkeypatch.setenv("ROSETTA_PROVIDER", "mock")   # explicit override wins
+    assert get_provider().name == "mock"
+    assert get_provider(mock=True).name == "mock"    # flag beats everything
+
+
+def test_dotenv_loader_never_overrides(tmp_path, monkeypatch):
+    import os
+    from agent.providers import _load_dotenv
+    envfile = tmp_path / ".env"
+    envfile.write_text(
+        'LLM_BASE_URL="https://x.openai.azure.com/openai/v1/"\n'
+        "# comment line\n"
+        "OTEL_ENABLED=true\n"
+        "not a kv line\n", encoding="utf-8")
+    monkeypatch.delenv("LLM_BASE_URL", raising=False)
+    monkeypatch.setenv("OTEL_ENABLED", "false")      # pre-set env must win
+    try:
+        _load_dotenv(str(envfile))
+        assert os.environ["LLM_BASE_URL"] == "https://x.openai.azure.com/openai/v1/"
+        assert os.environ["OTEL_ENABLED"] == "false"
+    finally:
+        os.environ.pop("LLM_BASE_URL", None)
+    _load_dotenv(str(tmp_path / "missing.env"))      # absent file is a no-op
+
+
+def test_fallback_parser_on_ui_demo_format():
+    """The exact format shown in the client's paste box demo."""
+    text = (
+        "2026-07-09T08:42:01.234Z [ERROR] pipeline.worker - Connection to "
+        "postgres://db-prod:5432/rosetta refused (ECONNREFUSED)\n"
+        "2026-07-09T08:42:01.235Z [ERROR] pipeline.worker - Retry attempt 1/3 after 2000ms\n"
+        "2026-07-09T08:42:03.241Z [ERROR] pipeline.worker - Retry attempt 2/3 after 2000ms\n")
+    parsed = to_parsed_log(text, log_source="pipeline.log")
+    assert all(e.level == "ERROR" for e in parsed.entries)
+    assert all(e.source == "pipeline.worker" for e in parsed.entries)
+    result = analyze(parsed, provider=MockProvider())
+    assert result.overall_status in ("critical", "degraded")
+    titles = [i.title for i in result.incidents]
+    assert any("retries" in t.lower() or "unreachable" in t.lower() for t in titles)
+    assert all(i.evidence for i in result.incidents)
+
+
 def test_unreachable_provider_gives_inconclusive():
     from agent.providers import LLMProvider, ProviderError
 

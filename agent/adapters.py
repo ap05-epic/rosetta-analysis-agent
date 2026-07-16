@@ -98,6 +98,7 @@ _SOURCE_PATTERNS = [
     re.compile(r"\b(?:service|svc|app|component|logger)[=:]\s*([\w.\-]+)", re.IGNORECASE),
     re.compile(r"\[([a-zA-Z][\w.\-]{1,40})\]"),
     re.compile(r"(?:ERROR|WARN(?:ING)?|INFO|DEBUG|CRITICAL|FATAL)\s+([a-zA-Z][\w.\-]{1,40})\s+-\s"),
+    re.compile(r"\]\s+([a-zA-Z][\w.\-]{1,40})\s+-\s"),  # "[ERROR] pipeline.worker - msg"
     re.compile(r"(?:^|\s)([a-z][\w\-]{2,30})(?:\[\d+\])?:\s"),
 ]
 

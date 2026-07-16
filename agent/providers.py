@@ -1,12 +1,16 @@
-"""LLM provider layer: one tiny interface, two implementations.
+"""LLM provider layer: one tiny interface, three implementations.
 
-AzureOpenAIProvider — real calls, configured entirely by env vars.
-MockProvider        — deterministic, zero-network. It runs a scripted
+OpenAICompatProvider — any OpenAI-compatible endpoint, e.g. Azure's
+  `https://<resource>.openai.azure.com/openai/v1/` surface. Driven by
+  LLM_BASE_URL + LLM_API_KEY (+ LLM_MODEL, default gpt-5.4). This is the
+  UBS-pod path.
+AzureOpenAIProvider  — classic Azure deployment API (AZURE_OPENAI_* env vars).
+MockProvider         — deterministic, zero-network. It runs a scripted
 investigation through the SAME tool loop (summary -> source stats -> context)
 and then writes its final answer FROM the actual tool results, so `--mock`
 produces a real, evidence-cited report for any input log, not just the samples.
 
-Both return OpenAI chat-completions-shaped dicts:
+All return OpenAI chat-completions-shaped dicts:
   {"content": str|None, "tool_calls": [{"id","name","arguments"}] | None}
 """
 
@@ -27,6 +31,71 @@ class LLMProvider:
 
     def chat(self, messages: list, tools: list) -> dict:
         raise NotImplementedError
+
+
+def _load_dotenv(path: str = ".env") -> None:
+    """Tiny stdlib .env loader: KEY=VALUE lines from the repo-root .env (the
+    CWD when services start per LAUNCH.md). Never overrides variables already
+    set in the environment. No python-dotenv dependency on purpose."""
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, _, value = line.partition("=")
+                key, value = key.strip(), value.strip().strip("'\"")
+                if key and key not in os.environ:
+                    os.environ[key] = value
+    except OSError:
+        pass  # no .env is fine — plain env vars still work
+
+
+def _unpack_chat(msg) -> dict:
+    tool_calls = None
+    if msg.tool_calls:
+        tool_calls = [{"id": tc.id, "name": tc.function.name,
+                       "arguments": tc.function.arguments} for tc in msg.tool_calls]
+    return {"content": msg.content, "tool_calls": tool_calls}
+
+
+# ------------------------------------------------ openai-compatible endpoint
+
+class OpenAICompatProvider(LLMProvider):
+    """Standard OpenAI client pointed at any compatible base_url — including
+    Azure's `/openai/v1/` surface, where `model` is the deployment name."""
+
+    name = "openai-compat"
+
+    def __init__(self):
+        base_url = os.getenv("LLM_BASE_URL")
+        api_key = os.getenv("LLM_API_KEY")
+        self.model = os.getenv("LLM_MODEL", "gpt-5.4")
+        if not (base_url and api_key):
+            raise ProviderError(
+                "LLM endpoint not configured: set LLM_BASE_URL (e.g. "
+                "https://<resource>.openai.azure.com/openai/v1/) and "
+                "LLM_API_KEY, or run with --mock.")
+        try:
+            from openai import OpenAI
+        except ImportError as exc:
+            raise ProviderError(f"openai package not installed: {exc}")
+        self._client = OpenAI(base_url=base_url, api_key=api_key)
+        self._send_temperature = True
+
+    def chat(self, messages: list, tools: list) -> dict:
+        kwargs = {"model": self.model, "messages": messages, "tools": tools}
+        if self._send_temperature:
+            kwargs["temperature"] = TEMPERATURE
+        try:
+            resp = self._client.chat.completions.create(**kwargs)
+        except Exception as exc:
+            # GPT-5-family reasoning models reject temperature; drop it and retry
+            if self._send_temperature and "temperature" in str(exc).lower():
+                self._send_temperature = False
+                return self.chat(messages, tools)
+            raise ProviderError(f"LLM call failed ({self.model}): {exc}")
+        return _unpack_chat(resp.choices[0].message)
 
 
 # --------------------------------------------------------------------- azure
@@ -58,12 +127,7 @@ class AzureOpenAIProvider(LLMProvider):
                 temperature=TEMPERATURE)
         except Exception as exc:  # network/auth/quota: all become inconclusive
             raise ProviderError(f"Azure OpenAI call failed: {exc}")
-        msg = resp.choices[0].message
-        tool_calls = None
-        if msg.tool_calls:
-            tool_calls = [{"id": tc.id, "name": tc.function.name,
-                           "arguments": tc.function.arguments} for tc in msg.tool_calls]
-        return {"content": msg.content, "tool_calls": tool_calls}
+        return _unpack_chat(resp.choices[0].message)
 
 
 # ---------------------------------------------------------------------- mock
@@ -71,11 +135,17 @@ class AzureOpenAIProvider(LLMProvider):
 # keyword -> (title hint, solutions) knowledge base for the canned analyst.
 # Order matters: first match wins, so specific phrases go before broad ones.
 _PLAYBOOK = [
-    (("connection refused", "connection reset", "unreachable", "no route to host"),
+    (("connection refused", "connection reset", "unreachable", "no route to host",
+      "econnrefused", "econnreset"),
      "Dependency unreachable", [
         "Check whether the named dependency (host/port in the cited lines) is up and accepting connections.",
         "Verify network path and DNS between the caller and the dependency.",
         "Fail over to a replica or restart the dependency if it is down.",
+    ]),
+    (("retry attempt", "retries exhausted", "retrying"),
+     "Repeated retries against a failing dependency", [
+        "Find and fix the dependency the retries are aimed at (see the surrounding error lines).",
+        "Cap retries with exponential backoff so callers fail fast instead of piling up.",
     ]),
     (("pool", "hikari"), "Database connection pool exhaustion", [
         "Increase the database connection pool size (or lower per-request hold time) and restart the affected service.",
@@ -232,15 +302,21 @@ class MockProvider(LLMProvider):
 # -------------------------------------------------------------------- picker
 
 def get_provider(mock: Optional[bool] = None) -> LLMProvider:
-    """--mock flag wins; else ROSETTA_PROVIDER env (mock|azure); else azure if
-    configured, else mock (so a fresh clone always works)."""
+    """--mock flag wins; else ROSETTA_PROVIDER env (mock|openai|azure); else
+    LLM_BASE_URL+LLM_API_KEY -> OpenAI-compatible endpoint; else
+    AZURE_OPENAI_API_KEY -> classic Azure; else mock (fresh clone always works)."""
+    _load_dotenv()
     if mock:
         return MockProvider()
     env = os.getenv("ROSETTA_PROVIDER", "").lower()
     if env == "mock":
         return MockProvider()
+    if env in ("openai", "compat"):
+        return OpenAICompatProvider()
     if env == "azure":
         return AzureOpenAIProvider()
+    if os.getenv("LLM_BASE_URL") and os.getenv("LLM_API_KEY"):
+        return OpenAICompatProvider()
     if os.getenv("AZURE_OPENAI_API_KEY"):
         return AzureOpenAIProvider()
     return MockProvider()

@@ -36,20 +36,26 @@ pytest -q
 `--mock` uses a deterministic provider that drives the same tool loop with no
 network. Everything below also works with `--mock` / `?mock=true`.
 
-## Azure OpenAI (live mode)
+## Live LLM (Azure OpenAI-compatible endpoint)
 
-Set these env vars, then drop the `--mock` flag:
+The primary path is any OpenAI-compatible base URL — including Azure's
+`/openai/v1/` surface. Set these (env vars, or a `.env` file in the directory
+you start the service from — it is auto-loaded and never overrides real env):
 
 | Variable | Example |
 |---|---|
-| `AZURE_OPENAI_ENDPOINT` | `https://my-resource.openai.azure.com` |
-| `AZURE_OPENAI_API_KEY` | `...` |
-| `AZURE_OPENAI_DEPLOYMENT` | `gpt-4o` |
-| `AZURE_OPENAI_API_VERSION` | `2024-06-01` (optional, this is the default) |
+| `LLM_BASE_URL` | `https://my-resource.openai.azure.com/openai/v1/` |
+| `LLM_API_KEY` | `...` |
+| `LLM_MODEL` | `gpt-5.4` (optional, this is the default; on Azure this is the deployment name) |
 
-Provider selection: `--mock` flag wins; otherwise `ROSETTA_PROVIDER=mock|azure`;
-otherwise Azure if `AZURE_OPENAI_API_KEY` is set; otherwise mock. All LLM calls
-run at temperature 0.1.
+The classic Azure deployment API is also supported via `AZURE_OPENAI_ENDPOINT`,
+`AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_VERSION`.
+
+Provider selection: `--mock` flag wins; otherwise
+`ROSETTA_PROVIDER=mock|openai|azure`; otherwise `LLM_BASE_URL`+`LLM_API_KEY`;
+otherwise `AZURE_OPENAI_API_KEY`; otherwise mock. LLM calls request
+temperature 0.1; if the model rejects the parameter (GPT-5-family reasoning
+models), the call is retried without it automatically.
 
 ## API (port 8001)
 
@@ -116,4 +122,7 @@ agent/
 tests/              contracts, adapters, fallback parser, golden mock runs
 ```
 
-Integrating into the team monorepo? Follow [INTEGRATION.md](INTEGRATION.md).
+Integrating into the team monorepo? [INTEGRATION.md](INTEGRATION.md) merges
+the backend package, [UI_INTEGRATION.md](UI_INTEGRATION.md) wires the Next.js
+client, and [COPILOT_PROMPTS.md](COPILOT_PROMPTS.md) has the exact prompts to
+drive both with GitHub Copilot CLI.
