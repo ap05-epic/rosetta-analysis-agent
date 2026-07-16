@@ -13,7 +13,7 @@
       "title": "Database connection pool exhaustion",
       "severity": "critical",
       "confidence": 0.9,
-      "human_explanation": "The logs show 9 occurrence(s) of this problem affecting payments-service between 2026-07-13T08:02:01.230Z and 2026-07-13T08:02:31.996Z. The recurring message looks like: \"ERROR [payments-service] HikariPool-1 - Connection is not available, request timed out after 30001ms (pool exhausted, 50\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
+      "human_explanation": "The logs show 9 occurrence(s) of this problem affecting payments-service between 2026-07-13T08:02:01.230Z and 2026-07-13T08:02:31.996Z. The recurring message looks like: \"[payments-service] HikariPool-1 - Connection is not available, request timed out after 30001ms (pool exhausted, 50/50 ac\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
       "possible_solutions": [
         "Increase the database connection pool size (or lower per-request hold time) and restart the affected service.",
         "Check the database server for slow queries or locks that are holding connections open.",
@@ -59,7 +59,7 @@
       "title": "Downstream timeouts",
       "severity": "high",
       "confidence": 0.9,
-      "human_explanation": "The logs show 5 occurrence(s) of this problem affecting api-gateway, checkout-service between 2026-07-13T08:02:18.771Z and 2026-07-13T08:02:25.671Z. The recurring message looks like: \"ERROR [checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
+      "human_explanation": "The logs show 5 occurrence(s) of this problem affecting api-gateway, checkout-service between 2026-07-13T08:02:18.771Z and 2026-07-13T08:02:25.671Z. The recurring message looks like: \"[checkout-service] Timeout calling payments-service POST /internal/charge after 30000ms\". This pattern usually means the service could not do its normal work and requests started failing. The cited lines below are the concrete evidence.",
       "possible_solutions": [
         "Identify the slow dependency and confirm it is healthy before restarting callers.",
         "Raise or tune the client timeout only after the root bottleneck is fixed."

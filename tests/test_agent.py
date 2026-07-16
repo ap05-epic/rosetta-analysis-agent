@@ -181,6 +181,37 @@ def test_dotenv_loader_never_overrides(tmp_path, monkeypatch):
     _load_dotenv(str(tmp_path / "missing.env"))      # absent file is a no-op
 
 
+def test_openai_compat_drops_rejected_params(monkeypatch):
+    """Deployments that 400 on temperature/reasoning_effort must not kill the run."""
+    from types import SimpleNamespace
+    from agent.providers import OpenAICompatProvider
+
+    monkeypatch.setenv("LLM_BASE_URL", "https://example.openai.azure.com/openai/v1/")
+    monkeypatch.setenv("LLM_API_KEY", "test-key")
+    provider = OpenAICompatProvider()
+
+    calls = []
+
+    def fake_create(**kwargs):
+        calls.append(kwargs)
+        if "reasoning_effort" in kwargs:
+            raise RuntimeError("400: Unsupported parameter: 'reasoning_effort'")
+        if "temperature" in kwargs:
+            raise RuntimeError("400: 'temperature' is not supported with this model")
+        msg = SimpleNamespace(content='{"ok": true}', tool_calls=None)
+        return SimpleNamespace(choices=[SimpleNamespace(message=msg)])
+
+    provider._client = SimpleNamespace(
+        chat=SimpleNamespace(completions=SimpleNamespace(create=fake_create)))
+
+    out = provider.chat([{"role": "user", "content": "hi"}], [])
+    assert out["content"] == '{"ok": true}'
+    assert len(calls) == 3                            # two rejections, then success
+    assert "reasoning_effort" not in calls[-1] and "temperature" not in calls[-1]
+    provider.chat([{"role": "user", "content": "again"}], [])
+    assert len(calls) == 4                            # dropped params stay dropped
+
+
 def test_fallback_parser_on_ui_demo_format():
     """The exact format shown in the client's paste box demo."""
     text = (

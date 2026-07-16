@@ -81,18 +81,26 @@ class OpenAICompatProvider(LLMProvider):
         except ImportError as exc:
             raise ProviderError(f"openai package not installed: {exc}")
         self._client = OpenAI(base_url=base_url, api_key=api_key)
-        self._send_temperature = True
+        # Params that some deployments reject with a 400 naming the parameter.
+        # We optimistically send them and drop whichever one an error names:
+        # - temperature: repeatable analysis (rejected by GPT-5-family reasoning models)
+        # - reasoning_effort: keeps GPT-5.4 fast for interactive log triage
+        #   (LLM_REASONING_EFFORT=low|medium|high, empty string disables)
+        self._optional_params = {"temperature": TEMPERATURE}
+        effort = os.getenv("LLM_REASONING_EFFORT", "low")
+        if effort:
+            self._optional_params["reasoning_effort"] = effort
 
     def chat(self, messages: list, tools: list) -> dict:
-        kwargs = {"model": self.model, "messages": messages, "tools": tools}
-        if self._send_temperature:
-            kwargs["temperature"] = TEMPERATURE
+        kwargs = {"model": self.model, "messages": messages, "tools": tools,
+                  **self._optional_params}
         try:
             resp = self._client.chat.completions.create(**kwargs)
         except Exception as exc:
-            # GPT-5-family reasoning models reject temperature; drop it and retry
-            if self._send_temperature and "temperature" in str(exc).lower():
-                self._send_temperature = False
+            rejected = [k for k in self._optional_params if k in str(exc).lower()]
+            if rejected:  # each retry removes >=1 param, so this terminates
+                for k in rejected:
+                    self._optional_params.pop(k)
                 return self.chat(messages, tools)
             raise ProviderError(f"LLM call failed ({self.model}): {exc}")
         return _unpack_chat(resp.choices[0].message)
@@ -142,7 +150,7 @@ _PLAYBOOK = [
         "Verify network path and DNS between the caller and the dependency.",
         "Fail over to a replica or restart the dependency if it is down.",
     ]),
-    (("retry attempt", "retries exhausted", "retrying"),
+    (("retry attempt", "retries exhausted", "retries exceeded", "retrying"),
      "Repeated retries against a failing dependency", [
         "Find and fix the dependency the retries are aimed at (see the surrounding error lines).",
         "Cap retries with exponential backoff so callers fail fast instead of piling up.",
@@ -251,6 +259,8 @@ class MockProvider(LLMProvider):
             if title in used_titles:
                 inc = used_titles[title]
                 inc["_count"] += g["count"]
+                if g["level"] == "CRITICAL":  # a FATAL symptom escalates its incident
+                    inc["severity"] = "critical"
                 inc["affected_sources"] = sorted(set(inc["affected_sources"]) | set(g["sources"]))
                 inc["_lines"].extend(g["sample_line_numbers"][:2])
                 # widen the window (string compare is fine within one log's format)

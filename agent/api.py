@@ -15,6 +15,7 @@ import json
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.concurrency import run_in_threadpool
 
 from . import __version__
 from .adapters import to_parsed_log
@@ -66,4 +67,6 @@ async def analyze_endpoint(request: Request, mock: bool = False) -> AnalysisResu
         except ValueError as exc:
             raise HTTPException(422, str(exc))
 
-    return analyze(parsed, provider=get_provider(mock=mock or None))
+    # threadpool: analyze() blocks on LLM calls; this keeps /health responsive
+    # and lets the UI analyze multiple files concurrently
+    return await run_in_threadpool(analyze, parsed, get_provider(mock=mock or None))

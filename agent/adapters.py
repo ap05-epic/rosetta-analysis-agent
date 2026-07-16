@@ -135,10 +135,13 @@ def _parse_line(line: str, line_number: int) -> LogEntry:
             source = m.group(1)
             break
 
-    # message = the line minus the timestamp prefix; keep it simple and lossless
+    # message = the line minus timestamp/level prefixes; raw stays lossless
     message = line
     if time and line.find(time) < 8:
         message = line[line.find(time) + len(time):].lstrip(" -:[]")
+    message = re.sub(
+        r"^(?:CRITICAL|FATAL|SEVERE|ERROR|ERR|WARNING|WARN|NOTICE|INFO|DEBUG|TRACE)"
+        r"\]?\s*[-:]?\s+", "", message, flags=re.IGNORECASE)
     return LogEntry(line_number=line_number, raw=line, time=time,
                     source=source, level=level, message=message.strip())
 

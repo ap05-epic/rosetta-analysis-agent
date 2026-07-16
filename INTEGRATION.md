@@ -12,28 +12,35 @@ past a failed check; stop and report which step failed and its output.
   - `classifier/` — Reed's FastAPI regex parser (`__init__.py`, `regex.py`, `types.py`).
     Runs with: `python3 -m uvicorn classifier.regex:app --host 0.0.0.0 --port 8000`.
     Endpoints: `GET /health` → `{"status":"ok"}`; `POST /classify` takes a log
-    file as multipart form data (field name `file`) and currently returns
-    `{"filename": "<name>", "status": "PASS|FAIL|UNKNOWN"}`. CORS allows
-    localhost:3000.
+    file as multipart form data (field name `file`) and returns
+    `{"filename": "<name>", "status": "PASS|FAIL", "category": "<ErrorCategory>"}`
+    (category is an enum like SQL_SCHEMA_ERROR, DB_CONNECTION_ERROR, TIMEOUT,
+    FAILURE_GENERIC, UNKNOWN — the agent tolerates and ignores extra fields).
   - `client/` — self-contained Next.js + TypeScript app (its own
     `package.json`, `tsconfig.json`, `next.config.ts` live INSIDE `client/`)
-    on port 3000. Next.js is a 16.x canary on a WASM-only platform: **every
-    `next` command must use `--webpack`** (no Turbopack) — see the repo's
-    `LAUNCH.md`. Tailwind v4, class-based dark mode. UI components already
-    exist: `SummaryCard`, `SeverityCard`, `RootCauseCard`, `RecommendationCard`,
-    `AnalysisTabs`, `ActivityFeed`, `FileUpload`, `TextPasteArea` — currently
-    fed by `client/mock/analysis.ts` typed by `client/types/analysis.ts`.
-  - `requirements.txt` and `.env` at the repo root; `LAUNCH.md` documents the
-    canonical install/run commands.
-- Python 3.10+ is the target runtime.
+    on port 3000. Next.js is 16.3.0-canary on a WASM-only platform: **every
+    `next` command must use `--webpack`** (no Turbopack). Tailwind v4,
+    class-based dark mode. The UI already calls `/classify` live via a Next
+    rewrite and fills its cards from `client/types/analysis.ts` models.
+  - `requirements.txt` at the repo root (currently pins
+    `fastapi==0.115.0`, `uvicorn==0.30.6`, `python-multipart==0.0.9`; installed
+    versions on the pod are newer — leave that mismatch alone). There is NO
+    root `.env` yet. `scripts/boot.sh` is the canonical launcher (stops ports,
+    installs deps, writes `client/.env.local`, starts backend, builds and
+    starts the frontend with `--webpack`); `LAUNCH.md` documents it.
+- Runtime: Python 3.12 / Node 24 on the pod; the agent targets Python 3.10+.
+- Git: work stays on the currently checked-out branch `llm-implementaion`.
+  There are uncommitted local modifications (at least `LAUNCH.md` and
+  `client/next.config.ts`) — do NOT discard, stash, or revert them.
 - **Port assignments (fixed, do not change):** classifier = 8000,
   **agent = 8001**, UI = 3000.
 - **Dev pod proxy:** the browser reaches the UI via
-  `https://<pod>.cloud.ubs.net/proxy/3000/...`. Browser JavaScript must ONLY
-  call same-origin URLs (the Next.js app itself). All calls to the agent go
-  through a Next.js API route that forwards server-side to
-  `http://127.0.0.1:8001` (see `UI_INTEGRATION.md`). Never wire the browser
-  directly to port 8000/8001 — the proxy and CORS will break it.
+  `https://<pod>.cloud.ubs.net/proxy/3000/projects/rosetta-log-analyzer`
+  (Next `basePath` is `/projects/rosetta-log-analyzer`). Browser JavaScript
+  must ONLY call same-origin paths; backend traffic goes through Next
+  rewrites (`/api/backend/* → localhost:8000` today; `UI_INTEGRATION.md` adds
+  `/api/agent/* → localhost:8001`). Never wire the browser directly to port
+  8000/8001.
 - The source you are integrating is a sibling directory (this package, cloned
   from GitHub — referred to below as `$SRC`, the directory containing this
   INTEGRATION.md). It contains `agent/`, `tests/`, `requirements.txt`,
@@ -87,9 +94,10 @@ Then install: `pip install -r requirements.txt`
 ## 2b. Configure the LLM endpoint (root `.env`)
 
 The agent auto-loads a `.env` file from the directory it is started in (the
-repo root) without overriding real environment variables. Append these keys
-to the EXISTING root `.env` if they are not already present (do not create a
-second file, do not remove existing keys, and never print the key value):
+repo root) without overriding real environment variables. There is no root
+`.env` yet: create one with these keys (or append to it if one has appeared).
+First make sure the root `.gitignore` lists `.env` — add that line if missing,
+so credentials can never be committed. Never print the key value.
 
 ```
 LLM_BASE_URL=https://<resource>.openai.azure.com/openai/v1/
@@ -99,11 +107,13 @@ LLM_MODEL=gpt-5.4
 
 Notes: the base URL must end with `/openai/v1/` (Azure's OpenAI-compatible
 surface); `LLM_MODEL` is the deployment name — `gpt-5.4` is the default so the
-line is optional; any `OTEL_ENABLED` variable in `.env` belongs to the pod
-platform and is unrelated to the agent. If the operator has not provided the
-key yet, leave `.env` untouched — everything below still works because the
-agent falls back to its deterministic mock provider, and any request can force
-it with `?mock=true`.
+line is optional; `LLM_REASONING_EFFORT` (default `low`, for fast interactive
+analysis) can be added to tune GPT-5.4 latency vs depth; any `OTEL_ENABLED`
+variable belongs to the pod platform and is unrelated to the agent. If the
+operator has not provided the real key yet, write the two lines with
+placeholder values — everything below still works because the agent falls
+back to its deterministic mock provider, and any request can force mock with
+`?mock=true`.
 
 **Verify:** `python -c "from agent.providers import get_provider; print(get_provider().name)"`
 prints `openai-compat` if the keys are in `.env`/env, otherwise `mock`. Both
@@ -124,7 +134,7 @@ python -m agent demo --mock
 python -m pytest tests/test_agent.py -q
 ```
 
-**Verify:** all tests pass (14 passed). If the repo has its own pytest config
+**Verify:** all tests pass (15 passed). If the repo has its own pytest config
 that changes rootdir/imports and collection fails, run
 `python -m pytest tests/test_agent.py -q --rootdir=.` from the repo root.
 
@@ -156,19 +166,17 @@ first_seen|null, last_seen|null }`.
 
 ## 5. Run all three services together
 
-Three terminals (or background processes). Follow the repo's `LAUNCH.md` if it
-disagrees on flags — especially the `--webpack` requirement for Next.js.
+The canonical launcher is `./scripts/boot.sh` — `UI_INTEGRATION.md` Phase A
+teaches it to start the agent too. Until that phase runs, start the agent
+manually next to a normal boot:
 
 ```bash
-# terminal 1 — classifier (Reed's parser), from repo root
-python3 -m uvicorn classifier.regex:app --host 0.0.0.0 --port 8000
+./scripts/boot.sh --skip-install     # classifier :8000 + frontend :3000, as today
 
-# terminal 2 — analysis agent (this package), from repo root
-#              (it reads ./.env automatically for LLM_BASE_URL / LLM_API_KEY)
-python3 -m uvicorn agent.api:app --host 0.0.0.0 --port 8001
-
-# terminal 3 — UI (client has its own package.json)
-cd client && npm install && npm run dev   # dev script must carry --webpack per LAUNCH.md
+# analysis agent (this package), from the repo root
+# (it reads ./.env automatically for LLM_BASE_URL / LLM_API_KEY)
+nohup python3 -m uvicorn agent.api:app --host 0.0.0.0 --port 8001 \
+  > /tmp/rla-agent.log 2>&1 &
 ```
 
 With no LLM credentials the agent falls back to the deterministic mock
@@ -180,18 +188,17 @@ and demos work credential-free.
 The full frontend specification is in `$SRC/UI_INTEGRATION.md` — execute that
 file after this one. Summary of the architecture it implements:
 
-- Browser calls its OWN origin: `POST /api/analyze` (a Next.js route handler
-  in `client/app/api/analyze/route.ts`).
-- That route forwards the request server-side to
-  `http://127.0.0.1:8001/analyze` (multipart passthrough for files/paste,
-  JSON passthrough for parser output). Server-to-server localhost traffic
-  bypasses the dev-pod proxy and CORS entirely.
-- The agent's `POST /analyze` accepts BOTH input kinds, so the pipeline can be
-  upgraded later without UI changes: when Reed's `/classify` starts returning
-  per-entry JSON (`{"entries":[{time,file,status,description,...}]}`), the
-  route can call classifier → forward its JSON to the agent (Option A).
-  Today it sends the raw file straight to the agent (Option B), which produces
-  full analyses immediately via the built-in log-agnostic parser.
+- A second Next rewrite, matching the repo's existing proxy pattern:
+  `/api/agent/:path*` → `http://localhost:8001/:path*` (the browser calls
+  `<basePath>/api/agent/analyze`; Next forwards server-side, so the dev-pod
+  proxy and CORS never matter).
+- Per uploaded file, the UI keeps calling `/classify` (Reed's verdict feeds
+  the parser-status chip) and ALSO posts the raw file to the agent; the cards
+  render the agent's analysis, falling back to the current parser-only text
+  for any file whose agent call fails.
+- The agent's `POST /analyze` accepts BOTH input kinds, so when Reed's parser
+  later returns per-entry JSON (`{"entries":[{time,file,status,description}]}`),
+  that JSON can be forwarded instead of the raw file with no UI change.
 
 Either way, the response the UI renders is exactly the shape of
 `client/mock/analysis.example.json`.
@@ -220,8 +227,9 @@ curl -s -H "Content-Type: application/json" -d @agent/samples/example_parsed.jso
 # incidents[0].title == "Dependency unreachable",
 # incidents[0].affected_sources == ["auth-service","token-store"].
 
-# 7.5 parser-JSON path (Option A current minimal shape)
-curl -s -H "Content-Type: application/json" -d '{"filename":"x.log","status":"FAIL"}' "http://localhost:8001/analyze?mock=true"
+# 7.5 parser-JSON path (Option A current minimal shape — extra fields like
+#     the classifier's "category" are tolerated and ignored)
+curl -s -H "Content-Type: application/json" -d '{"filename":"x.log","status":"FAIL","category":"DB_CONNECTION_ERROR"}' "http://localhost:8001/analyze?mock=true"
 # expected: HTTP 200, "overall_status": "degraded",
 # incidents[0].title == "Classifier flagged this log as FAIL", confidence <= 0.5.
 
@@ -237,7 +245,7 @@ curl -s -H "Content-Type: application/json" -d @/tmp/classify.json http://localh
 
 # 7.8 tests still green in the monorepo
 python -m pytest tests/test_agent.py -q
-# expected: 14 passed
+# expected: 15 passed
 
 # 7.9 live-LLM smoke test — run ONLY if LLM_BASE_URL/LLM_API_KEY are in .env
 curl -s -F "file=@agent/samples/db_pool_exhaustion.log" http://localhost:8001/analyze
@@ -252,11 +260,13 @@ curl -s -F "file=@agent/samples/db_pool_exhaustion.log" http://localhost:8001/an
 
 ## 8. Commit
 
-Single commit on a feature branch, message:
-`feat(agent): add Rosetta analysis agent (FastAPI :8001 + CLI, mock + Azure providers)`.
-Include: `agent/` (all files), `tests/test_agent.py`, the requirements.txt
-merge, and the two files copied into `client/mock/`. Do not modify anything
-inside `classifier/` or the rest of `client/`.
+Single commit on the CURRENT branch (`llm-implementaion`), message:
+`feat(agent): add Rosetta analysis agent (FastAPI :8001 + CLI, mock + GPT-5.4 providers)`.
+Include ONLY: `agent/` (all files), `tests/test_agent.py`, the
+requirements.txt merge, the `.gitignore` line, and the two files copied into
+`client/mock/`. Leave the pre-existing uncommitted changes (LAUNCH.md,
+client/next.config.ts) uncommitted and untouched. Do not modify anything
+inside `classifier/` or the rest of `client/`. Never commit `.env`.
 
 ## Troubleshooting
 
@@ -264,9 +274,10 @@ inside `classifier/` or the rest of `client/`.
   `agent/__init__.py` was not copied.
 - `422 multipart request must include a 'file' field` — the form field must be
   named exactly `file`, matching the classifier's convention.
-- CORS errors in the browser — the UI must call `http://localhost:8001`, and
-  the agent must be started on port 8001 (the allowlist covers
-  localhost:3000 and 127.0.0.1:3000).
+- CORS or 404 errors in the browser — the UI must call
+  `<basePath>/api/agent/analyze` (the Next rewrite), never `:8001` directly;
+  check that the rewrite from `UI_INTEGRATION.md` Phase A exists and the
+  agent is running.
 - Result says `inconclusive` with "could not be reached" — Azure env vars are
   set but wrong/unreachable from the pod. Unset them or fix them; mock mode
   (`?mock=true`, `--mock`, or `ROSETTA_PROVIDER=mock`) never needs network.

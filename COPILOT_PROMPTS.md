@@ -5,36 +5,42 @@ monorepo, then start Copilot from the monorepo root:
 
 ```bash
 cd /projects
-git clone https://github.com/ap05-epic/rosetta-analysis-agent.git   # or scp the folder up
+git clone https://github.com/ap05-epic/rosetta-analysis-agent.git   # or copy the folder up
 cd /projects/rosetta-log-analyzer
 copilot
 ```
 
 Run the prompts one at a time, in order. Review each result before the next.
+All work happens on the already-checked-out `llm-implementaion` branch; the
+prompts tell Copilot to preserve your uncommitted changes and never push.
 
 ---
 
 ## Prompt 1 — backend: merge the agent package
 
 ```
-You are in the rosetta-log-analyzer monorepo root. A self-contained Python
-package sits at ../rosetta-analysis-agent — call it $SRC.
+You are in the rosetta-log-analyzer monorepo root, on branch llm-implementaion,
+which has pre-existing uncommitted modifications (at least LAUNCH.md and
+client/next.config.ts). Preserve those modifications exactly — never stash,
+revert, or discard them. A self-contained Python package sits at
+../rosetta-analysis-agent — call it $SRC.
 
-Open $SRC/INTEGRATION.md and execute it literally, top to bottom (sections 1
-through 5, plus verification section 7 items 7.1–7.8). Rules:
+Open $SRC/INTEGRATION.md and execute it literally, top to bottom (sections 1,
+2, 2b, 3, 4, 5, then verification section 7 items 7.1 through 7.8). Rules:
 
 1. Follow the steps in order. Every step has a "Verify" check — run it and
    confirm the expected output before moving on.
 2. If any verify check fails, STOP. Do not improvise a fix. Report the step,
    the exact command, and its full output.
 3. Do not modify anything inside classifier/ or client/ except the two fixture
-   files section 4 says to copy into client/mock/.
+   files section 4 copies into client/mock/.
 4. Ports are fixed: classifier 8000, agent 8001, UI 3000.
-5. For section 2b: append the LLM_* lines to the existing root .env only if
-   absent, using placeholder values if the real key is not already there.
-   Never print the value of any key.
-6. Work on a new branch named feat/analysis-agent. Commit as section 8
-   specifies. Do NOT push.
+5. Section 2b: ensure .env is gitignored, then create the root .env with
+   placeholder values unless real ones are already present. Never print the
+   value of any key, and never commit .env.
+6. Stay on llm-implementaion. Commit exactly as section 8 specifies —
+   only the files that section lists, leaving the pre-existing uncommitted
+   changes uncommitted. Do NOT push.
 7. Finish by printing a table: step | command | expected | actual | pass/fail.
 
 Section 0 of INTEGRATION.md is the repo context to assume — trust it over
@@ -44,63 +50,78 @@ your own exploration if they conflict.
 ## Prompt 2 — frontend: wire the UI to the agent
 
 ```
-You are in the rosetta-log-analyzer monorepo root, on branch
-feat/analysis-agent (Prompt 1 already merged the agent/ package and it runs
-on port 8001). The package source is at ../rosetta-analysis-agent = $SRC.
+Same repo, same branch (llm-implementaion). Prompt 1 is done: the agent/
+package is merged and python3 -m uvicorn agent.api:app --port 8001 works.
+Source package: ../rosetta-analysis-agent = $SRC.
 
-Open $SRC/UI_INTEGRATION.md and execute Phases A, B, and C exactly. Rules:
+Open $SRC/UI_INTEGRATION.md and execute Phases A, B, and C exactly. That file
+quotes current repo code and gives exact replacement code — prefer its diffs
+verbatim; if a quoted "current" snippet no longer matches the file, adapt to
+the same intent and flag it in your report. Rules:
 
-1. Obey the "Ground rules" section at the top of that file — especially:
-   read client/app/page.tsx, all of client/components/, client/types/analysis.ts,
-   client/mock/analysis.ts and client/lib/activityProgress.ts BEFORE writing
-   anything, and match their conventions.
-2. The browser must only call same-origin /api/analyze. Never fetch
-   http://localhost:8000 or :8001 from browser code.
-3. Every next command needs --webpack (WASM-only platform).
+1. Obey the file's "Ground rules": preserve the pre-existing uncommitted
+   changes in LAUNCH.md and client/next.config.ts (build on top of them);
+   heed client/AGENTS.md (Next 16 canary — check node_modules/next/dist/docs
+   before using any Next API not shown in the diffs); every next command
+   needs --webpack.
+2. The proxy pattern is Next rewrites. Do not create API route handlers, and
+   never call localhost:8000/8001 from browser code.
+3. The demo flow (isDemoScenario / runDemoAnalysisProgress) must remain
+   byte-identical in behavior.
 4. Run each phase's Verify gate before starting the next phase. On failure,
    STOP and report the phase, command, and full output.
-5. Keep "Try a demo" working exactly as Phase C item 4 specifies (demo can
-   never hard-fail).
-6. Commit on feat/analysis-agent with message
-   "feat(client): wire UI to analysis agent via same-origin /api/analyze proxy".
+5. Commit on llm-implementaion as
+   "feat(client): wire UI to analysis agent via /api/agent rewrite".
    Do NOT push.
-7. Finish with the pass/fail table for every Verify you ran, plus a list of
+6. Finish with the pass/fail table for every Verify you ran, plus a list of
    every file you created or modified.
 ```
 
 ## Prompt 3 — frontend polish: evidence, confidence, stats
 
 ```
-Same repo, same branch (feat/analysis-agent). Prompts 1 and 2 are done: the
-UI fills its cards from POST /api/analyze. Source package: ../rosetta-analysis-agent = $SRC.
+Same repo, same branch (llm-implementaion). Prompts 1 and 2 are done: the UI
+fills its cards from the agent via the /api/agent rewrite. Source package:
+../rosetta-analysis-agent = $SRC.
 
-Execute Phase D and Phase E of $SRC/UI_INTEGRATION.md exactly:
-evidence card, confidence badge next to the severity pill, stats chips,
-"other findings" list, healthy-run success panel, then the Phase E checklist
-(tsc, next build --webpack, curl check).
+Execute Phase D and Phase E of $SRC/UI_INTEGRATION.md exactly: the new
+EvidenceCard (code provided verbatim), the confidence badge on SeverityCard,
+the stats chips on SummaryCard, the optional "other findings" strip, then the
+Phase E checklist (tsc, next build --webpack, boot, curl check).
 
 Rules: additive changes only — do not restructure existing components; mirror
-the existing card styling and dark-mode variants; no new npm dependencies.
-Run every Verify; STOP and report on any failure. Commit as
+the existing card styling and dark-mode variants exactly; no new npm
+dependencies. Run every Verify; STOP and report on any failure. Commit on
+llm-implementaion as
 "feat(client): evidence, confidence and stats presentation for analysis results".
-Do NOT push. Finish with the verify pass/fail table and screenshots-worthy
-notes on what changed visually.
+Do NOT push. Finish with the verify pass/fail table and a short note per
+visual change.
 ```
 
 ## After the three prompts
 
-You review the branch, then push and open the MR yourself:
+Review, then push yourself:
 
 ```bash
-git log --oneline main..feat/analysis-agent   # expect 3 commits
-git push -u origin feat/analysis-agent
+git log --oneline -5        # expect the 3 new commits on llm-implementaion
+git push origin llm-implementaion
 ```
 
-If something went sideways, each prompt's commit is independent — `git reset
---hard HEAD~1` rolls back exactly one phase.
+Only you put the REAL LLM key in place (Copilot uses placeholders):
+
+```bash
+# edit /projects/rosetta-log-analyzer/.env → real LLM_BASE_URL + LLM_API_KEY
+./scripts/boot.sh --skip-install     # restart so the agent picks it up
+curl -s -F "file=@agent/samples/db_pool_exhaustion.log" http://localhost:8001/analyze | head -c 400
+# live GPT-5.4 analysis JSON = wired correctly
+```
+
+If a phase went sideways, each prompt's commit is independent —
+`git reset --hard HEAD~1` rolls back exactly one phase (your pre-existing
+uncommitted files are never part of those commits).
 
 ## One-liner reference (for chat follow-ups with Copilot)
 
 - Re-verify backend only: `Run section 7 of ../rosetta-analysis-agent/INTEGRATION.md items 7.1–7.8 and print the pass/fail table. Change nothing.`
 - Re-verify frontend only: `Run Phase E of ../rosetta-analysis-agent/UI_INTEGRATION.md and print the results. Change nothing.`
-- Flip to mock for a demo: `In the client module that calls /api/analyze, set USE_MOCK_AGENT = true, run npx tsc --noEmit, commit as "chore(client): demo mock mode".`
+- Agent misbehaving live? `curl -s -F "file=@agent/samples/db_pool_exhaustion.log" "http://localhost:8001/analyze?mock=true"` — if mock works but live does not, the problem is the LLM endpoint/env, not the pipeline; check /tmp/rla-agent.log.

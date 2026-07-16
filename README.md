@@ -47,6 +47,7 @@ you start the service from — it is auto-loaded and never overrides real env):
 | `LLM_BASE_URL` | `https://my-resource.openai.azure.com/openai/v1/` |
 | `LLM_API_KEY` | `...` |
 | `LLM_MODEL` | `gpt-5.4` (optional, this is the default; on Azure this is the deployment name) |
+| `LLM_REASONING_EFFORT` | `low` (optional default; keeps GPT-5-family models fast — set empty to disable sending it) |
 
 The classic Azure deployment API is also supported via `AZURE_OPENAI_ENDPOINT`,
 `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_DEPLOYMENT`, `AZURE_OPENAI_API_VERSION`.
