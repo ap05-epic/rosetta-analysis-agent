@@ -1,0 +1,277 @@
+10.60.2.11 - - [22/Jul/2026:03:30:00 +0000] "GET /api/v2/portfolio/88000 HTTP/1.1" 200 1400 "-" "Mozilla/5.0"
+2026-07-22T03:30:02.000Z INFO  [portfolio-api] served portfolio 88000 in 22ms
+{"ts":"2026-07-22T03:30:03.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1200 instruments","latency_ms":90}
+10.60.2.12 - - [22/Jul/2026:03:30:09 +0000] "GET /api/v2/portfolio/88001 HTTP/1.1" 200 1413 "-" "Mozilla/5.0"
+2026-07-22T03:30:11.000Z INFO  [portfolio-api] served portfolio 88001 in 23ms
+Jul 22 03:30:13 node-07 systemd[1]: Started Session 2201 of user svc-portfolio.
+10.60.2.13 - - [22/Jul/2026:03:30:18 +0000] "GET /api/v2/portfolio/88002 HTTP/1.1" 200 1426 "-" "Mozilla/5.0"
+2026-07-22T03:30:20.000Z INFO  [portfolio-api] served portfolio 88002 in 24ms
+{"ts":"2026-07-22T03:30:24.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":5,"consumers":4}
+10.60.2.14 - - [22/Jul/2026:03:30:27 +0000] "GET /api/v2/portfolio/88003 HTTP/1.1" 200 1439 "-" "Mozilla/5.0"
+2026-07-22T03:30:29.000Z INFO  [portfolio-api] served portfolio 88003 in 25ms
+{"ts":"2026-07-22T03:30:30.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1215 instruments","latency_ms":93}
+2026-07-22 03:30:32,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.15 - - [22/Jul/2026:03:30:36 +0000] "GET /api/v2/portfolio/88004 HTTP/1.1" 200 1452 "-" "Mozilla/5.0"
+2026-07-22T03:30:37.000Z INFO  [portfolio-api] cache warm: 5444 entries, hit ratio 0.94
+2026-07-22T03:30:38.000Z INFO  [portfolio-api] served portfolio 88004 in 26ms
+10.60.2.16 - - [22/Jul/2026:03:30:45 +0000] "GET /api/v2/portfolio/88005 HTTP/1.1" 200 1465 "-" "Mozilla/5.0"
+2026-07-22T03:30:47.000Z INFO  [portfolio-api] served portfolio 88005 in 27ms
+Jul 22 03:30:49 node-07 systemd[1]: Started Session 2205 of user svc-portfolio.
+Jul 22 03:30:52 node-07 kernel: [1882005.112] nvme0n1: I/O queue depth 13, avg latency 0.5ms
+10.60.2.17 - - [22/Jul/2026:03:30:54 +0000] "GET /api/v2/portfolio/88006 HTTP/1.1" 200 1478 "-" "Mozilla/5.0"
+2026-07-22T03:30:56.000Z INFO  [portfolio-api] served portfolio 88006 in 28ms
+{"ts":"2026-07-22T03:30:57.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1230 instruments","latency_ms":96}
+10.60.2.18 - - [22/Jul/2026:03:31:03 +0000] "GET /api/v2/portfolio/88007 HTTP/1.1" 200 1491 "-" "Mozilla/5.0"
+2026-07-22T03:31:05.000Z INFO  [portfolio-api] served portfolio 88007 in 29ms
+10.60.2.19 - - [22/Jul/2026:03:31:12 +0000] "GET /api/v2/portfolio/88008 HTTP/1.1" 200 1504 "-" "Mozilla/5.0"
+2026-07-22T03:31:14.000Z INFO  [portfolio-api] served portfolio 88008 in 30ms
+2026-07-22 03:31:17,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+{"ts":"2026-07-22T03:31:18.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":11,"consumers":4}
+10.60.2.20 - - [22/Jul/2026:03:31:21 +0000] "GET /api/v2/portfolio/88009 HTTP/1.1" 200 1517 "-" "Mozilla/5.0"
+2026-07-22T03:31:23.000Z INFO  [portfolio-api] served portfolio 88009 in 31ms
+{"ts":"2026-07-22T03:31:24.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1245 instruments","latency_ms":99}
+Jul 22 03:31:25 node-07 systemd[1]: Started Session 2209 of user svc-portfolio.
+10.60.2.21 - - [22/Jul/2026:03:31:30 +0000] "GET /api/v2/portfolio/88010 HTTP/1.1" 200 1530 "-" "Mozilla/5.0"
+2026-07-22T03:31:32.000Z INFO  [portfolio-api] served portfolio 88010 in 32ms
+10.60.2.22 - - [22/Jul/2026:03:31:39 +0000] "GET /api/v2/portfolio/88011 HTTP/1.1" 200 1543 "-" "Mozilla/5.0"
+2026-07-22T03:31:40.000Z INFO  [portfolio-api] cache warm: 5521 entries, hit ratio 0.92
+2026-07-22T03:31:41.000Z INFO  [portfolio-api] served portfolio 88011 in 33ms
+10.60.2.23 - - [22/Jul/2026:03:31:48 +0000] "GET /api/v2/portfolio/88012 HTTP/1.1" 200 1556 "-" "Mozilla/5.0"
+2026-07-22T03:31:50.000Z INFO  [portfolio-api] served portfolio 88012 in 34ms
+{"ts":"2026-07-22T03:31:51.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1260 instruments","latency_ms":102}
+10.60.2.24 - - [22/Jul/2026:03:31:57 +0000] "GET /api/v2/portfolio/88013 HTTP/1.1" 200 1569 "-" "Mozilla/5.0"
+2026-07-22T03:31:59.000Z INFO  [portfolio-api] served portfolio 88013 in 35ms
+Jul 22 03:32:01 node-07 systemd[1]: Started Session 2213 of user svc-portfolio.
+2026-07-22 03:32:02,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+Jul 22 03:32:04 node-07 kernel: [1882013.112] nvme0n1: I/O queue depth 21, avg latency 0.4ms
+10.60.2.25 - - [22/Jul/2026:03:32:06 +0000] "GET /api/v2/portfolio/88014 HTTP/1.1" 200 1582 "-" "Mozilla/5.0"
+2026-07-22T03:32:08.000Z INFO  [portfolio-api] served portfolio 88014 in 36ms
+{"ts":"2026-07-22T03:32:12.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":5,"consumers":4}
+10.60.2.26 - - [22/Jul/2026:03:32:15 +0000] "GET /api/v2/portfolio/88015 HTTP/1.1" 200 1595 "-" "Mozilla/5.0"
+2026-07-22T03:32:17.000Z INFO  [portfolio-api] served portfolio 88015 in 37ms
+{"ts":"2026-07-22T03:32:18.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1275 instruments","latency_ms":105}
+10.60.2.27 - - [22/Jul/2026:03:32:24 +0000] "GET /api/v2/portfolio/88016 HTTP/1.1" 200 1608 "-" "Mozilla/5.0"
+2026-07-22T03:32:26.000Z INFO  [portfolio-api] served portfolio 88016 in 38ms
+Jul 22 03:32:30 node-07 postgres[9001]: WARNING:  archive_command failed with exit code 1; WAL segment 0000000100000A2F000000B4 retained
+Jul 22 03:32:31 node-07 postgres[9001]: DETAIL:  rsync: connection unexpectedly closed (archive host wal-archive-01 unreachable)
+10.60.2.28 - - [22/Jul/2026:03:32:33 +0000] "GET /api/v2/portfolio/88017 HTTP/1.1" 200 1621 "-" "Mozilla/5.0"
+2026-07-22T03:32:35.000Z INFO  [portfolio-api] served portfolio 88017 in 39ms
+Jul 22 03:32:37 node-07 systemd[1]: Started Session 2217 of user svc-portfolio.
+10.60.2.29 - - [22/Jul/2026:03:32:42 +0000] "GET /api/v2/portfolio/88018 HTTP/1.1" 200 1634 "-" "Mozilla/5.0"
+2026-07-22T03:32:43.000Z INFO  [portfolio-api] cache warm: 5598 entries, hit ratio 0.90
+2026-07-22T03:32:44.000Z INFO  [portfolio-api] served portfolio 88018 in 40ms
+{"ts":"2026-07-22T03:32:45.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1290 instruments","latency_ms":108}
+2026-07-22 03:32:47,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.30 - - [22/Jul/2026:03:32:51 +0000] "GET /api/v2/portfolio/88019 HTTP/1.1" 200 1647 "-" "Mozilla/5.0"
+2026-07-22T03:32:53.000Z INFO  [portfolio-api] served portfolio 88019 in 41ms
+10.60.2.31 - - [22/Jul/2026:03:33:00 +0000] "GET /api/v2/portfolio/88020 HTTP/1.1" 200 1660 "-" "Mozilla/5.0"
+2026-07-22T03:33:02.000Z INFO  [portfolio-api] served portfolio 88020 in 42ms
+{"ts":"2026-07-22T03:33:06.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":11,"consumers":4}
+10.60.2.32 - - [22/Jul/2026:03:33:09 +0000] "GET /api/v2/portfolio/88021 HTTP/1.1" 200 1673 "-" "Mozilla/5.0"
+2026-07-22T03:33:11.000Z INFO  [portfolio-api] served portfolio 88021 in 43ms
+{"ts":"2026-07-22T03:33:12.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1305 instruments","latency_ms":111}
+Jul 22 03:33:13 node-07 systemd[1]: Started Session 2221 of user svc-portfolio.
+Jul 22 03:33:16 node-07 kernel: [1882021.112] nvme0n1: I/O queue depth 9, avg latency 0.3ms
+10.60.2.33 - - [22/Jul/2026:03:33:18 +0000] "GET /api/v2/portfolio/88022 HTTP/1.1" 200 1686 "-" "Mozilla/5.0"
+2026-07-22T03:33:20.000Z INFO  [portfolio-api] served portfolio 88022 in 44ms
+10.60.2.34 - - [22/Jul/2026:03:33:27 +0000] "GET /api/v2/portfolio/88023 HTTP/1.1" 200 1699 "-" "Mozilla/5.0"
+2026-07-22T03:33:29.000Z INFO  [portfolio-api] served portfolio 88023 in 45ms
+2026-07-22 03:33:32,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.35 - - [22/Jul/2026:03:33:36 +0000] "GET /api/v2/portfolio/88024 HTTP/1.1" 200 1712 "-" "Mozilla/5.0"
+2026-07-22T03:33:38.000Z INFO  [portfolio-api] served portfolio 88024 in 46ms
+{"ts":"2026-07-22T03:33:39.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1320 instruments","latency_ms":114}
+10.60.2.36 - - [22/Jul/2026:03:33:45 +0000] "GET /api/v2/portfolio/88025 HTTP/1.1" 200 1725 "-" "Mozilla/5.0"
+2026-07-22T03:33:46.000Z INFO  [portfolio-api] cache warm: 5675 entries, hit ratio 0.97
+2026-07-22T03:33:47.000Z INFO  [portfolio-api] served portfolio 88025 in 47ms
+Jul 22 03:33:49 node-07 systemd[1]: Started Session 2225 of user svc-portfolio.
+10.60.2.37 - - [22/Jul/2026:03:33:54 +0000] "GET /api/v2/portfolio/88026 HTTP/1.1" 200 1738 "-" "Mozilla/5.0"
+2026-07-22T03:33:56.000Z INFO  [portfolio-api] served portfolio 88026 in 48ms
+{"ts":"2026-07-22T03:34:00.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":5,"consumers":4}
+10.60.2.38 - - [22/Jul/2026:03:34:03 +0000] "GET /api/v2/portfolio/88027 HTTP/1.1" 200 1751 "-" "Mozilla/5.0"
+2026-07-22T03:34:05.000Z INFO  [portfolio-api] served portfolio 88027 in 49ms
+{"ts":"2026-07-22T03:34:06.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1335 instruments","latency_ms":117}
+10.60.2.39 - - [22/Jul/2026:03:34:12 +0000] "GET /api/v2/portfolio/88028 HTTP/1.1" 200 1764 "-" "Mozilla/5.0"
+2026-07-22T03:34:14.000Z INFO  [portfolio-api] served portfolio 88028 in 50ms
+2026-07-22 03:34:17,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+Jul 22 03:34:20 node-07 kernel: [1882913.442] EXT4-fs (nvme0n1p3): warning: /var/lib/postgresql 84% full
+10.60.2.40 - - [22/Jul/2026:03:34:21 +0000] "GET /api/v2/portfolio/88029 HTTP/1.1" 200 1777 "-" "Mozilla/5.0"
+2026-07-22T03:34:23.000Z INFO  [portfolio-api] served portfolio 88029 in 51ms
+Jul 22 03:34:25 node-07 systemd[1]: Started Session 2229 of user svc-portfolio.
+Jul 22 03:34:28 node-07 kernel: [1882029.112] nvme0n1: I/O queue depth 17, avg latency 0.2ms
+10.60.2.41 - - [22/Jul/2026:03:34:30 +0000] "GET /api/v2/portfolio/88030 HTTP/1.1" 200 1790 "-" "Mozilla/5.0"
+2026-07-22T03:34:32.000Z INFO  [portfolio-api] served portfolio 88030 in 22ms
+{"ts":"2026-07-22T03:34:33.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1350 instruments","latency_ms":120}
+10.60.2.42 - - [22/Jul/2026:03:34:39 +0000] "GET /api/v2/portfolio/88031 HTTP/1.1" 200 1803 "-" "Mozilla/5.0"
+2026-07-22T03:34:41.000Z INFO  [portfolio-api] served portfolio 88031 in 23ms
+10.60.2.43 - - [22/Jul/2026:03:34:48 +0000] "GET /api/v2/portfolio/88032 HTTP/1.1" 200 1816 "-" "Mozilla/5.0"
+2026-07-22T03:34:49.000Z INFO  [portfolio-api] cache warm: 5752 entries, hit ratio 0.95
+2026-07-22T03:34:50.000Z INFO  [portfolio-api] served portfolio 88032 in 24ms
+{"ts":"2026-07-22T03:34:54.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":11,"consumers":4}
+10.60.2.44 - - [22/Jul/2026:03:34:57 +0000] "GET /api/v2/portfolio/88033 HTTP/1.1" 200 1829 "-" "Mozilla/5.0"
+2026-07-22T03:34:59.000Z INFO  [portfolio-api] served portfolio 88033 in 25ms
+{"ts":"2026-07-22T03:35:00.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1365 instruments","latency_ms":123}
+2026-07-22 03:35:00,000 WARN  diskmon - /var/lib/postgresql at 88% (412GB/468GB), WAL directory growing 1.4GB/min
+Jul 22 03:35:01 node-07 systemd[1]: Started Session 2233 of user svc-portfolio.
+2026-07-22 03:35:02,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.45 - - [22/Jul/2026:03:35:06 +0000] "GET /api/v2/portfolio/88034 HTTP/1.1" 200 1842 "-" "Mozilla/5.0"
+2026-07-22T03:35:08.000Z INFO  [portfolio-api] served portfolio 88034 in 26ms
+10.60.2.46 - - [22/Jul/2026:03:35:15 +0000] "GET /api/v2/portfolio/88035 HTTP/1.1" 200 1855 "-" "Mozilla/5.0"
+2026-07-22T03:35:17.000Z INFO  [portfolio-api] served portfolio 88035 in 27ms
+10.60.2.47 - - [22/Jul/2026:03:35:24 +0000] "GET /api/v2/portfolio/88036 HTTP/1.1" 200 1868 "-" "Mozilla/5.0"
+2026-07-22T03:35:26.000Z INFO  [portfolio-api] served portfolio 88036 in 28ms
+{"ts":"2026-07-22T03:35:27.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1380 instruments","latency_ms":126}
+10.60.2.48 - - [22/Jul/2026:03:35:33 +0000] "GET /api/v2/portfolio/88037 HTTP/1.1" 200 1881 "-" "Mozilla/5.0"
+2026-07-22T03:35:35.000Z INFO  [portfolio-api] served portfolio 88037 in 29ms
+Jul 22 03:35:37 node-07 systemd[1]: Started Session 2237 of user svc-portfolio.
+Jul 22 03:35:40 node-07 kernel: [1882037.112] nvme0n1: I/O queue depth 25, avg latency 0.1ms
+2026-07-22 03:35:40,000 WARN  diskmon - /var/lib/postgresql at 94% (440GB/468GB)
+10.60.2.49 - - [22/Jul/2026:03:35:42 +0000] "GET /api/v2/portfolio/88038 HTTP/1.1" 200 1894 "-" "Mozilla/5.0"
+2026-07-22T03:35:44.000Z INFO  [portfolio-api] served portfolio 88038 in 30ms
+2026-07-22 03:35:47,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+{"ts":"2026-07-22T03:35:48.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":5,"consumers":4}
+10.60.2.50 - - [22/Jul/2026:03:35:51 +0000] "GET /api/v2/portfolio/88039 HTTP/1.1" 200 1907 "-" "Mozilla/5.0"
+2026-07-22T03:35:52.000Z INFO  [portfolio-api] cache warm: 5829 entries, hit ratio 0.93
+2026-07-22T03:35:53.000Z INFO  [portfolio-api] served portfolio 88039 in 31ms
+{"ts":"2026-07-22T03:35:54.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1395 instruments","latency_ms":129}
+10.60.2.11 - - [22/Jul/2026:03:36:00 +0000] "GET /api/v2/portfolio/88040 HTTP/1.1" 200 1920 "-" "Mozilla/5.0"
+2026-07-22T03:36:02.000Z INFO  [portfolio-api] served portfolio 88040 in 32ms
+10.60.2.12 - - [22/Jul/2026:03:36:09 +0000] "GET /api/v2/portfolio/88041 HTTP/1.1" 200 1933 "-" "Mozilla/5.0"
+2026-07-22T03:36:11.000Z INFO  [portfolio-api] served portfolio 88041 in 33ms
+2026-07-22 03:36:12,000 WARN  diskmon - /var/lib/postgresql at 99% (463GB/468GB) - CRITICAL threshold breached
+Jul 22 03:36:13 node-07 systemd[1]: Started Session 2241 of user svc-portfolio.
+10.60.2.13 - - [22/Jul/2026:03:36:18 +0000] "GET /api/v2/portfolio/88042 HTTP/1.1" 200 1946 "-" "Mozilla/5.0"
+2026-07-22T03:36:20.000Z INFO  [portfolio-api] served portfolio 88042 in 34ms
+{"ts":"2026-07-22T03:36:21.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1410 instruments","latency_ms":132}
+10.60.2.14 - - [22/Jul/2026:03:36:27 +0000] "GET /api/v2/portfolio/88043 HTTP/1.1" 200 1959 "-" "Mozilla/5.0"
+2026-07-22T03:36:29.000Z INFO  [portfolio-api] served portfolio 88043 in 35ms
+2026-07-22 03:36:32,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+Jul 22 03:36:32 node-07 kernel: [1883155.009] EXT4-fs (nvme0n1p3): no space left on device writing to inode 918224
+Jul 22 03:36:34 node-07 postgres[9001]: PANIC:  could not write to file "pg_wal/xlogtemp.9001": No space left on device
+10.60.2.15 - - [22/Jul/2026:03:36:36 +0000] "GET /api/v2/portfolio/88044 HTTP/1.1" 200 1972 "-" "Mozilla/5.0"
+Jul 22 03:36:36 node-07 postgres[9001]: LOG:  server process (PID 9001) was terminated by signal 6: Aborted
+2026-07-22T03:36:38.000Z INFO  [portfolio-api] served portfolio 88044 in 36ms
+Jul 22 03:36:38 node-07 postgres[1]: LOG:  database system is in recovery mode
+{"ts":"2026-07-22T03:36:42.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":11,"consumers":4}
+2026-07-22T03:36:44.000Z ERROR [portfolio-api] database write failed, entering degraded mode
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+10.60.2.16 - - [22/Jul/2026:03:36:45 +0000] "GET /api/v2/portfolio/88045 HTTP/1.1" 200 1985 "-" "Mozilla/5.0"
+2026-07-22T03:36:47.000Z INFO  [portfolio-api] served portfolio 88045 in 37ms
+{"ts":"2026-07-22T03:36:48.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1425 instruments","latency_ms":135}
+{"ts":"2026-07-22T03:36:48.000Z","level":"error","svc":"pricing-engine","msg":"could not persist valuation batch","err":"connection reset by peer","batch_id":44120}
+Jul 22 03:36:49 node-07 systemd[1]: Started Session 2245 of user svc-portfolio.
+Jul 22 03:36:52 node-07 kernel: [1882045.112] nvme0n1: I/O queue depth 13, avg latency 0.0ms
+2026-07-22T03:36:52.000Z ERROR [settlement-service] Connection to postgres://node-07:5432/platform refused (ECONNREFUSED)
+10.60.2.17 - - [22/Jul/2026:03:36:54 +0000] "GET /api/v2/portfolio/88046 HTTP/1.1" 200 1998 "-" "Mozilla/5.0"
+2026-07-22T03:36:55.000Z INFO  [portfolio-api] cache warm: 5906 entries, hit ratio 0.91
+2026-07-22T03:36:56.000Z INFO  [portfolio-api] served portfolio 88046 in 38ms
+Jul 22 03:36:58 node-07 systemd[1]: pricing-engine.service: Main process exited, code=exited, status=1/FAILURE
+Jul 22 03:37:00 node-07 systemd[1]: pricing-engine.service: Scheduled restart job, restart counter is at 1.
+10.60.2.18 - - [22/Jul/2026:03:37:03 +0000] "GET /api/v2/portfolio/88047 HTTP/1.1" 200 2011 "-" "Mozilla/5.0"
+10.60.2.11 - - [22/Jul/2026:03:37:04 +0000] "GET /api/v2/portfolio/88100 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+2026-07-22T03:37:05.000Z INFO  [portfolio-api] served portfolio 88047 in 39ms
+2026-07-22T03:37:06.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2000ms
+10.60.2.12 - - [22/Jul/2026:03:37:11 +0000] "GET /api/v2/portfolio/88101 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+10.60.2.19 - - [22/Jul/2026:03:37:12 +0000] "GET /api/v2/portfolio/88048 HTTP/1.1" 200 2024 "-" "Mozilla/5.0"
+2026-07-22T03:37:13.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2011ms
+2026-07-22T03:37:14.000Z INFO  [portfolio-api] served portfolio 88048 in 40ms
+{"ts":"2026-07-22T03:37:15.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1440 instruments","latency_ms":138}
+2026-07-22 03:37:17,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.13 - - [22/Jul/2026:03:37:19 +0000] "GET /api/v2/portfolio/88102 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+10.60.2.20 - - [22/Jul/2026:03:37:21 +0000] "GET /api/v2/portfolio/88049 HTTP/1.1" 200 2037 "-" "Mozilla/5.0"
+2026-07-22T03:37:21.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2022ms
+2026-07-22T03:37:23.000Z INFO  [portfolio-api] served portfolio 88049 in 41ms
+Jul 22 03:37:25 node-07 systemd[1]: Started Session 2249 of user svc-portfolio.
+10.60.2.14 - - [22/Jul/2026:03:37:28 +0000] "GET /api/v2/portfolio/88103 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+10.60.2.21 - - [22/Jul/2026:03:37:30 +0000] "GET /api/v2/portfolio/88050 HTTP/1.1" 200 2050 "-" "Mozilla/5.0"
+2026-07-22T03:37:30.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2033ms
+2026-07-22T03:37:32.000Z INFO  [portfolio-api] served portfolio 88050 in 42ms
+{"ts":"2026-07-22T03:37:36.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":5,"consumers":4}
+10.60.2.15 - - [22/Jul/2026:03:37:37 +0000] "GET /api/v2/portfolio/88104 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+10.60.2.22 - - [22/Jul/2026:03:37:39 +0000] "GET /api/v2/portfolio/88051 HTTP/1.1" 200 2063 "-" "Mozilla/5.0"
+2026-07-22T03:37:39.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2044ms
+2026-07-22T03:37:41.000Z INFO  [portfolio-api] served portfolio 88051 in 43ms
+{"ts":"2026-07-22T03:37:42.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1455 instruments","latency_ms":141}
+10.60.2.16 - - [22/Jul/2026:03:37:46 +0000] "GET /api/v2/portfolio/88105 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+10.60.2.23 - - [22/Jul/2026:03:37:48 +0000] "GET /api/v2/portfolio/88052 HTTP/1.1" 200 2076 "-" "Mozilla/5.0"
+2026-07-22T03:37:48.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2055ms
+2026-07-22T03:37:50.000Z INFO  [portfolio-api] served portfolio 88052 in 44ms
+2026-07-22 03:37:50,000 ERROR client.sdk - Traceback (most recent call last):
+  File "/opt/reporting/run_eod.py", line 212, in fetch_positions
+    resp = session.get(url, timeout=30)
+  File "/usr/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+requests.exceptions.HTTPError: 503 Server Error: Service Unavailable for url: http://portfolio-api/api/v2/portfolio/88104
+10.60.2.24 - - [22/Jul/2026:03:37:57 +0000] "GET /api/v2/portfolio/88053 HTTP/1.1" 200 2089 "-" "Mozilla/5.0"
+2026-07-22T03:37:58.000Z INFO  [portfolio-api] cache warm: 5983 entries, hit ratio 0.98
+10.60.2.17 - - [22/Jul/2026:03:37:58 +0000] "GET /api/v2/portfolio/88106 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+2026-07-22T03:37:59.000Z INFO  [portfolio-api] served portfolio 88053 in 45ms
+2026-07-22T03:38:00.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2066ms
+Jul 22 03:38:01 node-07 systemd[1]: Started Session 2253 of user svc-portfolio.
+2026-07-22 03:38:02,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+Jul 22 03:38:04 node-07 kernel: [1882053.112] nvme0n1: I/O queue depth 21, avg latency 0.8ms
+10.60.2.25 - - [22/Jul/2026:03:38:06 +0000] "GET /api/v2/portfolio/88054 HTTP/1.1" 200 2102 "-" "Mozilla/5.0"
+2026-07-22T03:38:08.000Z INFO  [portfolio-api] served portfolio 88054 in 46ms
+{"ts":"2026-07-22T03:38:09.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1470 instruments","latency_ms":144}
+10.60.2.18 - - [22/Jul/2026:03:38:09 +0000] "GET /api/v2/portfolio/88107 HTTP/1.1" 503 0 "-" "Mozilla/5.0"
+2026-07-22T03:38:11.000Z ERROR [portfolio-api] upstream unavailable: pricing-engine returned 503 after 2077ms
+10.60.2.26 - - [22/Jul/2026:03:38:15 +0000] "GET /api/v2/portfolio/88055 HTTP/1.1" 200 2115 "-" "Mozilla/5.0"
+2026-07-22T03:38:17.000Z INFO  [portfolio-api] served portfolio 88055 in 47ms
+2026-07-22T03:38:20.000Z WARN  [alerting] SEV-1 declared: platform read path unavailable, 8 services reporting errors
+10.60.2.27 - - [22/Jul/2026:03:38:24 +0000] "GET /api/v2/portfolio/88056 HTTP/1.1" 200 2128 "-" "Mozilla/5.0"
+2026-07-22T03:38:26.000Z INFO  [portfolio-api] served portfolio 88056 in 48ms
+{"ts":"2026-07-22T03:38:30.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":11,"consumers":4}
+10.60.2.28 - - [22/Jul/2026:03:38:33 +0000] "GET /api/v2/portfolio/88057 HTTP/1.1" 200 2141 "-" "Mozilla/5.0"
+2026-07-22T03:38:35.000Z INFO  [portfolio-api] served portfolio 88057 in 49ms
+{"ts":"2026-07-22T03:38:36.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1485 instruments","latency_ms":147}
+Jul 22 03:38:37 node-07 systemd[1]: Started Session 2257 of user svc-portfolio.
+2026-07-22 03:38:40,000 INFO  oncall.bot - Paged: platform-sre (primary), dba-oncall (secondary)
+10.60.2.29 - - [22/Jul/2026:03:38:42 +0000] "GET /api/v2/portfolio/88058 HTTP/1.1" 200 2154 "-" "Mozilla/5.0"
+2026-07-22T03:38:44.000Z INFO  [portfolio-api] served portfolio 88058 in 50ms
+2026-07-22 03:38:47,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.30 - - [22/Jul/2026:03:38:51 +0000] "GET /api/v2/portfolio/88059 HTTP/1.1" 200 2167 "-" "Mozilla/5.0"
+2026-07-22T03:38:53.000Z INFO  [portfolio-api] served portfolio 88059 in 51ms
+10.60.2.31 - - [22/Jul/2026:03:39:00 +0000] "GET /api/v2/portfolio/88060 HTTP/1.1" 200 2180 "-" "Mozilla/5.0"
+2026-07-22T03:39:01.000Z INFO  [portfolio-api] cache warm: 6060 entries, hit ratio 0.96
+2026-07-22T03:39:02.000Z INFO  [portfolio-api] served portfolio 88060 in 22ms
+{"ts":"2026-07-22T03:39:03.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1500 instruments","latency_ms":150}
+Jul 22 03:39:08 node-07 postgres[1]: LOG:  recovery stalled: cannot write WAL, device still full
+10.60.2.32 - - [22/Jul/2026:03:39:09 +0000] "GET /api/v2/portfolio/88061 HTTP/1.1" 200 2193 "-" "Mozilla/5.0"
+2026-07-22T03:39:11.000Z INFO  [portfolio-api] served portfolio 88061 in 23ms
+Jul 22 03:39:13 node-07 systemd[1]: Started Session 2261 of user svc-portfolio.
+Jul 22 03:39:16 node-07 kernel: [1882061.112] nvme0n1: I/O queue depth 9, avg latency 0.7ms
+10.60.2.33 - - [22/Jul/2026:03:39:18 +0000] "GET /api/v2/portfolio/88062 HTTP/1.1" 200 2206 "-" "Mozilla/5.0"
+2026-07-22T03:39:20.000Z INFO  [portfolio-api] served portfolio 88062 in 24ms
+{"ts":"2026-07-22T03:39:24.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":5,"consumers":4}
+10.60.2.34 - - [22/Jul/2026:03:39:27 +0000] "GET /api/v2/portfolio/88063 HTTP/1.1" 200 2219 "-" "Mozilla/5.0"
+2026-07-22T03:39:29.000Z INFO  [portfolio-api] served portfolio 88063 in 25ms
+{"ts":"2026-07-22T03:39:30.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1515 instruments","latency_ms":153}
+2026-07-22 03:39:32,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+10.60.2.35 - - [22/Jul/2026:03:39:36 +0000] "GET /api/v2/portfolio/88064 HTTP/1.1" 200 2232 "-" "Mozilla/5.0"
+2026-07-22T03:39:38.000Z INFO  [portfolio-api] served portfolio 88064 in 26ms
+10.60.2.36 - - [22/Jul/2026:03:39:45 +0000] "GET /api/v2/portfolio/88065 HTTP/1.1" 200 2245 "-" "Mozilla/5.0"
+2026-07-22T03:39:47.000Z INFO  [portfolio-api] served portfolio 88065 in 27ms
+Jul 22 03:39:49 node-07 systemd[1]: Started Session 2265 of user svc-portfolio.
+10.60.2.37 - - [22/Jul/2026:03:39:54 +0000] "GET /api/v2/portfolio/88066 HTTP/1.1" 200 2258 "-" "Mozilla/5.0"
+2026-07-22T03:39:56.000Z INFO  [portfolio-api] served portfolio 88066 in 28ms
+{"ts":"2026-07-22T03:39:57.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1530 instruments","latency_ms":156}
+2026-07-22 03:40:00,000 ERROR airflow.taskinstance - Task failed with exception: eod_reporting could not reach portfolio-api after 3 attempts
+2026-07-22 03:40:02,000 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=eod_reporting, task_id=fetch_positions
+10.60.2.38 - - [22/Jul/2026:03:40:03 +0000] "GET /api/v2/portfolio/88067 HTTP/1.1" 200 2271 "-" "Mozilla/5.0"
+2026-07-22 03:40:03,000 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-22T03:40:04.000Z INFO  [portfolio-api] cache warm: 6137 entries, hit ratio 0.94
+2026-07-22T03:40:05.000Z INFO  [portfolio-api] served portfolio 88067 in 29ms
+10.60.2.39 - - [22/Jul/2026:03:40:12 +0000] "GET /api/v2/portfolio/88068 HTTP/1.1" 200 2284 "-" "Mozilla/5.0"
+2026-07-22T03:40:14.000Z INFO  [portfolio-api] served portfolio 88068 in 30ms
+2026-07-22 03:40:17,000 INFO  audit.trail - user=svc-portfolio action=read resource=positions result=allow
+{"ts":"2026-07-22T03:40:18.000Z","level":"debug","svc":"settlement-service","msg":"queue depth","depth":11,"consumers":4}
+10.60.2.40 - - [22/Jul/2026:03:40:21 +0000] "GET /api/v2/portfolio/88069 HTTP/1.1" 200 2297 "-" "Mozilla/5.0"
+2026-07-22T03:40:23.000Z INFO  [portfolio-api] served portfolio 88069 in 31ms
+{"ts":"2026-07-22T03:40:24.000Z","level":"info","svc":"pricing-engine","msg":"revalued 1545 instruments","latency_ms":159}
+Jul 22 03:40:25 node-07 systemd[1]: Started Session 2269 of user svc-portfolio.
+Jul 22 03:40:28 node-07 kernel: [1882069.112] nvme0n1: I/O queue depth 17, avg latency 0.6ms
+10.60.2.41 - - [22/Jul/2026:03:40:30 +0000] "GET /api/v2/portfolio/88070 HTTP/1.1" 200 2310 "-" "Mozilla/5.0"
+2026-07-22T03:40:32.000Z INFO  [portfolio-api] served portfolio 88070 in 32ms
+10.60.2.42 - - [22/Jul/2026:03:40:39 +0000] "GET /api/v2/portfolio/88071 HTTP/1.1" 200 2323 "-" "Mozilla/5.0"
+2026-07-22T03:40:41.000Z INFO  [portfolio-api] served portfolio 88071 in 33ms

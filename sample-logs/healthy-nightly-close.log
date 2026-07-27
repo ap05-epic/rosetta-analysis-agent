@@ -1,0 +1,201 @@
+2026-07-25 01:00:00,000 INFO  airflow.scheduler - Starting DAG run dag_id=nightly_close run_id=scheduled__2026-07-25T01:00:00
+2026-07-25 01:00:04,000 INFO  airflow.task_runner - Running task nightly_close.snapshot_balances (attempt 1 of 3)
+2026-07-25 01:00:06,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=4/50)
+2026-07-25 01:00:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 40 success today
+2026-07-25 01:00:14,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:00:18,000 INFO  nightly_close.snapshot_balances - processed 12000 records in 11.0s
+2026-07-25 01:00:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 41 success today
+Jul 25 01:00:21 prod-db-02 postgres[3301]: LOG:  checkpoint complete: wrote 944 buffers
+2026-07-25 01:00:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 42 success today
+2026-07-25 01:00:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:00:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 43 success today
+2026-07-25 01:00:32,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=snapshot_balances, duration=27.0s
+2026-07-25 01:00:32,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:00:32,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:00:34,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:00:36,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 44 success today
+2026-07-25 01:00:38,000 INFO  airflow.task_runner - Running task nightly_close.fetch_fx_rates (attempt 1 of 3)
+2026-07-25 01:00:40,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=5/50)
+2026-07-25 01:00:42,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 45 success today
+Jul 25 01:00:45 prod-db-02 postgres[3305]: LOG:  checkpoint complete: wrote 1120 buffers
+Jul 25 01:00:47 prod-db-02 postgres[3505]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:00:48,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 46 success today
+2026-07-25 01:00:50,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:00:50,000 INFO  fx.client - refreshed 28 currency pairs from provider
+2026-07-25 01:00:52,000 INFO  nightly_close.fetch_fx_rates - processed 15110 records in 12.1s
+2026-07-25 01:00:54,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 47 success today
+2026-07-25 01:00:58,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:01:00,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 48 success today
+2026-07-25 01:01:06,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=fetch_fx_rates, duration=27.1s
+2026-07-25 01:01:06,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:01:06,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 49 success today
+2026-07-25 01:01:08,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+Jul 25 01:01:09 prod-db-02 postgres[3309]: LOG:  checkpoint complete: wrote 1296 buffers
+2026-07-25 01:01:10,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:01:12,000 INFO  airflow.task_runner - Running task nightly_close.revalue_positions (attempt 1 of 3)
+2026-07-25 01:01:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 50 success today
+2026-07-25 01:01:14,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=6/50)
+2026-07-25 01:01:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 51 success today
+2026-07-25 01:01:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 52 success today
+2026-07-25 01:01:26,000 INFO  nightly_close.revalue_positions - processed 18220 records in 13.2s
+2026-07-25 01:01:26,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:01:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+Jul 25 01:01:29 prod-db-02 postgres[3512]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:01:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 53 success today
+Jul 25 01:01:33 prod-db-02 postgres[3313]: LOG:  checkpoint complete: wrote 1472 buffers
+2026-07-25 01:01:36,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 54 success today
+2026-07-25 01:01:40,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=revalue_positions, duration=27.2s
+2026-07-25 01:01:40,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:01:42,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 55 success today
+2026-07-25 01:01:44,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:01:44,000 INFO  fx.client - refreshed 31 currency pairs from provider
+2026-07-25 01:01:46,000 INFO  airflow.task_runner - Running task nightly_close.match_trades (attempt 1 of 3)
+2026-07-25 01:01:46,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:01:48,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=7/50)
+2026-07-25 01:01:48,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 56 success today
+2026-07-25 01:01:54,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 57 success today
+Jul 25 01:01:57 prod-db-02 postgres[3317]: LOG:  checkpoint complete: wrote 1648 buffers
+2026-07-25 01:01:58,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:02:00,000 INFO  nightly_close.match_trades - processed 21330 records in 14.3s
+2026-07-25 01:02:00,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 58 success today
+2026-07-25 01:02:00,000 WARN  cache.redis - cache hit ratio 0.74 below target 0.80 (warming after restart)
+2026-07-25 01:02:02,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:02:06,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 59 success today
+Jul 25 01:02:11 prod-db-02 postgres[3519]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:02:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 60 success today
+2026-07-25 01:02:14,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=match_trades, duration=27.3s
+2026-07-25 01:02:14,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:02:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 61 success today
+2026-07-25 01:02:20,000 INFO  airflow.task_runner - Running task nightly_close.post_adjustments (attempt 1 of 3)
+2026-07-25 01:02:20,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+Jul 25 01:02:21 prod-db-02 postgres[3321]: LOG:  checkpoint complete: wrote 1824 buffers
+2026-07-25 01:02:22,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=8/50)
+2026-07-25 01:02:22,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:02:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 62 success today
+2026-07-25 01:02:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:02:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 63 success today
+2026-07-25 01:02:34,000 INFO  nightly_close.post_adjustments - processed 24440 records in 15.4s
+2026-07-25 01:02:36,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 64 success today
+2026-07-25 01:02:38,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:02:38,000 INFO  fx.client - refreshed 28 currency pairs from provider
+2026-07-25 01:02:42,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 65 success today
+Jul 25 01:02:45 prod-db-02 postgres[3325]: LOG:  checkpoint complete: wrote 2000 buffers
+2026-07-25 01:02:48,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=post_adjustments, duration=27.4s
+2026-07-25 01:02:48,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:02:48,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 66 success today
+Jul 25 01:02:53 prod-db-02 postgres[3526]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:02:54,000 INFO  airflow.task_runner - Running task nightly_close.reconcile_cash (attempt 1 of 3)
+2026-07-25 01:02:54,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 67 success today
+2026-07-25 01:02:56,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=9/50)
+2026-07-25 01:02:56,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:02:58,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:02:58,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:03:00,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 68 success today
+2026-07-25 01:03:06,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 69 success today
+2026-07-25 01:03:08,000 INFO  nightly_close.reconcile_cash - processed 27550 records in 16.5s
+Jul 25 01:03:09 prod-db-02 postgres[3329]: LOG:  checkpoint complete: wrote 2176 buffers
+2026-07-25 01:03:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 70 success today
+2026-07-25 01:03:14,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:03:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 71 success today
+2026-07-25 01:03:22,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=reconcile_cash, duration=27.5s
+2026-07-25 01:03:22,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:03:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 72 success today
+2026-07-25 01:03:28,000 INFO  airflow.task_runner - Running task nightly_close.generate_statements (attempt 1 of 3)
+2026-07-25 01:03:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:03:30,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=10/50)
+2026-07-25 01:03:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 73 success today
+2026-07-25 01:03:32,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:03:32,000 INFO  fx.client - refreshed 31 currency pairs from provider
+Jul 25 01:03:33 prod-db-02 postgres[3333]: LOG:  checkpoint complete: wrote 2352 buffers
+2026-07-25 01:03:34,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+Jul 25 01:03:35 prod-db-02 postgres[3533]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:03:36,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 74 success today
+2026-07-25 01:03:42,000 INFO  nightly_close.generate_statements - processed 30660 records in 17.6s
+2026-07-25 01:03:42,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 75 success today
+2026-07-25 01:03:48,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 76 success today
+2026-07-25 01:03:50,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:03:54,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 77 success today
+2026-07-25 01:03:56,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=generate_statements, duration=27.6s
+2026-07-25 01:03:56,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 25 01:03:57 prod-db-02 postgres[3337]: LOG:  checkpoint complete: wrote 2528 buffers
+2026-07-25 01:03:58,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:04:00,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 78 success today
+2026-07-25 01:04:02,000 INFO  airflow.task_runner - Running task nightly_close.archive_artifacts (attempt 1 of 3)
+2026-07-25 01:04:04,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=11/50)
+2026-07-25 01:04:06,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 79 success today
+2026-07-25 01:04:08,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:04:10,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:04:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 80 success today
+2026-07-25 01:04:16,000 INFO  nightly_close.archive_artifacts - processed 33770 records in 18.7s
+Jul 25 01:04:17 prod-db-02 postgres[3540]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:04:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 81 success today
+2026-07-25 01:04:20,000 WARN  fx.client - rate provider responded in 1840ms (soft threshold 1500ms), response accepted
+Jul 25 01:04:21 prod-db-02 postgres[3341]: LOG:  checkpoint complete: wrote 2704 buffers
+2026-07-25 01:04:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 82 success today
+2026-07-25 01:04:26,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:04:26,000 INFO  fx.client - refreshed 28 currency pairs from provider
+2026-07-25 01:04:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:04:30,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=archive_artifacts, duration=27.7s
+2026-07-25 01:04:30,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:04:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 83 success today
+2026-07-25 01:04:36,000 INFO  airflow.task_runner - Running task nightly_close.publish_close_metrics (attempt 1 of 3)
+2026-07-25 01:04:36,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 84 success today
+2026-07-25 01:04:38,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=12/50)
+2026-07-25 01:04:42,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 85 success today
+2026-07-25 01:04:44,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+Jul 25 01:04:45 prod-db-02 postgres[3345]: LOG:  checkpoint complete: wrote 2880 buffers
+2026-07-25 01:04:46,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:04:48,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 86 success today
+2026-07-25 01:04:50,000 INFO  nightly_close.publish_close_metrics - processed 36880 records in 19.8s
+2026-07-25 01:04:54,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 87 success today
+2026-07-25 01:04:58,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+Jul 25 01:04:59 prod-db-02 postgres[3547]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:05:00,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 88 success today
+2026-07-25 01:05:02,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:05:04,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=publish_close_metrics, duration=27.8s
+2026-07-25 01:05:04,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:05:06,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 89 success today
+Jul 25 01:05:09 prod-db-02 postgres[3349]: LOG:  checkpoint complete: wrote 3056 buffers
+2026-07-25 01:05:10,000 INFO  airflow.task_runner - Running task nightly_close.notify_controllers (attempt 1 of 3)
+2026-07-25 01:05:12,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=13/50)
+2026-07-25 01:05:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 90 success today
+2026-07-25 01:05:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 91 success today
+2026-07-25 01:05:20,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:05:20,000 INFO  fx.client - refreshed 31 currency pairs from provider
+2026-07-25 01:05:22,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:05:24,000 INFO  nightly_close.notify_controllers - processed 39990 records in 20.9s
+2026-07-25 01:05:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 92 success today
+2026-07-25 01:05:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:05:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 93 success today
+Jul 25 01:05:33 prod-db-02 postgres[3353]: LOG:  checkpoint complete: wrote 3232 buffers
+2026-07-25 01:05:36,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 94 success today
+2026-07-25 01:05:38,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=notify_controllers, duration=27.9s
+2026-07-25 01:05:38,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:05:38,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+Jul 25 01:05:41 prod-db-02 postgres[3554]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:05:42,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 95 success today
+2026-07-25 01:05:48,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 96 success today
+2026-07-25 01:05:54,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 97 success today
+2026-07-25 01:05:54,000 INFO  airflow.dagrun - DagRun nightly_close finished: 10 succeeded, 0 failed
+2026-07-25 01:05:56,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:05:56,000 INFO  close.reporter - Close package published to s3://finance-close/2026-07-25/close_pack.pdf
+Jul 25 01:05:57 prod-db-02 postgres[3357]: LOG:  checkpoint complete: wrote 3408 buffers
+2026-07-25 01:05:58,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:05:58,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:05:58,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=nightly_close, task_id=notify_controllers, duration=2.1s
+2026-07-25 01:05:58,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-25 01:06:00,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 98 success today
+2026-07-25 01:06:06,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 99 success today
+2026-07-25 01:06:12,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 100 success today
+2026-07-25 01:06:14,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:06:14,000 INFO  fx.client - refreshed 28 currency pairs from provider
+2026-07-25 01:06:18,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 101 success today
+Jul 25 01:06:21 prod-db-02 postgres[3361]: LOG:  checkpoint complete: wrote 3584 buffers
+Jul 25 01:06:23 prod-db-02 postgres[3561]: LOG:  automatic analyze of table "finance.public.ledger_entries"
+2026-07-25 01:06:24,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 102 success today
+2026-07-25 01:06:28,000 DEBUG cache.redis - keyspace hit ratio 0.87, evicted 0 keys
+2026-07-25 01:06:30,000 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 103 success today
+2026-07-25 01:06:32,000 DEBUG airflow.executor - Task slot released, 15 of 16 slots free
+2026-07-25 01:06:34,000 INFO  audit.trail - user=svc-close action=write resource=ledger result=allow
+2026-07-25 01:06:50,000 WARN  archive.uploader - retry 1 of 3 for artifact upload (transient 429), succeeded on retry
+2026-07-25 01:09:20,000 WARN  airflow.utils.db - Connection pool usage 31/50 (62%) - informational

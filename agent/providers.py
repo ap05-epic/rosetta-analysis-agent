@@ -155,7 +155,19 @@ _PLAYBOOK = [
         "Find and fix the dependency the retries are aimed at (see the surrounding error lines).",
         "Cap retries with exponential backoff so callers fail fast instead of piling up.",
     ]),
-    (("pool", "hikari"), "Database connection pool exhaustion", [
+    (("does not exist", "undefinedcolumn", "undefinedtable", "schema drift", "no such column"),
+     "Database schema mismatch", [
+        "Compare the deployed schema against the expected migration state for the objects named in the cited lines.",
+        "Re-run or roll back the migration that left the schema inconsistent, then re-run the failed jobs.",
+        "Add a post-migration schema assertion so a partial apply fails loudly instead of silently.",
+    ]),
+    (("no space left", "disk full", "disk space", "device full", "% full"),
+     "Disk space exhaustion", [
+        "Free space on the affected volume immediately (rotate or ship logs, expire old WAL/archives).",
+        "Fix whatever stopped reclaiming space — the cited lines name the process that filled it.",
+        "Alert on disk usage well below 100% so this is caught before writes fail.",
+    ]),
+    (("pool", "hikari", "connection slots"), "Database connection pool exhaustion", [
         "Increase the database connection pool size (or lower per-request hold time) and restart the affected service.",
         "Check the database server for slow queries or locks that are holding connections open.",
         "Add a circuit breaker / timeout so dependent services fail fast instead of queueing.",
@@ -169,18 +181,17 @@ _PLAYBOOK = [
         "Reproduce the failing request locally against the new build before re-deploying.",
         "Add the failing case to the pre-deploy smoke test suite.",
     ]),
-    (("nullpointer", "exception", "traceback", "500", "502", "503", "504"),
+    (("out of memory", "oom", "heap space", "memory limit"), "Memory exhaustion", [
+        "Restart the affected service to recover, then review its memory limits.",
+        "Capture a heap profile to find the leak before raising limits.",
+    ]),
+    # generic bucket last: these keywords appear inside many other failures
+    # NB: not bare "exception" — "Task failed with exception" is Airflow
+    # boilerplate that appears on top of every other failure mode.
+    (("nullpointer", "traceback", "stack trace", " 500 ", " 502 ", " 503 ", " 504 "),
      "Application errors (HTTP 5xx)", [
         "Inspect the stack trace at the cited lines and fix the failing code path.",
         "Roll back if the errors began right after a deployment.",
-    ]),
-    (("memory", "oom", "heap"), "Memory exhaustion", [
-        "Restart the affected service to recover, then review memory limits.",
-        "Capture a heap profile to find the leak before raising limits.",
-    ]),
-    (("disk", "space", "no space"), "Disk space exhaustion", [
-        "Free disk space (rotate/compress logs) on the affected host.",
-        "Add disk usage alerting well below 100%.",
     ]),
 ]
 

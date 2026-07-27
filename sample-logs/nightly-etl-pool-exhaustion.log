@@ -1,0 +1,496 @@
+2026-07-28 02:00:00,000 INFO  airflow.scheduler - Scheduler heartbeat OK, 4 DAGs eligible for run
+2026-07-28 02:00:01,000 INFO  airflow.scheduler - Filling up the DagBag from /opt/airflow/dags
+2026-07-28 02:00:02,000 INFO  airflow.utils.db - Connection pool initialised size=50 overflow=10
+2026-07-28 02:00:05,000 INFO  airflow.scheduler - Starting DAG run dag_id=customer_sync run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:00:07,000 INFO  airflow.task_runner - Running task customer_sync.extract_customers (attempt 1 of 3)
+2026-07-28 02:00:08,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=11/50)
+2026-07-28 02:00:10,000 DEBUG airflow.taskinstance - Dependencies all met for customer_sync.extract_customers, state=queued
+2026-07-28 02:00:20,000 INFO  airflow.scheduler - Heartbeat: 4 running, 0 queued, 118 success today
+2026-07-28 02:00:21,000 INFO  customer_sync.extract_customers - processed 3429 rows in 16.7s
+2026-07-28 02:00:21,000 INFO  airflow.task_runner - Running task customer_sync.dedupe_records (attempt 1 of 3)
+2026-07-28 02:00:22,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=8/50)
+2026-07-28 02:00:24,000 DEBUG airflow.taskinstance - Dependencies all met for customer_sync.dedupe_records, state=queued
+2026-07-28 02:00:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:00:26,000 DEBUG airflow.utils.db - Released pooled connection (in_use=7/50)
+2026-07-28 02:00:29,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=customer_sync, task_id=extract_customers, duration=21.8s
+2026-07-28 02:00:29,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:00:29 prod-db-01 postgres[4200]: LOG:  checkpoint starting: time
+Jul 28 02:00:31 prod-db-01 postgres[4200]: LOG:  checkpoint complete: wrote 1820 buffers
+2026-07-28 02:00:35,000 INFO  customer_sync.dedupe_records - processed 3711 rows in 22.3s
+2026-07-28 02:00:35,000 INFO  airflow.task_runner - Running task customer_sync.load_dim_customer (attempt 1 of 3)
+2026-07-28 02:00:35,000 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 119 success today
+2026-07-28 02:00:36,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=14/50)
+2026-07-28 02:00:38,000 DEBUG airflow.taskinstance - Dependencies all met for customer_sync.load_dim_customer, state=queued
+2026-07-28 02:00:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:00:43,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=customer_sync, task_id=dedupe_records, duration=21.4s
+2026-07-28 02:00:43,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:00:48 prod-db-01 postgres[4601]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:00:49,000 INFO  customer_sync.load_dim_customer - processed 3993 rows in 14.9s
+2026-07-28 02:00:49,000 INFO  airflow.task_runner - Running task customer_sync.refresh_customer_index (attempt 1 of 3)
+2026-07-28 02:00:50,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=11/50)
+2026-07-28 02:00:50,000 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 120 success today
+2026-07-28 02:00:52,000 DEBUG airflow.taskinstance - Dependencies all met for customer_sync.refresh_customer_index, state=queued
+2026-07-28 02:00:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:00:57,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=customer_sync, task_id=load_dim_customer, duration=21.0s
+2026-07-28 02:00:57,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:01:02,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:01:03,000 INFO  customer_sync.refresh_customer_index - processed 4275 rows in 20.5s
+2026-07-28 02:01:03,000 INFO  airflow.task_runner - Running task customer_sync.publish_metrics (attempt 1 of 3)
+2026-07-28 02:01:04,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=8/50)
+2026-07-28 02:01:05,000 INFO  airflow.scheduler - Heartbeat: 4 running, 3 queued, 121 success today
+2026-07-28 02:01:06,000 DEBUG airflow.taskinstance - Dependencies all met for customer_sync.publish_metrics, state=queued
+2026-07-28 02:01:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:01:11,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=customer_sync, task_id=refresh_customer_index, duration=21.6s
+2026-07-28 02:01:11,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:01:11,000 DEBUG airflow.utils.db - Released pooled connection (in_use=10/50)
+2026-07-28 02:01:17,000 INFO  customer_sync.publish_metrics - processed 4557 rows in 12.1s
+2026-07-28 02:01:17,000 INFO  airflow.scheduler - Starting DAG run dag_id=inventory_rollup run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:01:19,000 INFO  airflow.task_runner - Running task inventory_rollup.extract_stock (attempt 1 of 3)
+2026-07-28 02:01:20,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=6/50)
+2026-07-28 02:01:20,000 INFO  airflow.scheduler - Heartbeat: 3 running, 4 queued, 122 success today
+2026-07-28 02:01:22,000 DEBUG airflow.taskinstance - Dependencies all met for inventory_rollup.extract_stock, state=queued
+2026-07-28 02:01:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:01:25,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=customer_sync, task_id=publish_metrics, duration=21.2s
+2026-07-28 02:01:25,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:01:29 prod-db-01 postgres[4204]: LOG:  checkpoint starting: time
+2026-07-28 02:01:30,000 DEBUG celery.worker - Task accepted by worker-04 pid=21004
+Jul 28 02:01:31 prod-db-01 postgres[4204]: LOG:  checkpoint complete: wrote 1968 buffers
+2026-07-28 02:01:33,000 INFO  inventory_rollup.extract_stock - processed 4886 rows in 19.8s
+2026-07-28 02:01:33,000 INFO  airflow.task_runner - Running task inventory_rollup.join_warehouse (attempt 1 of 3)
+2026-07-28 02:01:34,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=12/50)
+2026-07-28 02:01:35,000 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 123 success today
+2026-07-28 02:01:36,000 DEBUG airflow.taskinstance - Dependencies all met for inventory_rollup.join_warehouse, state=queued
+2026-07-28 02:01:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:01:41,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=inventory_rollup, task_id=extract_stock, duration=21.9s
+2026-07-28 02:01:41,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:01:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:01:47,000 INFO  inventory_rollup.join_warehouse - processed 5168 rows in 11.4s
+2026-07-28 02:01:47,000 INFO  airflow.task_runner - Running task inventory_rollup.load_facts (attempt 1 of 3)
+2026-07-28 02:01:48,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=9/50)
+2026-07-28 02:01:50,000 DEBUG airflow.taskinstance - Dependencies all met for inventory_rollup.load_facts, state=queued
+2026-07-28 02:01:50,000 INFO  airflow.scheduler - Heartbeat: 4 running, 1 queued, 124 success today
+2026-07-28 02:01:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:01:55,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=inventory_rollup, task_id=join_warehouse, duration=21.5s
+2026-07-28 02:01:55,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:01:56,000 DEBUG airflow.utils.db - Released pooled connection (in_use=13/50)
+2026-07-28 02:02:01,000 INFO  inventory_rollup.load_facts - processed 5450 rows in 17.0s
+2026-07-28 02:02:01,000 INFO  airflow.task_runner - Running task inventory_rollup.rebuild_aggregates (attempt 1 of 3)
+2026-07-28 02:02:02,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=6/50)
+2026-07-28 02:02:04,000 DEBUG airflow.taskinstance - Dependencies all met for inventory_rollup.rebuild_aggregates, state=queued
+2026-07-28 02:02:05,000 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 125 success today
+2026-07-28 02:02:09,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=inventory_rollup, task_id=load_facts, duration=21.1s
+2026-07-28 02:02:09,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:02:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:02:15,000 INFO  inventory_rollup.rebuild_aggregates - processed 5732 rows in 9.6s
+2026-07-28 02:02:15,000 INFO  airflow.task_runner - Running task inventory_rollup.notify_downstream (attempt 1 of 3)
+2026-07-28 02:02:16,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=12/50)
+2026-07-28 02:02:17,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:02:18,000 DEBUG airflow.taskinstance - Dependencies all met for inventory_rollup.notify_downstream, state=queued
+Jul 28 02:02:18 prod-db-01 postgres[4607]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:02:20,000 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 126 success today
+2026-07-28 02:02:23,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=inventory_rollup, task_id=rebuild_aggregates, duration=21.7s
+2026-07-28 02:02:23,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:02:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:02:29,000 INFO  inventory_rollup.notify_downstream - processed 6014 rows in 15.2s
+2026-07-28 02:02:29,000 INFO  airflow.scheduler - Starting DAG run dag_id=finance_close run_id=scheduled__2026-07-28T02:00:00
+Jul 28 02:02:29 prod-db-01 postgres[4208]: LOG:  checkpoint starting: time
+2026-07-28 02:02:31,000 INFO  airflow.task_runner - Running task finance_close.fetch_ledger (attempt 1 of 3)
+Jul 28 02:02:31 prod-db-01 postgres[4208]: LOG:  checkpoint complete: wrote 2116 buffers
+2026-07-28 02:02:32,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=10/50)
+2026-07-28 02:02:34,000 DEBUG airflow.taskinstance - Dependencies all met for finance_close.fetch_ledger, state=queued
+2026-07-28 02:02:35,000 INFO  airflow.scheduler - Heartbeat: 4 running, 4 queued, 127 success today
+2026-07-28 02:02:37,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=inventory_rollup, task_id=notify_downstream, duration=21.3s
+2026-07-28 02:02:37,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:02:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:02:41,000 DEBUG airflow.utils.db - Released pooled connection (in_use=16/50)
+2026-07-28 02:02:45,000 INFO  finance_close.fetch_ledger - processed 6343 rows in 22.9s
+2026-07-28 02:02:45,000 INFO  airflow.task_runner - Running task finance_close.reconcile_entries (attempt 1 of 3)
+2026-07-28 02:02:46,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=7/50)
+2026-07-28 02:02:48,000 DEBUG airflow.taskinstance - Dependencies all met for finance_close.reconcile_entries, state=queued
+2026-07-28 02:02:50,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 128 success today
+2026-07-28 02:02:53,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=finance_close, task_id=fetch_ledger, duration=21.0s
+2026-07-28 02:02:53,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:02:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:02:59,000 INFO  finance_close.reconcile_entries - processed 6625 rows in 14.5s
+2026-07-28 02:02:59,000 INFO  airflow.task_runner - Running task finance_close.post_journal (attempt 1 of 3)
+2026-07-28 02:03:00,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=13/50)
+2026-07-28 02:03:02,000 DEBUG airflow.taskinstance - Dependencies all met for finance_close.post_journal, state=queued
+2026-07-28 02:03:05,000 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 129 success today
+2026-07-28 02:03:07,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=finance_close, task_id=reconcile_entries, duration=21.6s
+2026-07-28 02:03:07,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:03:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:03:13,000 INFO  finance_close.post_journal - processed 6907 rows in 20.1s
+2026-07-28 02:03:13,000 INFO  airflow.task_runner - Running task finance_close.generate_report (attempt 1 of 3)
+2026-07-28 02:03:14,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=10/50)
+2026-07-28 02:03:16,000 DEBUG airflow.taskinstance - Dependencies all met for finance_close.generate_report, state=queued
+2026-07-28 02:03:20,000 INFO  airflow.scheduler - Heartbeat: 4 running, 2 queued, 130 success today
+2026-07-28 02:03:21,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=finance_close, task_id=post_journal, duration=21.2s
+2026-07-28 02:03:21,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:03:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:03:26,000 DEBUG airflow.utils.db - Released pooled connection (in_use=19/50)
+2026-07-28 02:03:27,000 INFO  finance_close.generate_report - processed 7189 rows in 12.7s
+2026-07-28 02:03:27,000 INFO  airflow.scheduler - Starting DAG run dag_id=marketing_attrib run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:03:29,000 INFO  airflow.task_runner - Running task marketing_attrib.pull_events (attempt 1 of 3)
+Jul 28 02:03:29 prod-db-01 postgres[4212]: LOG:  checkpoint starting: time
+2026-07-28 02:03:30,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=8/50)
+Jul 28 02:03:31 prod-db-01 postgres[4212]: LOG:  checkpoint complete: wrote 2264 buffers
+2026-07-28 02:03:32,000 DEBUG airflow.taskinstance - Dependencies all met for marketing_attrib.pull_events, state=queued
+2026-07-28 02:03:32,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:03:35,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=finance_close, task_id=generate_report, duration=21.8s
+2026-07-28 02:03:35,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:03:35,000 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 131 success today
+2026-07-28 02:03:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:03:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:03:43,000 INFO  marketing_attrib.pull_events - processed 7518 rows in 19.4s
+2026-07-28 02:03:43,000 INFO  airflow.task_runner - Running task marketing_attrib.sessionize (attempt 1 of 3)
+2026-07-28 02:03:44,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=14/50)
+2026-07-28 02:03:45,000 DEBUG celery.worker - Task accepted by worker-01 pid=21013
+2026-07-28 02:03:46,000 DEBUG airflow.taskinstance - Dependencies all met for marketing_attrib.sessionize, state=queued
+Jul 28 02:03:48 prod-db-01 postgres[4613]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:03:50,000 INFO  airflow.scheduler - Heartbeat: 2 running, 4 queued, 132 success today
+2026-07-28 02:03:51,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=marketing_attrib, task_id=pull_events, duration=21.5s
+2026-07-28 02:03:51,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:03:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:03:57,000 INFO  marketing_attrib.sessionize - processed 7800 rows in 11.0s
+2026-07-28 02:03:57,000 INFO  airflow.task_runner - Running task marketing_attrib.attribute_touchpoints (attempt 1 of 3)
+2026-07-28 02:03:58,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=11/50)
+2026-07-28 02:04:00,000 DEBUG airflow.taskinstance - Dependencies all met for marketing_attrib.attribute_touchpoints, state=queued
+2026-07-28 02:04:05,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=marketing_attrib, task_id=sessionize, duration=21.1s
+2026-07-28 02:04:05,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:04:05,000 INFO  airflow.scheduler - Heartbeat: 4 running, 0 queued, 133 success today
+2026-07-28 02:04:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:04:11,000 INFO  marketing_attrib.attribute_touchpoints - processed 8082 rows in 17.6s
+2026-07-28 02:04:11,000 INFO  airflow.task_runner - Running task marketing_attrib.load_attribution (attempt 1 of 3)
+2026-07-28 02:04:11,000 DEBUG airflow.utils.db - Released pooled connection (in_use=22/50)
+2026-07-28 02:04:12,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=8/50)
+2026-07-28 02:04:14,000 DEBUG airflow.taskinstance - Dependencies all met for marketing_attrib.load_attribution, state=queued
+2026-07-28 02:04:19,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=marketing_attrib, task_id=attribute_touchpoints, duration=21.7s
+2026-07-28 02:04:19,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:04:20,000 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 134 success today
+2026-07-28 02:04:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:04:25,000 INFO  marketing_attrib.load_attribution - processed 8364 rows in 9.2s
+2026-07-28 02:04:25,000 INFO  airflow.scheduler - Starting DAG run dag_id=risk_metrics run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:04:27,000 INFO  airflow.task_runner - Running task risk_metrics.load_exposures (attempt 1 of 3)
+2026-07-28 02:04:28,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=6/50)
+Jul 28 02:04:29 prod-db-01 postgres[4216]: LOG:  checkpoint starting: time
+2026-07-28 02:04:30,000 DEBUG airflow.taskinstance - Dependencies all met for risk_metrics.load_exposures, state=queued
+Jul 28 02:04:31 prod-db-01 postgres[4216]: LOG:  checkpoint complete: wrote 2412 buffers
+2026-07-28 02:04:33,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=marketing_attrib, task_id=load_attribution, duration=21.3s
+2026-07-28 02:04:33,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:04:35,000 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 135 success today
+2026-07-28 02:04:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:04:41,000 INFO  risk_metrics.load_exposures - processed 8693 rows in 16.9s
+2026-07-28 02:04:41,000 INFO  airflow.task_runner - Running task risk_metrics.compute_var (attempt 1 of 3)
+2026-07-28 02:04:42,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=12/50)
+2026-07-28 02:04:44,000 DEBUG airflow.taskinstance - Dependencies all met for risk_metrics.compute_var, state=queued
+2026-07-28 02:04:47,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:04:49,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_metrics, task_id=load_exposures, duration=21.0s
+2026-07-28 02:04:49,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:04:50,000 INFO  airflow.scheduler - Heartbeat: 4 running, 3 queued, 136 success today
+2026-07-28 02:04:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:04:55,000 INFO  risk_metrics.compute_var - processed 8975 rows in 22.5s
+2026-07-28 02:04:55,000 INFO  airflow.task_runner - Running task risk_metrics.stress_scenarios (attempt 1 of 3)
+2026-07-28 02:04:56,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=9/50)
+2026-07-28 02:04:56,000 DEBUG airflow.utils.db - Released pooled connection (in_use=25/50)
+2026-07-28 02:04:58,000 DEBUG airflow.taskinstance - Dependencies all met for risk_metrics.stress_scenarios, state=queued
+2026-07-28 02:05:03,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_metrics, task_id=compute_var, duration=21.6s
+2026-07-28 02:05:03,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:05:05,000 INFO  airflow.scheduler - Heartbeat: 3 running, 4 queued, 137 success today
+2026-07-28 02:05:09,000 INFO  risk_metrics.stress_scenarios - processed 9257 rows in 14.1s
+2026-07-28 02:05:09,000 INFO  airflow.task_runner - Running task risk_metrics.persist_risk_cube (attempt 1 of 3)
+2026-07-28 02:05:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:05:10,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=6/50)
+2026-07-28 02:05:12,000 DEBUG airflow.taskinstance - Dependencies all met for risk_metrics.persist_risk_cube, state=queued
+2026-07-28 02:05:17,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_metrics, task_id=stress_scenarios, duration=21.2s
+2026-07-28 02:05:17,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:05:18 prod-db-01 postgres[4619]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:05:20,000 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 138 success today
+2026-07-28 02:05:23,000 INFO  risk_metrics.persist_risk_cube - processed 9539 rows in 20.7s
+2026-07-28 02:05:23,000 INFO  airflow.scheduler - Starting DAG run dag_id=reference_data run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:05:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:05:25,000 INFO  airflow.task_runner - Running task reference_data.sync_instruments (attempt 1 of 3)
+2026-07-28 02:05:26,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=13/50)
+2026-07-28 02:05:28,000 DEBUG airflow.taskinstance - Dependencies all met for reference_data.sync_instruments, state=queued
+Jul 28 02:05:29 prod-db-01 postgres[4220]: LOG:  checkpoint starting: time
+2026-07-28 02:05:31,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_metrics, task_id=persist_risk_cube, duration=21.8s
+2026-07-28 02:05:31,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:05:31 prod-db-01 postgres[4220]: LOG:  checkpoint complete: wrote 2560 buffers
+2026-07-28 02:05:35,000 INFO  airflow.scheduler - Heartbeat: 4 running, 1 queued, 139 success today
+2026-07-28 02:05:39,000 INFO  reference_data.sync_instruments - processed 9868 rows in 13.4s
+2026-07-28 02:05:39,000 INFO  airflow.task_runner - Running task reference_data.sync_counterparties (attempt 1 of 3)
+2026-07-28 02:05:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:05:40,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=10/50)
+2026-07-28 02:05:41,000 DEBUG airflow.utils.db - Released pooled connection (in_use=7/50)
+2026-07-28 02:05:42,000 DEBUG airflow.taskinstance - Dependencies all met for reference_data.sync_counterparties, state=queued
+2026-07-28 02:05:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:05:47,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=reference_data, task_id=sync_instruments, duration=21.5s
+2026-07-28 02:05:47,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:05:50,000 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 140 success today
+2026-07-28 02:05:53,000 INFO  reference_data.sync_counterparties - processed 10150 rows in 19.0s
+2026-07-28 02:05:53,000 INFO  airflow.task_runner - Running task reference_data.validate_isins (attempt 1 of 3)
+2026-07-28 02:05:54,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=7/50)
+2026-07-28 02:05:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:05:56,000 DEBUG airflow.taskinstance - Dependencies all met for reference_data.validate_isins, state=queued
+2026-07-28 02:06:00,000 DEBUG celery.worker - Task accepted by worker-04 pid=21022
+2026-07-28 02:06:01,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=reference_data, task_id=sync_counterparties, duration=21.1s
+2026-07-28 02:06:01,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:06:02,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:06:05,000 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 141 success today
+2026-07-28 02:06:07,000 INFO  reference_data.validate_isins - processed 10432 rows in 11.6s
+2026-07-28 02:06:07,000 INFO  airflow.task_runner - Running task reference_data.expire_stale_records (attempt 1 of 3)
+2026-07-28 02:06:08,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=13/50)
+2026-07-28 02:06:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:06:10,000 DEBUG airflow.taskinstance - Dependencies all met for reference_data.expire_stale_records, state=queued
+2026-07-28 02:06:15,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=reference_data, task_id=validate_isins, duration=21.7s
+2026-07-28 02:06:15,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:06:20,000 INFO  airflow.scheduler - Heartbeat: 4 running, 4 queued, 142 success today
+2026-07-28 02:06:21,000 INFO  reference_data.expire_stale_records - processed 10714 rows in 17.2s
+2026-07-28 02:06:21,000 INFO  airflow.scheduler - Starting DAG run dag_id=compliance_feed run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:06:23,000 INFO  airflow.task_runner - Running task compliance_feed.extract_trades (attempt 1 of 3)
+2026-07-28 02:06:24,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=11/50)
+2026-07-28 02:06:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:06:26,000 DEBUG airflow.taskinstance - Dependencies all met for compliance_feed.extract_trades, state=queued
+2026-07-28 02:06:26,000 DEBUG airflow.utils.db - Released pooled connection (in_use=10/50)
+2026-07-28 02:06:29,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=reference_data, task_id=expire_stale_records, duration=21.3s
+2026-07-28 02:06:29,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:06:29 prod-db-01 postgres[4224]: LOG:  checkpoint starting: time
+Jul 28 02:06:31 prod-db-01 postgres[4224]: LOG:  checkpoint complete: wrote 2708 buffers
+2026-07-28 02:06:35,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 143 success today
+2026-07-28 02:06:37,000 INFO  compliance_feed.extract_trades - processed 11043 rows in 10.9s
+2026-07-28 02:06:37,000 INFO  airflow.task_runner - Running task compliance_feed.screen_sanctions (attempt 1 of 3)
+2026-07-28 02:06:38,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=8/50)
+2026-07-28 02:06:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:06:40,000 DEBUG airflow.taskinstance - Dependencies all met for compliance_feed.screen_sanctions, state=queued
+2026-07-28 02:06:45,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=compliance_feed, task_id=extract_trades, duration=21.0s
+2026-07-28 02:06:45,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:06:48 prod-db-01 postgres[4625]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:06:50,000 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 144 success today
+2026-07-28 02:06:51,000 INFO  compliance_feed.screen_sanctions - processed 11325 rows in 16.5s
+2026-07-28 02:06:51,000 INFO  airflow.task_runner - Running task compliance_feed.build_regulatory_extract (attempt 1 of 3)
+2026-07-28 02:06:52,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=14/50)
+2026-07-28 02:06:54,000 DEBUG airflow.taskinstance - Dependencies all met for compliance_feed.build_regulatory_extract, state=queued
+2026-07-28 02:06:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:06:59,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=compliance_feed, task_id=screen_sanctions, duration=21.6s
+2026-07-28 02:06:59,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:07:05,000 INFO  compliance_feed.build_regulatory_extract - processed 11607 rows in 22.1s
+2026-07-28 02:07:05,000 INFO  airflow.scheduler - Starting DAG run dag_id=ops_telemetry run_id=scheduled__2026-07-28T02:00:00
+2026-07-28 02:07:05,000 INFO  airflow.scheduler - Heartbeat: 4 running, 2 queued, 145 success today
+2026-07-28 02:07:07,000 INFO  airflow.task_runner - Running task ops_telemetry.collect_task_durations (attempt 1 of 3)
+2026-07-28 02:07:08,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=12/50)
+2026-07-28 02:07:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:07:10,000 DEBUG airflow.taskinstance - Dependencies all met for ops_telemetry.collect_task_durations, state=queued
+2026-07-28 02:07:11,000 DEBUG airflow.utils.db - Released pooled connection (in_use=13/50)
+2026-07-28 02:07:13,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=compliance_feed, task_id=build_regulatory_extract, duration=21.2s
+2026-07-28 02:07:13,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:07:17,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:07:20,000 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 146 success today
+2026-07-28 02:07:21,000 INFO  ops_telemetry.collect_task_durations - processed 11936 rows in 15.8s
+2026-07-28 02:07:21,000 INFO  airflow.task_runner - Running task ops_telemetry.roll_up_sla (attempt 1 of 3)
+2026-07-28 02:07:22,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=9/50)
+2026-07-28 02:07:24,000 DEBUG airflow.taskinstance - Dependencies all met for ops_telemetry.roll_up_sla, state=queued
+2026-07-28 02:07:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:07:29,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=ops_telemetry, task_id=collect_task_durations, duration=21.9s
+2026-07-28 02:07:29,000 INFO  airflow.local_task_job - Task exited with return code 0
+Jul 28 02:07:29 prod-db-01 postgres[4228]: LOG:  checkpoint starting: time
+Jul 28 02:07:31 prod-db-01 postgres[4228]: LOG:  checkpoint complete: wrote 2856 buffers
+2026-07-28 02:07:35,000 INFO  ops_telemetry.roll_up_sla - processed 12218 rows in 21.4s
+2026-07-28 02:07:35,000 INFO  airflow.task_runner - Running task ops_telemetry.emit_dashboards (attempt 1 of 3)
+2026-07-28 02:07:35,000 INFO  airflow.scheduler - Heartbeat: 2 running, 4 queued, 147 success today
+2026-07-28 02:07:36,000 DEBUG airflow.utils.db - Acquired pooled connection (in_use=6/50)
+2026-07-28 02:07:38,000 DEBUG airflow.taskinstance - Dependencies all met for ops_telemetry.emit_dashboards, state=queued
+2026-07-28 02:07:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:07:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:07:43,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=ops_telemetry, task_id=roll_up_sla, duration=21.5s
+2026-07-28 02:07:43,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:07:49,000 INFO  ops_telemetry.emit_dashboards - processed 12500 rows in 13.0s
+2026-07-28 02:07:50,000 INFO  airflow.scheduler - Heartbeat: 4 running, 0 queued, 148 success today
+2026-07-28 02:07:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:07:56,000 DEBUG airflow.utils.db - Released pooled connection (in_use=16/50)
+2026-07-28 02:07:57,000 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=ops_telemetry, task_id=emit_dashboards, duration=21.1s
+2026-07-28 02:07:57,000 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-28 02:08:05,000 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 149 success today
+2026-07-28 02:08:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:08:15,000 DEBUG celery.worker - Task accepted by worker-01 pid=21031
+Jul 28 02:08:18 prod-db-01 postgres[4631]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:08:20,000 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 150 success today
+2026-07-28 02:08:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:08:29 prod-db-01 postgres[4232]: LOG:  checkpoint starting: time
+Jul 28 02:08:31 prod-db-01 postgres[4232]: LOG:  checkpoint complete: wrote 3004 buffers
+2026-07-28 02:08:32,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:08:35,000 INFO  airflow.scheduler - Heartbeat: 4 running, 3 queued, 151 success today
+2026-07-28 02:08:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:08:41,000 DEBUG airflow.utils.db - Released pooled connection (in_use=19/50)
+2026-07-28 02:08:50,000 INFO  airflow.scheduler - Heartbeat: 3 running, 4 queued, 152 success today
+2026-07-28 02:08:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:09:05,000 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 153 success today
+2026-07-28 02:09:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:09:20,000 INFO  airflow.scheduler - Heartbeat: 4 running, 1 queued, 154 success today
+2026-07-28 02:09:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:09:26,000 DEBUG airflow.utils.db - Released pooled connection (in_use=22/50)
+Jul 28 02:09:29 prod-db-01 postgres[4236]: LOG:  checkpoint starting: time
+Jul 28 02:09:31 prod-db-01 postgres[4236]: LOG:  checkpoint complete: wrote 3152 buffers
+2026-07-28 02:09:35,000 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 155 success today
+2026-07-28 02:09:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:09:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:09:47,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+Jul 28 02:09:48 prod-db-01 postgres[4637]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:09:50,000 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 156 success today
+2026-07-28 02:09:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:10:05,000 INFO  airflow.scheduler - Heartbeat: 4 running, 4 queued, 157 success today
+2026-07-28 02:10:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:10:11,000 DEBUG airflow.utils.db - Released pooled connection (in_use=25/50)
+2026-07-28 02:10:20,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 158 success today
+2026-07-28 02:10:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:10:29 prod-db-01 postgres[4240]: LOG:  checkpoint starting: time
+2026-07-28 02:10:30,000 DEBUG celery.worker - Task accepted by worker-04 pid=21040
+Jul 28 02:10:31 prod-db-01 postgres[4240]: LOG:  checkpoint complete: wrote 3300 buffers
+2026-07-28 02:10:35,000 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 159 success today
+2026-07-28 02:10:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:10:50,000 INFO  airflow.scheduler - Heartbeat: 4 running, 2 queued, 160 success today
+2026-07-28 02:10:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:10:56,000 DEBUG airflow.utils.db - Released pooled connection (in_use=7/50)
+2026-07-28 02:11:02,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:11:05,000 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 161 success today
+2026-07-28 02:11:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:11:18 prod-db-01 postgres[4643]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:11:20,000 INFO  airflow.scheduler - Heartbeat: 2 running, 4 queued, 162 success today
+2026-07-28 02:11:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:11:29 prod-db-01 postgres[4244]: LOG:  checkpoint starting: time
+Jul 28 02:11:31 prod-db-01 postgres[4244]: LOG:  checkpoint complete: wrote 3448 buffers
+2026-07-28 02:11:35,000 INFO  airflow.scheduler - Heartbeat: 4 running, 0 queued, 163 success today
+2026-07-28 02:11:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:11:41,000 DEBUG airflow.utils.db - Released pooled connection (in_use=10/50)
+2026-07-28 02:11:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:11:50,000 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 164 success today
+2026-07-28 02:11:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:12:05,000 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 165 success today
+2026-07-28 02:12:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:12:17,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:12:20,000 INFO  airflow.scheduler - Heartbeat: 4 running, 3 queued, 166 success today
+2026-07-28 02:12:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:12:26,000 DEBUG airflow.utils.db - Released pooled connection (in_use=13/50)
+Jul 28 02:12:29 prod-db-01 postgres[4248]: LOG:  checkpoint starting: time
+Jul 28 02:12:31 prod-db-01 postgres[4248]: LOG:  checkpoint complete: wrote 3596 buffers
+2026-07-28 02:12:35,000 INFO  airflow.scheduler - Heartbeat: 3 running, 4 queued, 167 success today
+2026-07-28 02:12:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:12:45,000 DEBUG celery.worker - Task accepted by worker-01 pid=21049
+Jul 28 02:12:48 prod-db-01 postgres[4649]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:12:50,000 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 168 success today
+2026-07-28 02:12:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:13:05,000 INFO  airflow.scheduler - Heartbeat: 4 running, 1 queued, 169 success today
+2026-07-28 02:13:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:13:11,000 DEBUG airflow.utils.db - Released pooled connection (in_use=16/50)
+2026-07-28 02:13:20,000 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 170 success today
+2026-07-28 02:13:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:13:29 prod-db-01 postgres[4252]: LOG:  checkpoint starting: time
+Jul 28 02:13:31 prod-db-01 postgres[4252]: LOG:  checkpoint complete: wrote 3744 buffers
+2026-07-28 02:13:32,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:13:35,000 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 171 success today
+2026-07-28 02:13:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:13:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:13:50,000 INFO  airflow.scheduler - Heartbeat: 4 running, 4 queued, 172 success today
+2026-07-28 02:13:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:13:56,000 DEBUG airflow.utils.db - Released pooled connection (in_use=19/50)
+2026-07-28 02:14:00,000 INFO  airflow.task_runner - Running task analytics_daily.daily_revenue_rollup (attempt 1 of 3)
+Jul 28 02:14:02 prod-db-01 postgres[5001]: LOG:  statement: BEGIN; SET work_mem='2GB'; INSERT INTO warehouse.daily_revenue SELECT * FROM staging.revenue_wide
+2026-07-28 02:14:05,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 173 success today
+2026-07-28 02:14:05,000 INFO  analytics.runner - daily_revenue_rollup opened 40 parallel writer connections
+2026-07-28 02:14:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:14:18 prod-db-01 postgres[4655]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:14:20,000 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 174 success today
+2026-07-28 02:14:20,000 WARN  airflow.utils.db - Connection pool usage 42/50 (84%) - above warn threshold 80%
+2026-07-28 02:14:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:14:29 prod-db-01 postgres[4256]: LOG:  checkpoint starting: time
+Jul 28 02:14:31 prod-db-01 postgres[4256]: LOG:  checkpoint complete: wrote 3892 buffers
+2026-07-28 02:14:35,000 INFO  airflow.scheduler - Heartbeat: 4 running, 2 queued, 175 success today
+2026-07-28 02:14:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:14:40 prod-db-01 postgres[5001]: LOG:  duration: 38221.114 ms  statement: INSERT INTO warehouse.daily_revenue SELECT * FROM staging.revenue_wide
+2026-07-28 02:14:41,000 DEBUG airflow.utils.db - Released pooled connection (in_use=22/50)
+2026-07-28 02:14:47,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:14:50,000 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 176 success today
+2026-07-28 02:14:50,000 WARN  airflow.utils.db - Connection pool usage 47/50 (94%) - above warn threshold 80%
+2026-07-28 02:14:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:15:00,000 DEBUG celery.worker - Task accepted by worker-04 pid=21058
+2026-07-28 02:15:00,000 WARN  airflow.utils.db - Connection pool usage 50/50 (100%) - overflow connections in use 4/10
+2026-07-28 02:15:05,000 INFO  airflow.scheduler - Heartbeat: 2 running, 4 queued, 177 success today
+Jul 28 02:15:05 prod-db-01 postgres[5002]: LOG:  duration: 41903.882 ms  statement: UPDATE warehouse.daily_revenue SET reconciled = true WHERE batch_id = 20260728
+2026-07-28 02:15:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:15:20,000 INFO  airflow.scheduler - Heartbeat: 4 running, 0 queued, 178 success today
+2026-07-28 02:15:20,000 INFO  airflow.task_runner - Running task inventory_rollup.load_facts (attempt 1 of 3)
+2026-07-28 02:15:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:15:24 prod-db-01 postgres[6020]: FATAL:  remaining connection slots are reserved for non-replication superuser connections
+2026-07-28 02:15:25,000 ERROR airflow.taskinstance - Task failed with exception
+psycopg2.OperationalError: connection to server at "prod-db-01" (10.30.2.11), port 5432 failed: FATAL:  remaining connection slots are reserved for non-replication superuser connections
+    at /opt/airflow/dags/inventory_rollup/load_facts.py, line 88, in execute
+    session = get_session(pool='airflow_default')
+2026-07-28 02:15:26,000 DEBUG airflow.utils.db - Released pooled connection (in_use=25/50)
+2026-07-28 02:15:27,000 WARN  airflow.taskinstance - Task inventory_rollup.load_facts up for retry: 1 of 3
+Jul 28 02:15:29 prod-db-01 postgres[4260]: LOG:  checkpoint starting: time
+Jul 28 02:15:31 prod-db-01 postgres[4260]: LOG:  checkpoint complete: wrote 4040 buffers
+2026-07-28 02:15:35,000 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 179 success today
+2026-07-28 02:15:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:15:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:15:47,000 INFO  airflow.task_runner - Running task finance_close.post_journal (attempt 1 of 3)
+Jul 28 02:15:48 prod-db-01 postgres[4661]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:15:50,000 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 180 success today
+Jul 28 02:15:51 prod-db-01 postgres[6047]: FATAL:  remaining connection slots are reserved for non-replication superuser connections
+2026-07-28 02:15:52,000 ERROR airflow.taskinstance - Task failed with exception
+psycopg2.OperationalError: connection to server at "prod-db-01" (10.30.2.11), port 5432 failed: FATAL:  remaining connection slots are reserved for non-replication superuser connections
+    at /opt/airflow/dags/finance_close/post_journal.py, line 88, in execute
+    session = get_session(pool='airflow_default')
+2026-07-28 02:15:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:15:54,000 WARN  airflow.taskinstance - Task finance_close.post_journal up for retry: 1 of 3
+2026-07-28 02:16:00,000 ERROR airflow.taskinstance - Task failed with exception (attempt 2 of 3): could not connect to server
+2026-07-28 02:16:02,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+2026-07-28 02:16:05,000 INFO  airflow.scheduler - Heartbeat: 4 running, 3 queued, 181 success today
+2026-07-28 02:16:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:16:11,000 DEBUG airflow.utils.db - Released pooled connection (in_use=7/50)
+2026-07-28 02:16:20,000 INFO  airflow.scheduler - Heartbeat: 3 running, 4 queued, 182 success today
+2026-07-28 02:16:22,000 INFO  airflow.task_runner - Running task marketing_attrib.attribute_touchpoints (attempt 1 of 3)
+2026-07-28 02:16:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:16:26 prod-db-01 postgres[6082]: FATAL:  remaining connection slots are reserved for non-replication superuser connections
+2026-07-28 02:16:27,000 ERROR airflow.taskinstance - Task failed with exception (attempt 2 of 3): could not connect to server
+2026-07-28 02:16:27,000 ERROR airflow.taskinstance - Task failed with exception
+psycopg2.OperationalError: connection to server at "prod-db-01" (10.30.2.11), port 5432 failed: FATAL:  remaining connection slots are reserved for non-replication superuser connections
+    at /opt/airflow/dags/marketing_attrib/attribute_touchpoints.py, line 88, in execute
+    session = get_session(pool='airflow_default')
+Jul 28 02:16:29 prod-db-01 postgres[4264]: LOG:  checkpoint starting: time
+2026-07-28 02:16:29,000 WARN  airflow.taskinstance - Task marketing_attrib.attribute_touchpoints up for retry: 1 of 3
+Jul 28 02:16:31 prod-db-01 postgres[4264]: LOG:  checkpoint complete: wrote 4188 buffers
+2026-07-28 02:16:35,000 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 183 success today
+2026-07-28 02:16:35,000 ERROR airflow.taskinstance - Task failed with exception (attempt 3 of 3): could not connect to server
+2026-07-28 02:16:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:16:50,000 INFO  airflow.scheduler - Heartbeat: 4 running, 1 queued, 184 success today
+2026-07-28 02:16:50,000 WARN  airflow.scheduler - 3 DAG runs now in state 'running' past their SLA
+2026-07-28 02:16:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:16:56,000 DEBUG airflow.utils.db - Released pooled connection (in_use=10/50)
+2026-07-28 02:17:02,000 ERROR airflow.taskinstance - Task failed with exception (attempt 3 of 3): could not connect to server
+2026-07-28 02:17:02,000 ERROR airflow.taskinstance - Task failed with exception (attempt 2 of 3): could not connect to server
+2026-07-28 02:17:05,000 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 185 success today
+2026-07-28 02:17:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:17:15,000 DEBUG celery.worker - Task accepted by worker-01 pid=21067
+2026-07-28 02:17:17,000 INFO  airflow.dagrun - DagRun state refreshed, 0 tasks in deferred state
+Jul 28 02:17:18 prod-db-01 postgres[4667]: LOG:  automatic vacuum of table "warehouse.public.stg_events": index scans: 1
+2026-07-28 02:17:20,000 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 186 success today
+2026-07-28 02:17:20,000 INFO  analytics.runner - daily_revenue_rollup committed 8.1M rows, releasing connections
+2026-07-28 02:17:22,000 INFO  airflow.utils.db - Connection pool usage 11/50 (22%) - recovered
+2026-07-28 02:17:24,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+Jul 28 02:17:29 prod-db-01 postgres[4268]: LOG:  checkpoint starting: time
+Jul 28 02:17:31 prod-db-01 postgres[4268]: LOG:  checkpoint complete: wrote 4336 buffers
+2026-07-28 02:17:35,000 INFO  airflow.scheduler - Heartbeat: 4 running, 4 queued, 187 success today
+2026-07-28 02:17:37,000 ERROR airflow.taskinstance - Task failed with exception (attempt 3 of 3): could not connect to server
+2026-07-28 02:17:39,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:17:41,000 DEBUG airflow.utils.db - Released pooled connection (in_use=13/50)
+2026-07-28 02:17:42,000 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-28 02:17:50,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 188 success today
+2026-07-28 02:17:54,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:18:05,000 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 189 success today
+2026-07-28 02:18:09,000 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-28 02:20:00,000 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=inventory_rollup, task_id=load_facts, execution_date=2026-07-28T02:00:00
+2026-07-28 02:20:00,000 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-28 02:20:03,000 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=finance_close, task_id=post_journal, execution_date=2026-07-28T02:00:00
+2026-07-28 02:20:03,000 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-28 02:20:06,000 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=marketing_attrib, task_id=attribute_touchpoints, execution_date=2026-07-28T02:00:00
+2026-07-28 02:20:06,000 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-28 02:20:15,000 ERROR airflow.dagrun - DagRun finished with failed tasks: inventory_rollup, finance_close, marketing_attrib
+2026-07-28 02:20:16,000 INFO  airflow.scheduler - Scheduler heartbeat OK, 0 DAGs eligible for run

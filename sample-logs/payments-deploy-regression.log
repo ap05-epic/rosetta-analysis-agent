@@ -1,0 +1,369 @@
+2026-07-24T13:55:00.000Z INFO  [payments-api] POST /v1/charges 201 61ms merchant=4400
+10.42.1.20 - - [24/Jul/2026:13:55:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:55:03.000Z INFO  [payments-worker] settled batch id=99100 entries=40
+2026-07-24T13:55:10.000Z INFO  [payments-api] POST /v1/refunds 201 68ms merchant=4401
+10.42.1.21 - - [24/Jul/2026:13:55:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:55:14.000Z DEBUG [payments-api] cache hit ratio 0.91 over last 1000 requests
+2026-07-24T13:55:20.000Z INFO  [payments-api] POST /v1/customers 201 75ms merchant=4402
+2026-07-24T13:55:21.000Z DEBUG [ledger-writer] appended 14 entries to journal shard 2
+10.42.1.22 - - [24/Jul/2026:13:55:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:55:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 82ms merchant=4403
+10.42.1.23 - - [24/Jul/2026:13:55:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:55:33.000Z INFO  [payments-worker] settled batch id=99103 entries=43
+Jul 24 13:55:33 pay-node-03 systemd[1]: payments-api.service: healthy, memory 412.3M of 2.0G
+2026-07-24T13:55:40.000Z INFO  [payments-api] POST /v1/payouts 201 89ms merchant=4404
+10.42.1.24 - - [24/Jul/2026:13:55:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:55:50.000Z INFO  [payments-api] POST /v1/balance 201 96ms merchant=4405
+10.42.1.25 - - [24/Jul/2026:13:55:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:55:52.000Z INFO  [fraud-scorer] scored transaction 770005 risk=0.05 allow
+2026-07-24T13:55:54.000Z DEBUG [payments-api] cache hit ratio 0.95 over last 1000 requests
+2026-07-24T13:56:00.000Z INFO  [payments-api] POST /v1/charges 201 63ms merchant=4406
+10.42.1.26 - - [24/Jul/2026:13:56:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:56:03.000Z INFO  [payments-worker] settled batch id=99106 entries=46
+2026-07-24T13:56:10.000Z INFO  [payments-api] POST /v1/refunds 201 70ms merchant=4407
+2026-07-24T13:56:11.000Z DEBUG [ledger-writer] appended 19 entries to journal shard 7
+10.42.1.27 - - [24/Jul/2026:13:56:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:56:20.000Z INFO  [payments-api] POST /v1/customers 201 77ms merchant=4408
+10.42.1.28 - - [24/Jul/2026:13:56:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:56:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 84ms merchant=4409
+10.42.1.29 - - [24/Jul/2026:13:56:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:56:33.000Z INFO  [payments-worker] settled batch id=99109 entries=49
+2026-07-24T13:56:34.000Z DEBUG [payments-api] cache hit ratio 0.90 over last 1000 requests
+2026-07-24T13:56:40.000Z INFO  [payments-api] POST /v1/payouts 201 91ms merchant=4410
+10.42.1.30 - - [24/Jul/2026:13:56:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+Jul 24 13:56:43 pay-node-02 systemd[1]: payments-api.service: healthy, memory 412.0M of 2.0G
+2026-07-24T13:56:50.000Z INFO  [payments-api] POST /v1/balance 201 98ms merchant=4411
+10.42.1.31 - - [24/Jul/2026:13:56:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:57:00.000Z INFO  [payments-api] POST /v1/charges 201 65ms merchant=4412
+2026-07-24T13:57:01.000Z DEBUG [ledger-writer] appended 24 entries to journal shard 4
+10.42.1.32 - - [24/Jul/2026:13:57:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:57:03.000Z INFO  [payments-worker] settled batch id=99112 entries=52
+2026-07-24T13:57:10.000Z INFO  [payments-api] POST /v1/refunds 201 72ms merchant=4413
+10.42.1.33 - - [24/Jul/2026:13:57:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:57:14.000Z DEBUG [payments-api] cache hit ratio 0.94 over last 1000 requests
+2026-07-24T13:57:20.000Z INFO  [payments-api] POST /v1/customers 201 79ms merchant=4414
+10.42.1.34 - - [24/Jul/2026:13:57:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:57:22.000Z INFO  [fraud-scorer] scored transaction 770014 risk=0.05 allow
+2026-07-24T13:57:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 86ms merchant=4415
+10.42.1.35 - - [24/Jul/2026:13:57:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:57:33.000Z INFO  [payments-worker] settled batch id=99115 entries=55
+2026-07-24T13:57:40.000Z INFO  [payments-api] POST /v1/payouts 201 93ms merchant=4416
+10.42.1.36 - - [24/Jul/2026:13:57:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:57:50.000Z INFO  [payments-api] POST /v1/balance 201 100ms merchant=4417
+2026-07-24T13:57:51.000Z DEBUG [ledger-writer] appended 29 entries to journal shard 1
+10.42.1.37 - - [24/Jul/2026:13:57:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+Jul 24 13:57:53 pay-node-01 systemd[1]: payments-api.service: healthy, memory 412.7M of 2.0G
+2026-07-24T13:57:54.000Z DEBUG [payments-api] cache hit ratio 0.98 over last 1000 requests
+2026-07-24T13:58:00.000Z INFO  [payments-api] POST /v1/charges 201 67ms merchant=4418
+10.42.1.38 - - [24/Jul/2026:13:58:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:58:03.000Z INFO  [payments-worker] settled batch id=99118 entries=58
+2026-07-24T13:58:10.000Z INFO  [payments-api] POST /v1/refunds 201 74ms merchant=4419
+10.42.1.39 - - [24/Jul/2026:13:58:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:58:20.000Z INFO  [payments-api] POST /v1/customers 201 81ms merchant=4420
+10.42.1.40 - - [24/Jul/2026:13:58:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:58:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 88ms merchant=4421
+10.42.1.41 - - [24/Jul/2026:13:58:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:58:33.000Z INFO  [payments-worker] settled batch id=99121 entries=61
+2026-07-24T13:58:34.000Z DEBUG [payments-api] cache hit ratio 0.93 over last 1000 requests
+2026-07-24T13:58:40.000Z INFO  [payments-api] POST /v1/payouts 201 95ms merchant=4422
+2026-07-24T13:58:41.000Z DEBUG [ledger-writer] appended 34 entries to journal shard 6
+10.42.1.42 - - [24/Jul/2026:13:58:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:58:50.000Z INFO  [payments-api] POST /v1/balance 201 62ms merchant=4423
+10.42.1.43 - - [24/Jul/2026:13:58:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:58:52.000Z INFO  [fraud-scorer] scored transaction 770023 risk=0.05 allow
+2026-07-24T13:59:00.000Z INFO  [payments-api] POST /v1/charges 201 69ms merchant=4424
+10.42.1.44 - - [24/Jul/2026:13:59:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:59:03.000Z INFO  [payments-worker] settled batch id=99124 entries=64
+Jul 24 13:59:03 pay-node-00 systemd[1]: payments-api.service: healthy, memory 412.4M of 2.0G
+2026-07-24T13:59:10.000Z INFO  [payments-api] POST /v1/refunds 201 76ms merchant=4425
+10.42.1.45 - - [24/Jul/2026:13:59:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:59:14.000Z DEBUG [payments-api] cache hit ratio 0.97 over last 1000 requests
+2026-07-24T13:59:20.000Z INFO  [payments-api] POST /v1/customers 201 83ms merchant=4426
+10.42.1.46 - - [24/Jul/2026:13:59:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:59:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 90ms merchant=4427
+2026-07-24T13:59:31.000Z DEBUG [ledger-writer] appended 39 entries to journal shard 3
+10.42.1.47 - - [24/Jul/2026:13:59:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:59:33.000Z INFO  [payments-worker] settled batch id=99127 entries=67
+2026-07-24T13:59:40.000Z INFO  [payments-api] POST /v1/payouts 201 97ms merchant=4428
+10.42.1.48 - - [24/Jul/2026:13:59:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:59:50.000Z INFO  [payments-api] POST /v1/balance 201 64ms merchant=4429
+10.42.1.49 - - [24/Jul/2026:13:59:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T13:59:54.000Z DEBUG [payments-api] cache hit ratio 0.92 over last 1000 requests
+2026-07-24T14:00:00.000Z INFO  [payments-api] POST /v1/charges 201 71ms merchant=4430
+10.42.1.20 - - [24/Jul/2026:14:00:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:00:03.000Z INFO  [payments-worker] settled batch id=99130 entries=70
+2026-07-24T14:00:10.000Z INFO  [payments-api] POST /v1/refunds 201 78ms merchant=4431
+10.42.1.21 - - [24/Jul/2026:14:00:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+Jul 24 14:00:13 pay-node-03 systemd[1]: payments-api.service: healthy, memory 412.1M of 2.0G
+2026-07-24T14:00:20.000Z INFO  [payments-api] POST /v1/customers 201 85ms merchant=4432
+2026-07-24T14:00:21.000Z DEBUG [ledger-writer] appended 14 entries to journal shard 0
+10.42.1.22 - - [24/Jul/2026:14:00:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:00:22.000Z INFO  [fraud-scorer] scored transaction 770032 risk=0.05 allow
+2026-07-24T14:00:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 92ms merchant=4433
+10.42.1.23 - - [24/Jul/2026:14:00:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:00:33.000Z INFO  [payments-worker] settled batch id=99133 entries=73
+2026-07-24T14:00:34.000Z DEBUG [payments-api] cache hit ratio 0.96 over last 1000 requests
+2026-07-24T14:00:40.000Z INFO  [payments-api] POST /v1/payouts 201 99ms merchant=4434
+10.42.1.24 - - [24/Jul/2026:14:00:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:00:50.000Z INFO  [payments-api] POST /v1/balance 201 66ms merchant=4435
+10.42.1.25 - - [24/Jul/2026:14:00:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:01:00.000Z INFO  [payments-api] POST /v1/charges 201 73ms merchant=4436
+10.42.1.26 - - [24/Jul/2026:14:01:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:01:03.000Z INFO  [payments-worker] settled batch id=99136 entries=76
+2026-07-24T14:01:10.000Z INFO  [payments-api] POST /v1/refunds 201 80ms merchant=4437
+2026-07-24T14:01:11.000Z DEBUG [ledger-writer] appended 19 entries to journal shard 5
+10.42.1.27 - - [24/Jul/2026:14:01:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:01:14.000Z DEBUG [payments-api] cache hit ratio 0.91 over last 1000 requests
+2026-07-24T14:01:20.000Z INFO  [payments-api] POST /v1/customers 201 87ms merchant=4438
+10.42.1.28 - - [24/Jul/2026:14:01:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+Jul 24 14:01:23 pay-node-02 systemd[1]: payments-api.service: healthy, memory 412.8M of 2.0G
+2026-07-24T14:01:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 94ms merchant=4439
+10.42.1.29 - - [24/Jul/2026:14:01:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:01:33.000Z INFO  [payments-worker] settled batch id=99139 entries=79
+2026-07-24T14:01:40.000Z INFO  [payments-api] POST /v1/payouts 201 61ms merchant=4440
+10.42.1.30 - - [24/Jul/2026:14:01:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:01:50.000Z INFO  [payments-api] POST /v1/balance 201 68ms merchant=4441
+10.42.1.31 - - [24/Jul/2026:14:01:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:01:52.000Z INFO  [fraud-scorer] scored transaction 770041 risk=0.05 allow
+2026-07-24T14:01:54.000Z DEBUG [payments-api] cache hit ratio 0.95 over last 1000 requests
+2026-07-24T14:02:00.000Z INFO  [payments-api] POST /v1/charges 201 75ms merchant=4442
+2026-07-24T14:02:00.000Z INFO  [deploy-agent] Deployment started: payments-api v4.7.2 (commit 7a41f9c, author c.lorenzo-pavon, MR !214)
+2026-07-24T14:02:01.000Z DEBUG [ledger-writer] appended 24 entries to journal shard 2
+10.42.1.32 - - [24/Jul/2026:14:02:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:02:03.000Z INFO  [payments-worker] settled batch id=99142 entries=82
+2026-07-24T14:02:03.000Z INFO  [deploy-agent] Draining connections from payments-api-7d9f4 (v4.7.1)
+2026-07-24T14:02:10.000Z INFO  [payments-api] POST /v1/refunds 201 82ms merchant=4443
+10.42.1.33 - - [24/Jul/2026:14:02:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:02:20.000Z INFO  [payments-api] POST /v1/customers 201 89ms merchant=4444
+10.42.1.34 - - [24/Jul/2026:14:02:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:02:28.000Z INFO  [k8s.deployment] payments-api rollout: 1/3 pods updated to v4.7.2
+2026-07-24T14:02:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 96ms merchant=4445
+10.42.1.35 - - [24/Jul/2026:14:02:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:02:33.000Z INFO  [payments-worker] settled batch id=99145 entries=85
+Jul 24 14:02:33 pay-node-01 systemd[1]: payments-api.service: healthy, memory 412.5M of 2.0G
+2026-07-24T14:02:34.000Z DEBUG [payments-api] cache hit ratio 0.90 over last 1000 requests
+2026-07-24T14:02:40.000Z INFO  [payments-api] POST /v1/payouts 201 63ms merchant=4446
+10.42.1.36 - - [24/Jul/2026:14:02:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:02:50.000Z INFO  [payments-api] POST /v1/balance 201 70ms merchant=4447
+2026-07-24T14:02:51.000Z DEBUG [ledger-writer] appended 29 entries to journal shard 7
+10.42.1.37 - - [24/Jul/2026:14:02:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:02:52.000Z INFO  [k8s.deployment] payments-api rollout: 3/3 pods updated to v4.7.2
+2026-07-24T14:02:54.000Z INFO  [deploy-agent] Deployment finished: payments-api v4.7.2 is live
+2026-07-24T14:02:58.000Z INFO  [health-checker] payments-api liveness OK (3/3 pods ready)
+2026-07-24T14:03:00.000Z INFO  [payments-api] POST /v1/charges 201 77ms merchant=4448
+10.42.1.38 - - [24/Jul/2026:14:03:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:03:03.000Z INFO  [payments-worker] settled batch id=99148 entries=88
+2026-07-24T14:03:10.000Z INFO  [payments-api] POST /v1/refunds 201 84ms merchant=4449
+10.42.1.39 - - [24/Jul/2026:14:03:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:03:14.000Z DEBUG [payments-api] cache hit ratio 0.94 over last 1000 requests
+2026-07-24T14:03:20.000Z INFO  [payments-api] POST /v1/customers 201 91ms merchant=4450
+2026-07-24T14:03:20.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.60 - - [24/Jul/2026:14:03:21 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+10.42.1.40 - - [24/Jul/2026:14:03:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:03:22.000Z INFO  [fraud-scorer] scored transaction 770050 risk=0.05 allow
+2026-07-24T14:03:25.000Z INFO  [payments-api] POST /v1/charges 201 58ms merchant=4500
+2026-07-24T14:03:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 98ms merchant=4451
+10.42.1.41 - - [24/Jul/2026:14:03:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:03:33.000Z INFO  [payments-worker] settled batch id=99151 entries=91
+2026-07-24T14:03:39.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-07-24T14:03:40.000Z INFO  [payments-api] POST /v1/payouts 201 65ms merchant=4452
+10.42.1.61 - - [24/Jul/2026:14:03:40 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:03:41.000Z DEBUG [ledger-writer] appended 34 entries to journal shard 4
+10.42.1.42 - - [24/Jul/2026:14:03:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+Jul 24 14:03:43 pay-node-00 systemd[1]: payments-api.service: healthy, memory 412.2M of 2.0G
+2026-07-24T14:03:44.000Z INFO  [payments-api] POST /v1/charges 201 59ms merchant=4501
+2026-07-24T14:03:50.000Z INFO  [payments-api] POST /v1/balance 201 72ms merchant=4453
+10.42.1.43 - - [24/Jul/2026:14:03:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:03:54.000Z DEBUG [payments-api] cache hit ratio 0.98 over last 1000 requests
+2026-07-24T14:04:00.000Z INFO  [payments-api] POST /v1/charges 201 79ms merchant=4454
+10.42.1.44 - - [24/Jul/2026:14:04:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:04:03.000Z INFO  [payments-worker] settled batch id=99154 entries=94
+2026-07-24T14:04:04.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.62 - - [24/Jul/2026:14:04:05 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:04:09.000Z INFO  [payments-api] POST /v1/charges 201 60ms merchant=4502
+2026-07-24T14:04:10.000Z INFO  [payments-api] POST /v1/refunds 201 86ms merchant=4455
+2026-07-24T14:04:11.000Z INFO  [payments-worker] settled batch id=99202 entries=35
+10.42.1.45 - - [24/Jul/2026:14:04:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:04:20.000Z INFO  [payments-api] POST /v1/customers 201 93ms merchant=4456
+2026-07-24T14:04:20.000Z WARN  [alerting] payments-api 5xx rate 18% over last 1m (threshold 2%)
+10.42.1.46 - - [24/Jul/2026:14:04:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:04:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 100ms merchant=4457
+2026-07-24T14:04:31.000Z DEBUG [ledger-writer] appended 39 entries to journal shard 1
+2026-07-24T14:04:31.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.47 - - [24/Jul/2026:14:04:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+10.42.1.63 - - [24/Jul/2026:14:04:32 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:04:33.000Z INFO  [payments-worker] settled batch id=99157 entries=97
+2026-07-24T14:04:34.000Z DEBUG [payments-api] cache hit ratio 0.93 over last 1000 requests
+2026-07-24T14:04:36.000Z INFO  [payments-api] POST /v1/charges 201 61ms merchant=4503
+2026-07-24T14:04:40.000Z INFO  [payments-api] POST /v1/payouts 201 67ms merchant=4458
+10.42.1.48 - - [24/Jul/2026:14:04:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:04:48.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.64 - - [24/Jul/2026:14:04:49 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:04:50.000Z INFO  [payments-api] POST /v1/balance 201 74ms merchant=4459
+10.42.1.49 - - [24/Jul/2026:14:04:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:04:52.000Z INFO  [fraud-scorer] scored transaction 770059 risk=0.05 allow
+Jul 24 14:04:53 pay-node-03 systemd[1]: payments-api.service: healthy, memory 412.9M of 2.0G
+2026-07-24T14:04:53.000Z INFO  [payments-api] POST /v1/charges 201 62ms merchant=4504
+2026-07-24T14:05:00.000Z INFO  [payments-api] POST /v1/charges 201 81ms merchant=4460
+10.42.1.20 - - [24/Jul/2026:14:05:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:05:03.000Z INFO  [payments-worker] settled batch id=99160 entries=100
+2026-07-24T14:05:10.000Z INFO  [payments-api] POST /v1/refunds 201 88ms merchant=4461
+10.42.1.21 - - [24/Jul/2026:14:05:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:05:14.000Z DEBUG [payments-api] cache hit ratio 0.97 over last 1000 requests
+2026-07-24T14:05:15.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.65 - - [24/Jul/2026:14:05:16 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:05:20.000Z INFO  [payments-api] POST /v1/customers 201 95ms merchant=4462
+2026-07-24T14:05:20.000Z INFO  [payments-api] POST /v1/charges 201 63ms merchant=4505
+2026-07-24T14:05:20.000Z WARN  [alerting] payments-api 5xx rate 27% over last 1m (threshold 2%)
+2026-07-24T14:05:21.000Z DEBUG [ledger-writer] appended 14 entries to journal shard 6
+10.42.1.22 - - [24/Jul/2026:14:05:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:05:22.000Z INFO  [payments-worker] settled batch id=99205 entries=38
+2026-07-24T14:05:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 62ms merchant=4463
+10.42.1.23 - - [24/Jul/2026:14:05:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:05:33.000Z INFO  [payments-worker] settled batch id=99163 entries=103
+2026-07-24T14:05:40.000Z INFO  [payments-api] POST /v1/payouts 201 69ms merchant=4464
+2026-07-24T14:05:41.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.24 - - [24/Jul/2026:14:05:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+10.42.1.66 - - [24/Jul/2026:14:05:42 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:05:46.000Z INFO  [payments-api] POST /v1/charges 201 64ms merchant=4506
+2026-07-24T14:05:50.000Z INFO  [payments-api] POST /v1/balance 201 76ms merchant=4465
+10.42.1.25 - - [24/Jul/2026:14:05:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:05:54.000Z DEBUG [payments-api] cache hit ratio 0.92 over last 1000 requests
+2026-07-24T14:06:00.000Z INFO  [payments-api] POST /v1/charges 201 83ms merchant=4466
+10.42.1.26 - - [24/Jul/2026:14:06:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:06:03.000Z INFO  [payments-worker] settled batch id=99166 entries=106
+Jul 24 14:06:03 pay-node-02 systemd[1]: payments-api.service: healthy, memory 412.6M of 2.0G
+2026-07-24T14:06:08.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.67 - - [24/Jul/2026:14:06:09 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:06:10.000Z INFO  [payments-api] POST /v1/refunds 201 90ms merchant=4467
+2026-07-24T14:06:11.000Z DEBUG [ledger-writer] appended 19 entries to journal shard 3
+10.42.1.27 - - [24/Jul/2026:14:06:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:06:13.000Z INFO  [payments-api] POST /v1/charges 201 65ms merchant=4507
+2026-07-24T14:06:20.000Z INFO  [payments-api] POST /v1/customers 201 97ms merchant=4468
+10.42.1.28 - - [24/Jul/2026:14:06:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:06:22.000Z INFO  [fraud-scorer] scored transaction 770068 risk=0.05 allow
+2026-07-24T14:06:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 64ms merchant=4469
+2026-07-24T14:06:30.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.68 - - [24/Jul/2026:14:06:31 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+10.42.1.29 - - [24/Jul/2026:14:06:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:06:33.000Z INFO  [payments-worker] settled batch id=99169 entries=109
+2026-07-24T14:06:34.000Z DEBUG [payments-api] cache hit ratio 0.96 over last 1000 requests
+2026-07-24T14:06:35.000Z INFO  [payments-api] POST /v1/charges 201 66ms merchant=4508
+2026-07-24T14:06:37.000Z INFO  [payments-worker] settled batch id=99208 entries=41
+2026-07-24T14:06:40.000Z INFO  [payments-api] POST /v1/payouts 201 71ms merchant=4470
+2026-07-24T14:06:40.000Z WARN  [alerting] PagerDuty incident PD-8841 opened for payments-api
+10.42.1.30 - - [24/Jul/2026:14:06:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:06:50.000Z INFO  [payments-api] POST /v1/balance 201 78ms merchant=4471
+10.42.1.31 - - [24/Jul/2026:14:06:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:06:57.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.69 - - [24/Jul/2026:14:06:58 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:07:00.000Z INFO  [payments-api] POST /v1/charges 201 85ms merchant=4472
+2026-07-24T14:07:01.000Z DEBUG [ledger-writer] appended 24 entries to journal shard 0
+10.42.1.32 - - [24/Jul/2026:14:07:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:07:02.000Z INFO  [payments-api] POST /v1/charges 201 67ms merchant=4509
+2026-07-24T14:07:03.000Z INFO  [payments-worker] settled batch id=99172 entries=112
+2026-07-24T14:07:10.000Z INFO  [payments-api] POST /v1/refunds 201 92ms merchant=4473
+10.42.1.33 - - [24/Jul/2026:14:07:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+Jul 24 14:07:13 pay-node-01 systemd[1]: payments-api.service: healthy, memory 412.3M of 2.0G
+2026-07-24T14:07:13.000Z INFO  [support-bot] 14 customer reports of "payment failed" in 10 minutes
+2026-07-24T14:07:14.000Z DEBUG [payments-api] cache hit ratio 0.91 over last 1000 requests
+2026-07-24T14:07:20.000Z INFO  [payments-api] POST /v1/customers 201 99ms merchant=4474
+10.42.1.34 - - [24/Jul/2026:14:07:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:07:22.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+10.42.1.70 - - [24/Jul/2026:14:07:23 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:07:27.000Z INFO  [payments-api] POST /v1/charges 201 68ms merchant=4510
+2026-07-24T14:07:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 66ms merchant=4475
+10.42.1.35 - - [24/Jul/2026:14:07:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:07:33.000Z INFO  [payments-worker] settled batch id=99175 entries=115
+2026-07-24T14:07:40.000Z INFO  [payments-api] POST /v1/payouts 201 73ms merchant=4476
+2026-07-24T14:07:40.000Z WARN  [payments-api] circuit breaker for pricing-engine now HALF_OPEN
+10.42.1.36 - - [24/Jul/2026:14:07:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:07:49.000Z ERROR [payments-api] Unhandled exception processing POST /v1/charges
+java.lang.NullPointerException: Cannot invoke "PromotionRule.discountFor(Order)" because "rule" is null
+	at com.ubs.payments.pricing.PricingEngine.applyPromotions(PricingEngine.java:214)
+	at com.ubs.payments.pricing.PricingEngine.total(PricingEngine.java:96)
+	at com.ubs.payments.api.ChargeController.create(ChargeController.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-07-24T14:07:50.000Z INFO  [payments-api] POST /v1/balance 201 80ms merchant=4477
+10.42.1.71 - - [24/Jul/2026:14:07:50 +0000] "POST /v1/charges HTTP/1.1" 500 87 "-" "stripe-go/2.4"
+2026-07-24T14:07:51.000Z DEBUG [ledger-writer] appended 29 entries to journal shard 5
+10.42.1.37 - - [24/Jul/2026:14:07:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:07:52.000Z INFO  [fraud-scorer] scored transaction 770077 risk=0.05 allow
+2026-07-24T14:07:54.000Z DEBUG [payments-api] cache hit ratio 0.95 over last 1000 requests
+2026-07-24T14:07:54.000Z INFO  [payments-api] POST /v1/charges 201 69ms merchant=4511
+2026-07-24T14:07:56.000Z INFO  [payments-worker] settled batch id=99211 entries=44
+2026-07-24T14:08:00.000Z INFO  [payments-api] POST /v1/charges 201 87ms merchant=4478
+10.42.1.38 - - [24/Jul/2026:14:08:02 +0000] "POST /v1/charges HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:08:03.000Z INFO  [payments-worker] settled batch id=99178 entries=118
+2026-07-24T14:08:10.000Z INFO  [payments-api] POST /v1/refunds 201 94ms merchant=4479
+10.42.1.39 - - [24/Jul/2026:14:08:12 +0000] "POST /v1/refunds HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:08:20.000Z INFO  [payments-api] POST /v1/customers 201 61ms merchant=4480
+2026-07-24T14:08:20.000Z ERROR [batch-runner] Task failed with exception: downstream payments-api returned 500 for 12 of 40 settlement retries
+10.42.1.40 - - [24/Jul/2026:14:08:22 +0000] "POST /v1/customers HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:08:22.000Z ERROR [batch-runner] Marking task as FAILED. dag_id=settlement_replay, task_id=retry_failed_charges
+Jul 24 14:08:23 pay-node-00 systemd[1]: payments-api.service: healthy, memory 412.0M of 2.0G
+2026-07-24T14:08:23.000Z INFO  [batch-runner] Task exited with return code 1
+2026-07-24T14:08:30.000Z INFO  [payments-api] POST /v1/payment_methods 201 68ms merchant=4481
+10.42.1.41 - - [24/Jul/2026:14:08:32 +0000] "POST /v1/payment_methods HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:08:33.000Z INFO  [payments-worker] settled batch id=99181 entries=121
+2026-07-24T14:08:34.000Z DEBUG [payments-api] cache hit ratio 0.90 over last 1000 requests
+2026-07-24T14:08:40.000Z INFO  [payments-api] POST /v1/payouts 201 75ms merchant=4482
+2026-07-24T14:08:41.000Z DEBUG [ledger-writer] appended 34 entries to journal shard 2
+10.42.1.42 - - [24/Jul/2026:14:08:42 +0000] "POST /v1/payouts HTTP/1.1" 201 412 "-" "stripe-go/2.4"
+2026-07-24T14:08:50.000Z INFO  [payments-api] POST /v1/balance 201 82ms merchant=4483
+10.42.1.43 - - [24/Jul/2026:14:08:52 +0000] "POST /v1/balance HTTP/1.1" 201 412 "-" "stripe-go/2.4"
