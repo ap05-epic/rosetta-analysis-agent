@@ -2,185 +2,185 @@
 Jul 26 05:30:03 warehouse-db postgres[7701]: LOG:  statement: ALTER TABLE dim_customer ADD COLUMN customer_segment varchar(32)
 Jul 26 05:30:08 warehouse-db postgres[7701]: LOG:  process 7701 still waiting for AccessExclusiveLock on relation 18442 after 5000.114 ms
 Jul 26 05:31:03 warehouse-db postgres[7701]: ERROR:  canceling statement due to lock timeout
-2026-07-26 05:31:04,000 ERROR migrate.runner - Migration 0042 aborted after lock timeout; ROLLBACK issued for statement 2 of 3
-2026-07-26 05:31:05,000 WARN  migrate.runner - Migration 0042 left in PARTIAL state: dim_customer_segment_lookup created, dim_customer.customer_segment NOT created
-2026-07-26 05:31:06,000 INFO  migrate.runner - Migration runner exiting, 1 partial / 0 applied
-2026-07-26 05:31:30,000 INFO  dbt.runner - 1 of 64 START model warehouse.stg_orders
-2026-07-26 05:31:34,000 INFO  dbt.runner - 1 of 64 OK created table model warehouse.stg_orders [SELECT 1200 in 2.00s]
-2026-07-26 05:31:36,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_orders'
-2026-07-26 05:31:41,000 INFO  dbt.runner - 2 of 64 START model warehouse.stg_customers
-2026-07-26 05:31:45,000 INFO  dbt.runner - 2 of 64 OK created table model warehouse.stg_customers [SELECT 2013 in 3.07s]
+2026-07-26 05:31:04,752 ERROR migrate.runner - Migration 0042 aborted after lock timeout; ROLLBACK issued for statement 2 of 3
+2026-07-26 05:31:05,255 WARN  migrate.runner - Migration 0042 left in PARTIAL state: dim_customer_segment_lookup created, dim_customer.customer_segment NOT created
+2026-07-26 05:31:06,638 INFO  migrate.runner - Migration runner exiting, 1 partial / 0 applied
+2026-07-26 05:31:30,150 INFO  dbt.runner - 1 of 64 START model warehouse.stg_orders
+2026-07-26 05:31:34,802 INFO  dbt.runner - 1 of 64 OK created table model warehouse.stg_orders [SELECT 1200 in 2.00s]
+2026-07-26 05:31:36,688 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_orders'
+2026-07-26 05:31:41,843 INFO  dbt.runner - 2 of 64 START model warehouse.stg_customers
+2026-07-26 05:31:45,615 INFO  dbt.runner - 2 of 64 OK created table model warehouse.stg_customers [SELECT 2013 in 3.07s]
 Jul 26 05:31:48 warehouse-db postgres[7901]: LOG:  duration: 461.001 ms  statement: CREATE TABLE warehouse.stg_customers AS SELECT ...
-2026-07-26 05:31:52,000 INFO  dbt.runner - 3 of 64 START model warehouse.stg_payments
-2026-07-26 05:31:56,000 INFO  dbt.runner - 3 of 64 OK created table model warehouse.stg_payments [SELECT 2826 in 4.14s]
-2026-07-26 05:32:00,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:32:03,000 INFO  dbt.runner - 4 of 64 START model warehouse.stg_shipments
-2026-07-26 05:32:07,000 INFO  dbt.runner - 4 of 64 OK created table model warehouse.stg_shipments [SELECT 3639 in 5.21s]
-2026-07-26 05:32:09,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_shipments'
-2026-07-26 05:32:14,000 INFO  dbt.runner - 5 of 64 START model warehouse.stg_returns
-2026-07-26 05:32:18,000 INFO  dbt.runner - 5 of 64 OK created table model warehouse.stg_returns [SELECT 4452 in 6.28s]
-2026-07-26 05:32:23,000 DEBUG dbt.compiler - Compiled node warehouse.stg_returns in 0.04ms
-2026-07-26 05:32:25,000 INFO  dbt.runner - 6 of 64 START model warehouse.stg_promotions
-2026-07-26 05:32:29,000 INFO  dbt.runner - 6 of 64 OK created table model warehouse.stg_promotions [SELECT 5265 in 7.35s]
+2026-07-26 05:31:52,656 INFO  dbt.runner - 3 of 64 START model warehouse.stg_payments
+2026-07-26 05:31:56,428 INFO  dbt.runner - 3 of 64 OK created table model warehouse.stg_payments [SELECT 2826 in 4.14s]
+2026-07-26 05:32:00,200 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:32:03,469 INFO  dbt.runner - 4 of 64 START model warehouse.stg_shipments
+2026-07-26 05:32:07,241 INFO  dbt.runner - 4 of 64 OK created table model warehouse.stg_shipments [SELECT 3639 in 5.21s]
+2026-07-26 05:32:09,127 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_shipments'
+2026-07-26 05:32:14,282 INFO  dbt.runner - 5 of 64 START model warehouse.stg_returns
+2026-07-26 05:32:18,054 INFO  dbt.runner - 5 of 64 OK created table model warehouse.stg_returns [SELECT 4452 in 6.28s]
+2026-07-26 05:32:23,209 DEBUG dbt.compiler - Compiled node warehouse.stg_returns in 0.04ms
+2026-07-26 05:32:25,095 INFO  dbt.runner - 6 of 64 START model warehouse.stg_promotions
+2026-07-26 05:32:29,747 INFO  dbt.runner - 6 of 64 OK created table model warehouse.stg_promotions [SELECT 5265 in 7.35s]
 Jul 26 05:32:32 warehouse-db postgres[7905]: LOG:  duration: 705.005 ms  statement: CREATE TABLE warehouse.stg_promotions AS SELECT ...
-2026-07-26 05:32:36,000 INFO  dbt.runner - 7 of 64 START model warehouse.stg_inventory
-2026-07-26 05:32:40,000 INFO  dbt.runner - 7 of 64 OK created table model warehouse.stg_inventory [SELECT 6078 in 8.42s]
-2026-07-26 05:32:42,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_inventory'
-2026-07-26 05:32:47,000 INFO  dbt.runner - 8 of 64 START model warehouse.stg_suppliers
-2026-07-26 05:32:51,000 INFO  dbt.runner - 8 of 64 OK created table model warehouse.stg_suppliers [SELECT 6891 in 9.49s]
-2026-07-26 05:32:55,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:32:58,000 INFO  dbt.runner - 9 of 64 START model warehouse.int_order_items
-2026-07-26 05:33:02,000 INFO  dbt.runner - 9 of 64 OK created table model warehouse.int_order_items [SELECT 7704 in 10.56s]
-2026-07-26 05:33:09,000 INFO  dbt.runner - 10 of 64 START model warehouse.int_customer_activity
-2026-07-26 05:33:13,000 INFO  dbt.runner - 10 of 64 OK created table model warehouse.int_customer_activity [SELECT 8517 in 2.63s]
-2026-07-26 05:33:15,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.int_customer_activity'
+2026-07-26 05:32:36,788 INFO  dbt.runner - 7 of 64 START model warehouse.stg_inventory
+2026-07-26 05:32:40,560 INFO  dbt.runner - 7 of 64 OK created table model warehouse.stg_inventory [SELECT 6078 in 8.42s]
+2026-07-26 05:32:42,446 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_inventory'
+2026-07-26 05:32:47,601 INFO  dbt.runner - 8 of 64 START model warehouse.stg_suppliers
+2026-07-26 05:32:51,373 INFO  dbt.runner - 8 of 64 OK created table model warehouse.stg_suppliers [SELECT 6891 in 9.49s]
+2026-07-26 05:32:55,145 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:32:58,414 INFO  dbt.runner - 9 of 64 START model warehouse.int_order_items
+2026-07-26 05:33:02,186 INFO  dbt.runner - 9 of 64 OK created table model warehouse.int_order_items [SELECT 7704 in 10.56s]
+2026-07-26 05:33:09,227 INFO  dbt.runner - 10 of 64 START model warehouse.int_customer_activity
+2026-07-26 05:33:13,879 INFO  dbt.runner - 10 of 64 OK created table model warehouse.int_customer_activity [SELECT 8517 in 2.63s]
+2026-07-26 05:33:15,765 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.int_customer_activity'
 Jul 26 05:33:16 warehouse-db postgres[7909]: LOG:  duration: 949.009 ms  statement: CREATE TABLE warehouse.int_customer_activity AS SELECT ...
-2026-07-26 05:33:20,000 INFO  dbt.runner - 11 of 64 START model warehouse.int_payment_matching
-2026-07-26 05:33:24,000 INFO  dbt.runner - 11 of 64 OK created table model warehouse.int_payment_matching [SELECT 9330 in 3.70s]
-2026-07-26 05:33:29,000 DEBUG dbt.compiler - Compiled node warehouse.int_payment_matching in 0.01ms
-2026-07-26 05:33:31,000 INFO  dbt.runner - 12 of 64 START model warehouse.int_shipment_legs
-2026-07-26 05:33:35,000 INFO  dbt.runner - 12 of 64 OK created table model warehouse.int_shipment_legs [SELECT 10143 in 4.77s]
-2026-07-26 05:33:42,000 INFO  dbt.runner - 13 of 64 START model warehouse.dim_date
-2026-07-26 05:33:46,000 INFO  dbt.runner - 13 of 64 OK created table model warehouse.dim_date [SELECT 10956 in 5.84s]
-2026-07-26 05:33:48,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.dim_date'
-2026-07-26 05:33:50,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:33:53,000 INFO  dbt.runner - 14 of 64 START model warehouse.dim_product
-2026-07-26 05:33:57,000 INFO  dbt.runner - 14 of 64 OK created table model warehouse.dim_product [SELECT 11769 in 6.91s]
+2026-07-26 05:33:20,040 INFO  dbt.runner - 11 of 64 START model warehouse.int_payment_matching
+2026-07-26 05:33:24,692 INFO  dbt.runner - 11 of 64 OK created table model warehouse.int_payment_matching [SELECT 9330 in 3.70s]
+2026-07-26 05:33:29,847 DEBUG dbt.compiler - Compiled node warehouse.int_payment_matching in 0.01ms
+2026-07-26 05:33:31,733 INFO  dbt.runner - 12 of 64 START model warehouse.int_shipment_legs
+2026-07-26 05:33:35,505 INFO  dbt.runner - 12 of 64 OK created table model warehouse.int_shipment_legs [SELECT 10143 in 4.77s]
+2026-07-26 05:33:42,546 INFO  dbt.runner - 13 of 64 START model warehouse.dim_date
+2026-07-26 05:33:46,318 INFO  dbt.runner - 13 of 64 OK created table model warehouse.dim_date [SELECT 10956 in 5.84s]
+2026-07-26 05:33:48,204 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.dim_date'
+2026-07-26 05:33:50,090 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:33:53,359 INFO  dbt.runner - 14 of 64 START model warehouse.dim_product
+2026-07-26 05:33:57,131 INFO  dbt.runner - 14 of 64 OK created table model warehouse.dim_product [SELECT 11769 in 6.91s]
 Jul 26 05:34:00 warehouse-db postgres[7913]: LOG:  duration: 1193.013 ms  statement: CREATE TABLE warehouse.dim_product AS SELECT ...
-2026-07-26 05:34:04,000 INFO  dbt.runner - 15 of 64 START model warehouse.dim_supplier
-2026-07-26 05:34:08,000 INFO  dbt.runner - 15 of 64 OK created table model warehouse.dim_supplier [SELECT 12582 in 7.98s]
-2026-07-26 05:34:15,000 INFO  dbt.runner - 16 of 64 START model warehouse.dim_channel
-2026-07-26 05:34:19,000 INFO  dbt.runner - 16 of 64 OK created table model warehouse.dim_channel [SELECT 13395 in 8.05s]
-2026-07-26 05:34:21,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.dim_channel'
-2026-07-26 05:34:26,000 INFO  dbt.runner - 17 of 64 START model warehouse.dim_geography
-2026-07-26 05:34:30,000 INFO  dbt.runner - 17 of 64 OK created table model warehouse.dim_geography [SELECT 14208 in 9.12s]
-2026-07-26 05:34:35,000 DEBUG dbt.compiler - Compiled node warehouse.dim_geography in 0.07ms
-2026-07-26 05:34:37,000 INFO  dbt.runner - 18 of 64 START model warehouse.fct_orders
-2026-07-26 05:34:41,000 INFO  dbt.runner - 18 of 64 OK created table model warehouse.fct_orders [SELECT 15021 in 10.19s]
+2026-07-26 05:34:04,172 INFO  dbt.runner - 15 of 64 START model warehouse.dim_supplier
+2026-07-26 05:34:08,824 INFO  dbt.runner - 15 of 64 OK created table model warehouse.dim_supplier [SELECT 12582 in 7.98s]
+2026-07-26 05:34:15,865 INFO  dbt.runner - 16 of 64 START model warehouse.dim_channel
+2026-07-26 05:34:19,637 INFO  dbt.runner - 16 of 64 OK created table model warehouse.dim_channel [SELECT 13395 in 8.05s]
+2026-07-26 05:34:21,523 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.dim_channel'
+2026-07-26 05:34:26,678 INFO  dbt.runner - 17 of 64 START model warehouse.dim_geography
+2026-07-26 05:34:30,450 INFO  dbt.runner - 17 of 64 OK created table model warehouse.dim_geography [SELECT 14208 in 9.12s]
+2026-07-26 05:34:35,605 DEBUG dbt.compiler - Compiled node warehouse.dim_geography in 0.07ms
+2026-07-26 05:34:37,491 INFO  dbt.runner - 18 of 64 START model warehouse.fct_orders
+2026-07-26 05:34:41,263 INFO  dbt.runner - 18 of 64 OK created table model warehouse.fct_orders [SELECT 15021 in 10.19s]
 Jul 26 05:34:44 warehouse-db postgres[7917]: LOG:  duration: 1437.017 ms  statement: CREATE TABLE warehouse.fct_orders AS SELECT ...
-2026-07-26 05:34:45,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:34:48,000 INFO  dbt.runner - 19 of 64 START model warehouse.fct_payments
-2026-07-26 05:34:52,000 INFO  dbt.runner - 19 of 64 OK created table model warehouse.fct_payments [SELECT 15834 in 2.26s]
-2026-07-26 05:34:54,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.fct_payments'
-2026-07-26 05:34:59,000 INFO  dbt.runner - 20 of 64 START model warehouse.fct_shipments
-2026-07-26 05:35:03,000 INFO  dbt.runner - 20 of 64 OK created table model warehouse.fct_shipments [SELECT 16647 in 3.33s]
-2026-07-26 05:35:10,000 INFO  dbt.runner - 21 of 64 START model warehouse.fct_returns
-2026-07-26 05:35:14,000 INFO  dbt.runner - 21 of 64 OK created table model warehouse.fct_returns [SELECT 17460 in 4.40s]
-2026-07-26 05:35:21,000 INFO  dbt.runner - 22 of 64 START model warehouse.mart_daily_sales
-2026-07-26 05:35:25,000 INFO  dbt.runner - 22 of 64 OK created table model warehouse.mart_daily_sales [SELECT 18273 in 5.47s]
-2026-07-26 05:35:27,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.mart_daily_sales'
+2026-07-26 05:34:45,035 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:34:48,304 INFO  dbt.runner - 19 of 64 START model warehouse.fct_payments
+2026-07-26 05:34:52,076 INFO  dbt.runner - 19 of 64 OK created table model warehouse.fct_payments [SELECT 15834 in 2.26s]
+2026-07-26 05:34:54,842 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.fct_payments'
+2026-07-26 05:34:59,117 INFO  dbt.runner - 20 of 64 START model warehouse.fct_shipments
+2026-07-26 05:35:03,769 INFO  dbt.runner - 20 of 64 OK created table model warehouse.fct_shipments [SELECT 16647 in 3.33s]
+2026-07-26 05:35:10,810 INFO  dbt.runner - 21 of 64 START model warehouse.fct_returns
+2026-07-26 05:35:14,582 INFO  dbt.runner - 21 of 64 OK created table model warehouse.fct_returns [SELECT 17460 in 4.40s]
+2026-07-26 05:35:21,623 INFO  dbt.runner - 22 of 64 START model warehouse.mart_daily_sales
+2026-07-26 05:35:25,395 INFO  dbt.runner - 22 of 64 OK created table model warehouse.mart_daily_sales [SELECT 18273 in 5.47s]
+2026-07-26 05:35:27,281 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.mart_daily_sales'
 Jul 26 05:35:28 warehouse-db postgres[7921]: LOG:  duration: 1681.021 ms  statement: CREATE TABLE warehouse.mart_daily_sales AS SELECT ...
-2026-07-26 05:35:32,000 INFO  dbt.runner - 23 of 64 START model warehouse.mart_channel_perf
-2026-07-26 05:35:36,000 INFO  dbt.runner - 23 of 64 OK created table model warehouse.mart_channel_perf [SELECT 19086 in 6.54s]
-2026-07-26 05:35:40,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:35:41,000 DEBUG dbt.compiler - Compiled node warehouse.mart_channel_perf in 0.04ms
-2026-07-26 05:35:43,000 INFO  dbt.runner - 24 of 64 START model warehouse.mart_supplier_scorecard
-2026-07-26 05:35:47,000 INFO  dbt.runner - 24 of 64 OK created table model warehouse.mart_supplier_scorecard [SELECT 19899 in 7.61s]
-2026-07-26 05:35:54,000 INFO  dbt.runner - 25 of 64 START model warehouse.mart_inventory_health
-2026-07-26 05:35:58,000 INFO  dbt.runner - 25 of 64 OK created table model warehouse.mart_inventory_health [SELECT 20712 in 8.68s]
-2026-07-26 05:36:00,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.mart_inventory_health'
-2026-07-26 05:36:05,000 INFO  dbt.runner - 26 of 64 START model warehouse.mart_returns_analysis
-2026-07-26 05:36:09,000 INFO  dbt.runner - 26 of 64 OK created table model warehouse.mart_returns_analysis [SELECT 21525 in 9.75s]
+2026-07-26 05:35:32,436 INFO  dbt.runner - 23 of 64 START model warehouse.mart_channel_perf
+2026-07-26 05:35:36,208 INFO  dbt.runner - 23 of 64 OK created table model warehouse.mart_channel_perf [SELECT 19086 in 6.54s]
+2026-07-26 05:35:40,860 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:35:41,363 DEBUG dbt.compiler - Compiled node warehouse.mart_channel_perf in 0.04ms
+2026-07-26 05:35:43,249 INFO  dbt.runner - 24 of 64 START model warehouse.mart_supplier_scorecard
+2026-07-26 05:35:47,021 INFO  dbt.runner - 24 of 64 OK created table model warehouse.mart_supplier_scorecard [SELECT 19899 in 7.61s]
+2026-07-26 05:35:54,062 INFO  dbt.runner - 25 of 64 START model warehouse.mart_inventory_health
+2026-07-26 05:35:58,714 INFO  dbt.runner - 25 of 64 OK created table model warehouse.mart_inventory_health [SELECT 20712 in 8.68s]
+2026-07-26 05:36:00,600 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.mart_inventory_health'
+2026-07-26 05:36:05,755 INFO  dbt.runner - 26 of 64 START model warehouse.mart_returns_analysis
+2026-07-26 05:36:09,527 INFO  dbt.runner - 26 of 64 OK created table model warehouse.mart_returns_analysis [SELECT 21525 in 9.75s]
 Jul 26 05:36:12 warehouse-db postgres[7925]: LOG:  duration: 1925.025 ms  statement: CREATE TABLE warehouse.mart_returns_analysis AS SELECT ...
-2026-07-26 05:36:16,000 INFO  dbt.runner - 27 of 64 START model warehouse.stg_warehouse_bins
-2026-07-26 05:36:20,000 INFO  dbt.runner - 27 of 64 OK created table model warehouse.stg_warehouse_bins [SELECT 22338 in 10.82s]
-2026-07-26 05:36:27,000 INFO  dbt.runner - 28 of 64 START model warehouse.stg_carrier_events
-2026-07-26 05:36:31,000 INFO  dbt.runner - 28 of 64 OK created table model warehouse.stg_carrier_events [SELECT 23151 in 2.89s]
-2026-07-26 05:36:33,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_carrier_events'
-2026-07-26 05:36:35,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:36:38,000 INFO  dbt.runner - 29 of 64 START model warehouse.stg_price_history
-2026-07-26 05:36:42,000 INFO  dbt.runner - 29 of 64 OK created table model warehouse.stg_price_history [SELECT 23964 in 3.96s]
-2026-07-26 05:36:47,000 DEBUG dbt.compiler - Compiled node warehouse.stg_price_history in 0.01ms
-2026-07-26 05:36:49,000 INFO  dbt.runner - 30 of 64 START model warehouse.int_carrier_sla
-2026-07-26 05:36:53,000 INFO  dbt.runner - 30 of 64 OK created table model warehouse.int_carrier_sla [SELECT 24777 in 4.03s]
+2026-07-26 05:36:16,568 INFO  dbt.runner - 27 of 64 START model warehouse.stg_warehouse_bins
+2026-07-26 05:36:20,340 INFO  dbt.runner - 27 of 64 OK created table model warehouse.stg_warehouse_bins [SELECT 22338 in 10.82s]
+2026-07-26 05:36:27,381 INFO  dbt.runner - 28 of 64 START model warehouse.stg_carrier_events
+2026-07-26 05:36:31,153 INFO  dbt.runner - 28 of 64 OK created table model warehouse.stg_carrier_events [SELECT 23151 in 2.89s]
+2026-07-26 05:36:33,039 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.stg_carrier_events'
+2026-07-26 05:36:35,805 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:36:38,194 INFO  dbt.runner - 29 of 64 START model warehouse.stg_price_history
+2026-07-26 05:36:42,846 INFO  dbt.runner - 29 of 64 OK created table model warehouse.stg_price_history [SELECT 23964 in 3.96s]
+2026-07-26 05:36:47,121 DEBUG dbt.compiler - Compiled node warehouse.stg_price_history in 0.01ms
+2026-07-26 05:36:49,007 INFO  dbt.runner - 30 of 64 START model warehouse.int_carrier_sla
+2026-07-26 05:36:53,659 INFO  dbt.runner - 30 of 64 OK created table model warehouse.int_carrier_sla [SELECT 24777 in 4.03s]
 Jul 26 05:36:56 warehouse-db postgres[7929]: LOG:  duration: 2169.029 ms  statement: CREATE TABLE warehouse.int_carrier_sla AS SELECT ...
-2026-07-26 05:37:00,000 INFO  dbt.runner - 31 of 64 START model warehouse.int_price_changes
-2026-07-26 05:37:00,000 INFO  dbt.runner - Running model warehouse.dim_customer_enriched
-2026-07-26 05:37:03,000 ERROR dbt.runner - Database Error in model dim_customer_enriched (models/marts/dim_customer_enriched.sql)
+2026-07-26 05:37:00,700 INFO  dbt.runner - 31 of 64 START model warehouse.int_price_changes
+2026-07-26 05:37:00,700 INFO  dbt.runner - Running model warehouse.dim_customer_enriched
+2026-07-26 05:37:03,089 ERROR dbt.runner - Database Error in model dim_customer_enriched (models/marts/dim_customer_enriched.sql)
   column "customer_segment" does not exist
   LINE 14:   d.customer_segment AS segment,
                 ^
   HINT:  Perhaps you meant to reference the column "d.customer_segment_id".
   compiled SQL at target/run/warehouse/models/marts/dim_customer_enriched.sql
-2026-07-26 05:37:04,000 INFO  dbt.runner - 31 of 64 OK created table model warehouse.int_price_changes [SELECT 25590 in 5.10s]
-2026-07-26 05:37:06,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.int_price_changes'
+2026-07-26 05:37:04,472 INFO  dbt.runner - 31 of 64 OK created table model warehouse.int_price_changes [SELECT 25590 in 5.10s]
+2026-07-26 05:37:06,358 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.int_price_changes'
 Jul 26 05:37:06 warehouse-db postgres[8220]: ERROR:  column "customer_segment" does not exist at character 288
-2026-07-26 05:37:07,000 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
-2026-07-26 05:37:11,000 INFO  dbt.runner - 32 of 64 START model warehouse.int_stock_movements
-2026-07-26 05:37:15,000 INFO  dbt.runner - 32 of 64 OK created table model warehouse.int_stock_movements [SELECT 26403 in 6.17s]
-2026-07-26 05:37:22,000 INFO  dbt.runner - 33 of 64 START model warehouse.dim_carrier
-2026-07-26 05:37:26,000 INFO  dbt.runner - 33 of 64 OK created table model warehouse.dim_carrier [SELECT 27216 in 7.24s]
-2026-07-26 05:37:30,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:37:33,000 INFO  dbt.runner - 34 of 64 START model warehouse.dim_warehouse
-2026-07-26 05:37:37,000 INFO  dbt.runner - 34 of 64 OK created table model warehouse.dim_warehouse [SELECT 28029 in 8.31s]
-2026-07-26 05:37:39,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.dim_warehouse'
+2026-07-26 05:37:07,741 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
+2026-07-26 05:37:11,513 INFO  dbt.runner - 32 of 64 START model warehouse.int_stock_movements
+2026-07-26 05:37:15,285 INFO  dbt.runner - 32 of 64 OK created table model warehouse.int_stock_movements [SELECT 26403 in 6.17s]
+2026-07-26 05:37:22,326 INFO  dbt.runner - 33 of 64 START model warehouse.dim_carrier
+2026-07-26 05:37:26,098 INFO  dbt.runner - 33 of 64 OK created table model warehouse.dim_carrier [SELECT 27216 in 7.24s]
+2026-07-26 05:37:30,750 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:37:33,139 INFO  dbt.runner - 34 of 64 START model warehouse.dim_warehouse
+2026-07-26 05:37:37,791 INFO  dbt.runner - 34 of 64 OK created table model warehouse.dim_warehouse [SELECT 28029 in 8.31s]
+2026-07-26 05:37:39,677 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.dim_warehouse'
 Jul 26 05:37:40 warehouse-db postgres[7933]: LOG:  duration: 2413.033 ms  statement: CREATE TABLE warehouse.dim_warehouse AS SELECT ...
-2026-07-26 05:37:44,000 INFO  dbt.runner - 35 of 64 START model warehouse.dim_promotion
-2026-07-26 05:37:48,000 INFO  dbt.runner - 35 of 64 OK created table model warehouse.dim_promotion [SELECT 28842 in 9.38s]
-2026-07-26 05:37:53,000 DEBUG dbt.compiler - Compiled node warehouse.dim_promotion in 0.07ms
-2026-07-26 05:37:55,000 INFO  dbt.runner - 36 of 64 START model warehouse.dim_currency
-2026-07-26 05:37:59,000 INFO  dbt.runner - 36 of 64 OK created table model warehouse.dim_currency [SELECT 29655 in 10.45s]
-2026-07-26 05:38:06,000 INFO  dbt.runner - 37 of 64 START model warehouse.fct_stock_movements
-2026-07-26 05:38:06,000 INFO  dbt.runner - Running model warehouse.fct_orders_segmented
-2026-07-26 05:38:09,000 ERROR dbt.runner - Database Error in model fct_orders_segmented (models/marts/fct_orders_segmented.sql)
+2026-07-26 05:37:44,832 INFO  dbt.runner - 35 of 64 START model warehouse.dim_promotion
+2026-07-26 05:37:48,604 INFO  dbt.runner - 35 of 64 OK created table model warehouse.dim_promotion [SELECT 28842 in 9.38s]
+2026-07-26 05:37:53,759 DEBUG dbt.compiler - Compiled node warehouse.dim_promotion in 0.07ms
+2026-07-26 05:37:55,645 INFO  dbt.runner - 36 of 64 START model warehouse.dim_currency
+2026-07-26 05:37:59,417 INFO  dbt.runner - 36 of 64 OK created table model warehouse.dim_currency [SELECT 29655 in 10.45s]
+2026-07-26 05:38:06,458 INFO  dbt.runner - 37 of 64 START model warehouse.fct_stock_movements
+2026-07-26 05:38:06,458 INFO  dbt.runner - Running model warehouse.fct_orders_segmented
+2026-07-26 05:38:09,727 ERROR dbt.runner - Database Error in model fct_orders_segmented (models/marts/fct_orders_segmented.sql)
   column "customer_segment" does not exist
   LINE 14:   d.customer_segment AS segment,
                 ^
   HINT:  Perhaps you meant to reference the column "d.customer_segment_id".
   compiled SQL at target/run/warehouse/models/marts/fct_orders_segmented.sql
-2026-07-26 05:38:10,000 INFO  dbt.runner - 37 of 64 OK created table model warehouse.fct_stock_movements [SELECT 30468 in 2.52s]
-2026-07-26 05:38:12,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.fct_stock_movements'
+2026-07-26 05:38:10,230 INFO  dbt.runner - 37 of 64 OK created table model warehouse.fct_stock_movements [SELECT 30468 in 2.52s]
+2026-07-26 05:38:12,116 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.fct_stock_movements'
 Jul 26 05:38:12 warehouse-db postgres[8286]: ERROR:  column "customer_segment" does not exist at character 288
-2026-07-26 05:38:13,000 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
-2026-07-26 05:38:17,000 INFO  dbt.runner - 38 of 64 START model warehouse.fct_price_changes
-2026-07-26 05:38:21,000 INFO  dbt.runner - 38 of 64 OK created table model warehouse.fct_price_changes [SELECT 31281 in 3.59s]
+2026-07-26 05:38:13,499 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
+2026-07-26 05:38:17,271 INFO  dbt.runner - 38 of 64 START model warehouse.fct_price_changes
+2026-07-26 05:38:21,043 INFO  dbt.runner - 38 of 64 OK created table model warehouse.fct_price_changes [SELECT 31281 in 3.59s]
 Jul 26 05:38:24 warehouse-db postgres[7937]: LOG:  duration: 2657.037 ms  statement: CREATE TABLE warehouse.fct_price_changes AS SELECT ...
-2026-07-26 05:38:25,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:38:28,000 INFO  dbt.runner - 39 of 64 START model warehouse.fct_carrier_sla
-2026-07-26 05:38:32,000 INFO  dbt.runner - 39 of 64 OK created table model warehouse.fct_carrier_sla [SELECT 32094 in 4.66s]
-2026-07-26 05:38:39,000 INFO  dbt.runner - 40 of 64 START model warehouse.mart_logistics_perf
-2026-07-26 05:38:43,000 INFO  dbt.runner - 40 of 64 OK created table model warehouse.mart_logistics_perf [SELECT 32907 in 5.73s]
-2026-07-26 05:38:45,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.mart_logistics_perf'
-2026-07-26 05:38:50,000 INFO  dbt.runner - 41 of 64 START model warehouse.mart_pricing_effectiveness
-2026-07-26 05:38:54,000 INFO  dbt.runner - 41 of 64 OK created table model warehouse.mart_pricing_effectiveness [SELECT 33720 in 6.80s]
-2026-07-26 05:38:59,000 DEBUG dbt.compiler - Compiled node warehouse.mart_pricing_effectiveness in 0.04ms
-2026-07-26 05:39:01,000 INFO  dbt.runner - 42 of 64 START model warehouse.mart_promo_uplift
-2026-07-26 05:39:05,000 INFO  dbt.runner - 42 of 64 OK created table model warehouse.mart_promo_uplift [SELECT 34533 in 7.87s]
+2026-07-26 05:38:25,695 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:38:28,084 INFO  dbt.runner - 39 of 64 START model warehouse.fct_carrier_sla
+2026-07-26 05:38:32,736 INFO  dbt.runner - 39 of 64 OK created table model warehouse.fct_carrier_sla [SELECT 32094 in 4.66s]
+2026-07-26 05:38:39,777 INFO  dbt.runner - 40 of 64 START model warehouse.mart_logistics_perf
+2026-07-26 05:38:43,549 INFO  dbt.runner - 40 of 64 OK created table model warehouse.mart_logistics_perf [SELECT 32907 in 5.73s]
+2026-07-26 05:38:45,435 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.mart_logistics_perf'
+2026-07-26 05:38:50,590 INFO  dbt.runner - 41 of 64 START model warehouse.mart_pricing_effectiveness
+2026-07-26 05:38:54,362 INFO  dbt.runner - 41 of 64 OK created table model warehouse.mart_pricing_effectiveness [SELECT 33720 in 6.80s]
+2026-07-26 05:38:59,517 DEBUG dbt.compiler - Compiled node warehouse.mart_pricing_effectiveness in 0.04ms
+2026-07-26 05:39:01,403 INFO  dbt.runner - 42 of 64 START model warehouse.mart_promo_uplift
+2026-07-26 05:39:05,175 INFO  dbt.runner - 42 of 64 OK created table model warehouse.mart_promo_uplift [SELECT 34533 in 7.87s]
 Jul 26 05:39:08 warehouse-db postgres[7941]: LOG:  duration: 2901.041 ms  statement: CREATE TABLE warehouse.mart_promo_uplift AS SELECT ...
-2026-07-26 05:39:12,000 INFO  dbt.runner - 43 of 64 START model warehouse.snap_inventory_daily
-2026-07-26 05:39:13,000 INFO  dbt.runner - Running model warehouse.mart_customer_ltv
-2026-07-26 05:39:16,000 INFO  dbt.runner - 43 of 64 OK created table model warehouse.snap_inventory_daily [SELECT 35346 in 8.94s]
-2026-07-26 05:39:16,000 ERROR dbt.runner - Database Error in model mart_customer_ltv (models/marts/mart_customer_ltv.sql)
+2026-07-26 05:39:12,216 INFO  dbt.runner - 43 of 64 START model warehouse.snap_inventory_daily
+2026-07-26 05:39:13,599 INFO  dbt.runner - Running model warehouse.mart_customer_ltv
+2026-07-26 05:39:16,868 INFO  dbt.runner - 43 of 64 OK created table model warehouse.snap_inventory_daily [SELECT 35346 in 8.94s]
+2026-07-26 05:39:16,868 ERROR dbt.runner - Database Error in model mart_customer_ltv (models/marts/mart_customer_ltv.sql)
   column "customer_segment" does not exist
   LINE 14:   d.customer_segment AS segment,
                 ^
   HINT:  Perhaps you meant to reference the column "d.customer_segment_id".
   compiled SQL at target/run/warehouse/models/marts/mart_customer_ltv.sql
-2026-07-26 05:39:18,000 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.snap_inventory_daily'
+2026-07-26 05:39:18,754 DEBUG dbt.adapter - Acquiring connection 'model.warehouse.snap_inventory_daily'
 Jul 26 05:39:19 warehouse-db postgres[8353]: ERROR:  column "customer_segment" does not exist at character 288
-2026-07-26 05:39:20,000 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
-2026-07-26 05:39:20,000 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
-2026-07-26 05:39:23,000 INFO  dbt.runner - 44 of 64 START model warehouse.snap_orders_hourly
-2026-07-26 05:39:27,000 INFO  dbt.runner - 44 of 64 OK created table model warehouse.snap_orders_hourly [SELECT 36159 in 9.01s]
-2026-07-26 05:40:20,000 INFO  dbt.runner - Running model warehouse.mart_segment_revenue
-2026-07-26 05:40:23,000 ERROR dbt.runner - Database Error in model mart_segment_revenue (models/marts/mart_segment_revenue.sql)
+2026-07-26 05:39:20,640 INFO  dbt.runner - Concurrency: 8 threads (target='prod')
+2026-07-26 05:39:20,640 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
+2026-07-26 05:39:23,029 INFO  dbt.runner - 44 of 64 START model warehouse.snap_orders_hourly
+2026-07-26 05:39:27,681 INFO  dbt.runner - 44 of 64 OK created table model warehouse.snap_orders_hourly [SELECT 36159 in 9.01s]
+2026-07-26 05:40:20,740 INFO  dbt.runner - Running model warehouse.mart_segment_revenue
+2026-07-26 05:40:23,129 ERROR dbt.runner - Database Error in model mart_segment_revenue (models/marts/mart_segment_revenue.sql)
   column "customer_segment" does not exist
   LINE 14:   d.customer_segment AS segment,
                 ^
   HINT:  Perhaps you meant to reference the column "d.customer_segment_id".
   compiled SQL at target/run/warehouse/models/marts/mart_segment_revenue.sql
 Jul 26 05:40:26 warehouse-db postgres[8420]: ERROR:  column "customer_segment" does not exist at character 288
-2026-07-26 05:40:27,000 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
-2026-07-26 05:41:28,000 INFO  dbt.runner - Running model warehouse.rpt_exec_dashboard
-2026-07-26 05:41:31,000 ERROR dbt.runner - Database Error in model rpt_exec_dashboard (models/marts/rpt_exec_dashboard.sql)
+2026-07-26 05:40:27,781 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
+2026-07-26 05:41:28,384 INFO  dbt.runner - Running model warehouse.rpt_exec_dashboard
+2026-07-26 05:41:31,653 ERROR dbt.runner - Database Error in model rpt_exec_dashboard (models/marts/rpt_exec_dashboard.sql)
   column "customer_segment" does not exist
   LINE 14:   d.customer_segment AS segment,
                 ^
   HINT:  Perhaps you meant to reference the column "d.customer_segment_id".
   compiled SQL at target/run/warehouse/models/marts/rpt_exec_dashboard.sql
 Jul 26 05:41:34 warehouse-db postgres[8488]: ERROR:  column "customer_segment" does not exist at character 288
-2026-07-26 05:41:35,000 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
-2026-07-26 05:42:10,000 WARN  dbt.runner - 5 of 38 models FAILED, 33 completed successfully
-2026-07-26 05:42:20,000 ERROR airflow.taskinstance - Task failed with exception: dbt exited non-zero
-2026-07-26 05:42:22,000 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=warehouse_build, task_id=dbt_run_marts
-2026-07-26 05:42:23,000 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-26 05:41:35,425 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_segment does not exist
+2026-07-26 05:42:10,630 WARN  dbt.runner - 5 of 38 models FAILED, 33 completed successfully
+2026-07-26 05:42:20,060 ERROR airflow.taskinstance - Task failed with exception: dbt exited non-zero
+2026-07-26 05:42:22,826 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=warehouse_build, task_id=dbt_run_marts
+2026-07-26 05:42:23,329 INFO  airflow.local_task_job - Task exited with return code 1

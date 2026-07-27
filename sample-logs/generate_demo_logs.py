@@ -36,12 +36,17 @@ def clf(t):                      # 28/Jul/2026:02:00:01 +0000
 
 def build(start, events):
     """events: list of (offset_seconds, line_or_lines). Sorted by offset;
-    multi-line entries (stack traces) keep their order."""
+    multi-line entries (stack traces) keep their order.
+
+    Sub-second parts are derived from the offset so timestamps look real
+    instead of every line ending in .000, while staying monotonic within a
+    second and identical on every run."""
     out = []
     for offset, payload in sorted(events, key=lambda e: e[0]):
-        t = start + timedelta(seconds=offset)
         lines = payload if isinstance(payload, list) else [payload]
-        for line in lines:
+        base_ms = (offset * 383) % 880
+        for k, line in enumerate(lines):
+            t = start + timedelta(seconds=offset, milliseconds=base_ms + k)
             out.append(line.format(iso=iso(t), isoz=isoz(t),
                                    sys=syslog(t), clf=clf(t)))
     return "\n".join(out) + "\n"
