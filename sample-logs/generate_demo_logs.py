@@ -261,11 +261,11 @@ def warehouse_schema_drift():
     ev = []
 
     ev.append((0, "{iso} INFO  migrate.runner - Applying migration 0042_add_customer_segment"))
-    ev.append((3, "{sys} warehouse-db prod[7701]: LOG:  statement: ALTER TABLE dim_customer "
+    ev.append((3, "{sys} warehouse-db postgres[7701]: LOG:  statement: ALTER TABLE dim_customer "
                   "ADD COLUMN customer_segment varchar(32)"))
-    ev.append((8, "{sys} warehouse-db prod[7701]: LOG:  process 7701 still waiting for "
+    ev.append((8, "{sys} warehouse-db postgres[7701]: LOG:  process 7701 still waiting for "
                   "AccessExclusiveLock on relation 18442 after 5000.114 ms"))
-    ev.append((63, "{sys} warehouse-db prod[7701]: ERROR:  canceling statement due to lock timeout"))
+    ev.append((63, "{sys} warehouse-db postgres[7701]: ERROR:  canceling statement due to lock timeout"))
     ev.append((64, "{iso} ERROR migrate.runner - Migration 0042 aborted after lock timeout; "
                    "ROLLBACK issued for statement 2 of 3"))
     ev.append((65, "{iso} WARN  migrate.runner - Migration 0042 left in PARTIAL state: "
@@ -293,7 +293,7 @@ def warehouse_schema_drift():
         if i % 3 == 0:
             ev.append((s + 6, "{iso} DEBUG dbt.adapter - Acquiring connection 'model.warehouse.%s'" % model))
         if i % 4 == 1:
-            ev.append((s + 7, "{sys} warehouse-db prod[%d]: LOG:  duration: %d.%03d ms  statement: "
+            ev.append((s + 7, "{sys} warehouse-db postgres[%d]: LOG:  duration: %d.%03d ms  statement: "
                               "CREATE TABLE warehouse.%s AS SELECT ..." % (7900 + i, 400 + i * 61, i, model)))
         if i % 5 == 2:
             ev.append((s + 8, "{iso} INFO  dbt.runner - Concurrency: 8 threads (target='prod')"))
@@ -311,7 +311,7 @@ def warehouse_schema_drift():
                            "                ^",
                            "  HINT:  Perhaps you meant to reference the column \"d.customer_segment_id\".",
                            "  compiled SQL at target/run/warehouse/models/marts/%s.sql" % name]))
-        ev.append((s + 6, "{sys} warehouse-db prod[%d]: ERROR:  column \"customer_segment\" does not exist "
+        ev.append((s + 6, "{sys} warehouse-db postgres[%d]: ERROR:  column \"customer_segment\" does not exist "
                           "at character 288" % (7800 + s)))
         # unquoted + psycopg2 form so the regex classifier lands on SQL_SCHEMA_ERROR
         ev.append((s + 7, "{iso} ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: "

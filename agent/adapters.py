@@ -106,7 +106,14 @@ _STATUS_5XX = re.compile(r'(?:"\s*|status[=: ])(5\d{2})\b')
 _STATUS_4XX = re.compile(r'(?:"\s*|status[=: ])(4\d{2})\b')
 _EXCEPTION = re.compile(r"\b\w+(?:Exception|Error)\b|Traceback \(most recent call last\)")
 
-_NOT_SOURCES = {"error", "warn", "warning", "info", "debug", "critical", "fatal", "trace", "notice"}
+# Words that look like "name:" but are log grammar, not emitters. Without this
+# "LOG:  duration: 41ms  statement: SELECT ..." yields source="statement".
+_NOT_SOURCES = {
+    "error", "warn", "warning", "info", "debug", "critical", "fatal", "trace", "notice",
+    "statement", "duration", "detail", "hint", "context", "query", "log", "state",
+    "level", "msg", "message", "line", "task", "tasks", "queued", "running", "exception",
+    "caused", "reason", "status", "result", "note", "stack", "file", "at", "in", "the",
+}
 
 
 def _parse_line(line: str, line_number: int) -> LogEntry:
@@ -129,8 +136,10 @@ def _parse_line(line: str, line_number: int) -> LogEntry:
         level = "INFO"
 
     source = None
-    for pat in _SOURCE_PATTERNS:
-        m = pat.search(line)
+    for i, pat in enumerate(_SOURCE_PATTERNS):
+        # the bare "name:" pattern is the loosest — only trust it near the start
+        # of the line, where a process/emitter name actually lives
+        m = pat.search(line[:70] if i == len(_SOURCE_PATTERNS) - 1 else line)
         if m and m.group(1).lower() not in _NOT_SOURCES:
             source = m.group(1)
             break
