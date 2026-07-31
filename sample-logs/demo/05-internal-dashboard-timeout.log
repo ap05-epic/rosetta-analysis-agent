@@ -1,0 +1,257 @@
+2026-07-31 10:00:00,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 60 success today
+2026-07-31 10:00:02,766 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+Jul 31 10:00:04 etl-node-01 postgres[3100]: LOG:  checkpoint complete: wrote 700 buffers
+2026-07-31 10:00:06,538 INFO  risk_dashboard_cache.extract_source - processed 1400 rows in 4.0s
+2026-07-31 10:00:09,807 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:00:09,807 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:00:13,579 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 61 success today
+2026-07-31 10:00:20,620 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:00:26,278 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 62 success today
+2026-07-31 10:00:28,164 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+2026-07-31 10:00:32,816 INFO  risk_dashboard_cache.build_staging - processed 2634 rows in 6.2s
+2026-07-31 10:00:34,702 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-31 10:00:35,205 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:00:35,205 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:00:39,857 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 63 success today
+2026-07-31 10:00:42,246 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+Jul 31 10:00:43 etl-node-01 postgres[3103]: LOG:  checkpoint complete: wrote 859 buffers
+2026-07-31 10:00:52,556 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 64 success today
+2026-07-31 10:00:54,442 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+2026-07-31 10:00:57,711 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:00:58,214 INFO  risk_dashboard_cache.refresh_marts - processed 3868 rows in 8.4s
+2026-07-31 10:01:01,483 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:01:01,483 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:01:05,255 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 65 success today
+2026-07-31 10:01:12,296 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:01:18,834 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 66 success today
+2026-07-31 10:01:20,720 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+Jul 31 10:01:22 etl-node-01 postgres[3106]: LOG:  checkpoint complete: wrote 1018 buffers
+2026-07-31 10:01:24,492 INFO  risk_dashboard_cache.archive_outputs - processed 5102 rows in 10.6s
+2026-07-31 10:01:27,761 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:01:27,761 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:01:31,533 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 67 success today
+2026-07-31 10:01:39,077 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-31 10:01:44,232 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 68 success today
+2026-07-31 10:01:46,118 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+2026-07-31 10:01:50,770 INFO  risk_dashboard_cache.extract_source - processed 6336 rows in 12.8s
+2026-07-31 10:01:53,159 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:01:53,159 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:01:57,811 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 69 success today
+Jul 31 10:02:01 etl-node-01 postgres[3109]: LOG:  checkpoint complete: wrote 1177 buffers
+2026-07-31 10:02:04,852 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:02:10,510 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 70 success today
+2026-07-31 10:02:12,396 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+2026-07-31 10:02:13,779 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+2026-07-31 10:02:15,665 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:02:16,168 INFO  risk_dashboard_cache.build_staging - processed 7570 rows in 14.0s
+2026-07-31 10:02:19,437 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:02:19,437 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:02:23,209 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 71 success today
+2026-07-31 10:02:36,788 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 72 success today
+2026-07-31 10:02:38,674 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+Jul 31 10:02:40 etl-node-01 postgres[3112]: LOG:  checkpoint complete: wrote 1336 buffers
+2026-07-31 10:02:42,446 INFO  risk_dashboard_cache.refresh_marts - processed 8804 rows in 5.2s
+2026-07-31 10:02:44,332 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-31 10:02:45,715 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:02:45,715 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:02:49,487 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 73 success today
+2026-07-31 10:02:56,528 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:03:02,186 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 74 success today
+2026-07-31 10:03:04,072 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+2026-07-31 10:03:08,724 INFO  risk_dashboard_cache.archive_outputs - processed 10038 rows in 7.4s
+2026-07-31 10:03:11,113 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:03:11,113 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:03:15,765 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 75 success today
+Jul 31 10:03:19 etl-node-01 postgres[3115]: LOG:  checkpoint complete: wrote 1495 buffers
+2026-07-31 10:03:28,464 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 76 success today
+2026-07-31 10:03:30,350 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+2026-07-31 10:03:33,619 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:03:34,122 INFO  risk_dashboard_cache.extract_source - processed 11272 rows in 9.6s
+2026-07-31 10:03:37,391 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:03:37,391 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:03:41,163 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 77 success today
+2026-07-31 10:03:44,432 INFO  audit.trail - user=svc-etl action=read resource=validate_batch result=allow
+2026-07-31 10:03:48,204 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:03:49,587 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-31 10:03:54,742 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 78 success today
+2026-07-31 10:03:56,628 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+Jul 31 10:03:58 etl-node-01 postgres[3118]: LOG:  checkpoint complete: wrote 1654 buffers
+2026-07-31 10:04:00,400 INFO  risk_dashboard_cache.build_staging - processed 12506 rows in 11.8s
+2026-07-31 10:04:03,669 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:04:03,669 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:04:07,441 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 79 success today
+2026-07-31 10:04:20,140 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 80 success today
+2026-07-31 10:04:22,026 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+2026-07-31 10:04:26,678 INFO  risk_dashboard_cache.refresh_marts - processed 13740 rows in 13.0s
+2026-07-31 10:04:29,067 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:04:29,067 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:04:33,719 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 81 success today
+Jul 31 10:04:37 etl-node-01 postgres[3121]: LOG:  checkpoint complete: wrote 1813 buffers
+2026-07-31 10:04:40,760 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:04:46,418 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 82 success today
+2026-07-31 10:04:48,304 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+2026-07-31 10:04:51,573 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:04:52,076 INFO  risk_dashboard_cache.archive_outputs - processed 14974 rows in 4.2s
+2026-07-31 10:04:54,842 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-31 10:04:55,345 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:04:55,345 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:04:59,117 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 83 success today
+2026-07-31 10:05:12,696 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 84 success today
+2026-07-31 10:05:14,582 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+2026-07-31 10:05:15,085 INFO  audit.trail - user=svc-etl action=read resource=extract_source result=allow
+Jul 31 10:05:16 etl-node-01 postgres[3124]: LOG:  checkpoint complete: wrote 1972 buffers
+2026-07-31 10:05:18,354 INFO  risk_dashboard_cache.extract_source - processed 16208 rows in 6.4s
+2026-07-31 10:05:21,623 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:05:21,623 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:05:25,395 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 85 success today
+2026-07-31 10:05:32,436 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:05:38,094 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 86 success today
+2026-07-31 10:05:40,860 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+2026-07-31 10:05:44,632 INFO  risk_dashboard_cache.build_staging - processed 17442 rows in 8.6s
+2026-07-31 10:05:47,021 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:05:47,021 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:05:51,673 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 87 success today
+Jul 31 10:05:55 etl-node-01 postgres[3127]: LOG:  checkpoint complete: wrote 2131 buffers
+2026-07-31 10:05:59,217 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-31 10:06:04,372 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 88 success today
+2026-07-31 10:06:06,258 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+2026-07-31 10:06:09,527 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:06:10,030 INFO  risk_dashboard_cache.refresh_marts - processed 18676 rows in 10.8s
+2026-07-31 10:06:13,299 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:06:13,299 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:06:17,071 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 89 success today
+2026-07-31 10:06:24,112 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:06:30,650 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 90 success today
+2026-07-31 10:06:32,536 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+Jul 31 10:06:34 etl-node-01 postgres[3130]: LOG:  checkpoint complete: wrote 2290 buffers
+2026-07-31 10:06:36,308 INFO  risk_dashboard_cache.archive_outputs - processed 19910 rows in 12.0s
+2026-07-31 10:06:39,577 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:06:39,577 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:06:43,349 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 91 success today
+2026-07-31 10:06:46,618 INFO  audit.trail - user=svc-etl action=read resource=notify_owners result=allow
+2026-07-31 10:06:56,048 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 92 success today
+2026-07-31 10:06:58,814 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+2026-07-31 10:07:02,586 INFO  risk_dashboard_cache.extract_source - processed 21144 rows in 14.2s
+2026-07-31 10:07:04,472 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-31 10:07:05,855 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:07:05,855 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:07:09,627 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 93 success today
+Jul 31 10:07:13 etl-node-01 postgres[3133]: LOG:  checkpoint complete: wrote 2449 buffers
+2026-07-31 10:07:16,668 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:07:22,326 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 94 success today
+2026-07-31 10:07:24,212 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+2026-07-31 10:07:27,481 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:07:28,864 INFO  risk_dashboard_cache.build_staging - processed 22378 rows in 5.4s
+2026-07-31 10:07:31,253 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:07:31,253 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:07:35,025 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 95 success today
+2026-07-31 10:07:48,604 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 96 success today
+2026-07-31 10:07:50,490 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+Jul 31 10:07:52 etl-node-01 postgres[3136]: LOG:  checkpoint complete: wrote 2608 buffers
+2026-07-31 10:07:54,262 INFO  risk_dashboard_cache.refresh_marts - processed 23612 rows in 7.6s
+2026-07-31 10:07:57,531 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:07:57,531 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:08:01,303 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 97 success today
+2026-07-31 10:08:08,344 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:08:09,727 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-31 10:08:14,002 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 98 success today
+2026-07-31 10:08:16,768 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+2026-07-31 10:08:17,271 INFO  audit.trail - user=svc-etl action=read resource=archive_outputs result=allow
+2026-07-31 10:08:20,540 INFO  risk_dashboard_cache.archive_outputs - processed 24846 rows in 9.8s
+2026-07-31 10:08:23,809 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:08:23,809 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:08:27,581 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 99 success today
+Jul 31 10:08:31 etl-node-01 postgres[3139]: LOG:  checkpoint complete: wrote 2767 buffers
+2026-07-31 10:08:40,280 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 100 success today
+2026-07-31 10:08:42,166 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+2026-07-31 10:08:45,435 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:08:46,818 INFO  risk_dashboard_cache.extract_source - processed 26080 rows in 11.0s
+2026-07-31 10:08:49,207 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:08:49,207 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:08:53,859 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 101 success today
+2026-07-31 10:09:00,020 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:09:06,558 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 102 success today
+2026-07-31 10:09:08,444 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+Jul 31 10:09:10 etl-node-01 postgres[3142]: LOG:  checkpoint complete: wrote 2926 buffers
+2026-07-31 10:09:12,216 INFO  risk_dashboard_cache.build_staging - processed 27314 rows in 13.2s
+2026-07-31 10:09:14,102 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-31 10:09:15,485 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:09:15,485 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:09:19,257 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 103 success today
+2026-07-31 10:09:32,836 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 104 success today
+2026-07-31 10:09:34,722 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+2026-07-31 10:09:38,494 INFO  risk_dashboard_cache.refresh_marts - processed 28548 rows in 4.4s
+2026-07-31 10:09:41,763 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:09:41,763 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:09:45,535 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 105 success today
+2026-07-31 10:09:48,804 INFO  audit.trail - user=svc-etl action=read resource=publish_metrics result=allow
+Jul 31 10:09:49 etl-node-01 postgres[3145]: LOG:  checkpoint complete: wrote 3085 buffers
+2026-07-31 10:09:52,576 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:09:58,234 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 106 success today
+2026-07-31 10:10:00,120 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+2026-07-31 10:10:03,389 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:10:04,772 INFO  risk_dashboard_cache.archive_outputs - processed 29782 rows in 6.6s
+2026-07-31 10:10:07,161 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:10:07,161 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:10:11,813 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 107 success today
+2026-07-31 10:10:19,357 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-31 10:10:24,512 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 108 success today
+2026-07-31 10:10:26,398 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+Jul 31 10:10:28 etl-node-01 postgres[3148]: LOG:  checkpoint complete: wrote 3244 buffers
+2026-07-31 10:10:30,170 INFO  risk_dashboard_cache.extract_source - processed 31016 rows in 8.8s
+2026-07-31 10:10:33,439 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:10:33,439 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:10:37,211 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 109 success today
+2026-07-31 10:10:44,252 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:10:50,790 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 110 success today
+2026-07-31 10:10:52,676 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+2026-07-31 10:10:56,448 INFO  risk_dashboard_cache.build_staging - processed 32250 rows in 10.0s
+2026-07-31 10:10:59,717 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:10:59,717 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:11:03,489 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 111 success today
+Jul 31 10:11:07 etl-node-01 postgres[3151]: LOG:  checkpoint complete: wrote 3403 buffers
+2026-07-31 10:11:16,188 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 112 success today
+2026-07-31 10:11:18,074 INFO  airflow.task_runner - Running task risk_dashboard_cache.refresh_marts (attempt 1 of 3)
+2026-07-31 10:11:19,457 INFO  audit.trail - user=svc-etl action=read resource=refresh_marts result=allow
+2026-07-31 10:11:21,343 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:11:22,726 INFO  risk_dashboard_cache.refresh_marts - processed 33484 rows in 12.2s
+2026-07-31 10:11:24,612 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-31 10:11:25,115 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=refresh_marts
+2026-07-31 10:11:25,115 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:11:29,767 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 113 success today
+2026-07-31 10:11:36,808 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:11:42,466 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 114 success today
+2026-07-31 10:11:44,352 INFO  airflow.task_runner - Running task risk_dashboard_cache.archive_outputs (attempt 1 of 3)
+Jul 31 10:11:46 etl-node-01 postgres[3154]: LOG:  checkpoint complete: wrote 3562 buffers
+2026-07-31 10:11:48,124 INFO  risk_dashboard_cache.archive_outputs - processed 34718 rows in 14.4s
+2026-07-31 10:11:51,393 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=archive_outputs
+2026-07-31 10:11:51,393 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:11:55,165 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 115 success today
+2026-07-31 10:12:08,744 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 116 success today
+2026-07-31 10:12:10,630 INFO  airflow.task_runner - Running task risk_dashboard_cache.extract_source (attempt 1 of 3)
+2026-07-31 10:12:14,402 INFO  risk_dashboard_cache.extract_source - processed 35952 rows in 5.6s
+2026-07-31 10:12:17,671 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=extract_source
+2026-07-31 10:12:17,671 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:12:21,443 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 117 success today
+Jul 31 10:12:25 etl-node-01 postgres[3157]: LOG:  checkpoint complete: wrote 3721 buffers
+2026-07-31 10:12:28,484 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-31 10:12:29,867 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-31 10:12:34,142 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 118 success today
+2026-07-31 10:12:36,028 INFO  airflow.task_runner - Running task risk_dashboard_cache.build_staging (attempt 1 of 3)
+2026-07-31 10:12:39,297 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-31 10:12:40,680 INFO  risk_dashboard_cache.build_staging - processed 37186 rows in 7.8s
+2026-07-31 10:12:43,069 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=risk_dashboard_cache, task_id=build_staging
+2026-07-31 10:12:43,069 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-31 10:12:47,721 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 119 success today
+2026-07-31 10:12:50,110 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+2026-07-31 10:13:18,274 INFO  airflow.task_runner - Running task risk_dashboard_cache.warm_var_grid (attempt 1 of 3)
+2026-07-31 10:13:22,046 INFO  dashboard.cache - warming VaR grid for 14 desks (previous warm completed 09:00, hit ratio since: 0.94)
+2026-07-31 10:13:48,324 WARN  dashboard.cache - grid build slower than usual: 6 of 14 desks after 20 minutes
+2026-07-31 10:14:10,830 ERROR dashboard.cache - grid build request timed out after 1800000ms; 8 of 14 desks not refreshed
+2026-07-31 10:14:14,602 ERROR airflow.taskinstance - Task failed with exception: TimeoutError: deadline exceeded after 1800.0s
+2026-07-31 10:14:24,032 INFO  dashboard.cache - serving cached grid from 09:00 warm; dashboard remains available to all users
+2026-07-31 10:14:30,570 INFO  risk_dashboard_cache - internal dashboard only; no client-facing or regulatory consumer of this cache
+2026-07-31 10:14:36,228 INFO  airflow.scheduler - next scheduled run of risk_dashboard_cache at 11:00 (hourly); no downstream tasks depend on this one
+2026-07-31 10:14:48,424 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=risk_dashboard_cache, task_id=warm_var_grid
+2026-07-31 10:14:49,807 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-31 10:14:50,310 ERROR airflow.dagrun - DagRun risk_dashboard_cache finished with failed tasks

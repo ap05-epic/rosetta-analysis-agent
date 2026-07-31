@@ -1,0 +1,345 @@
+2026-08-03 03:20:00,000 INFO  release.tracker - release 2026.31 promoted to PROD (12 changes, 1 schema change)
+Aug 03 03:20:05 reg-db postgres[5501]: LOG:  statement: ALTER TABLE dim_party RENAME COLUMN counterparty_lei TO lei_code
+2026-08-03 03:20:09,807 INFO  release.tracker - schema change applied; no consumer impact assessment attached to the change record
+2026-08-03 03:20:40,360 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 60 success today
+2026-08-03 03:20:42,246 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+Aug 03 03:20:44 etl-node-01 postgres[3100]: LOG:  checkpoint complete: wrote 700 buffers
+2026-08-03 03:20:46,018 INFO  mifir_reporting.extract_source - processed 1400 rows in 4.0s
+2026-08-03 03:20:49,287 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:20:49,287 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:20:53,059 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 61 success today
+2026-08-03 03:21:00,100 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:21:06,638 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 62 success today
+2026-08-03 03:21:08,524 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:21:12,296 INFO  mifir_reporting.build_staging - processed 2634 rows in 6.2s
+2026-08-03 03:21:14,182 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 03:21:15,565 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:21:15,565 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:21:19,337 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 63 success today
+2026-08-03 03:21:22,606 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+Aug 03 03:21:23 etl-node-01 postgres[3103]: LOG:  checkpoint complete: wrote 859 buffers
+2026-08-03 03:21:32,036 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 64 success today
+2026-08-03 03:21:34,802 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+2026-08-03 03:21:37,191 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:21:38,574 INFO  mifir_reporting.refresh_marts - processed 3868 rows in 8.4s
+2026-08-03 03:21:41,843 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:21:41,843 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:21:45,615 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 65 success today
+2026-08-03 03:21:52,656 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:21:58,314 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 66 success today
+2026-08-03 03:22:00,200 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+Aug 03 03:22:02 etl-node-01 postgres[3106]: LOG:  checkpoint complete: wrote 1018 buffers
+2026-08-03 03:22:04,852 INFO  mifir_reporting.archive_outputs - processed 5102 rows in 10.6s
+2026-08-03 03:22:07,241 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:22:07,241 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:22:11,013 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 67 success today
+2026-08-03 03:22:19,437 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 03:22:24,592 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 68 success today
+2026-08-03 03:22:26,478 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:22:30,250 INFO  mifir_reporting.extract_source - processed 6336 rows in 12.8s
+2026-08-03 03:22:33,519 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:22:33,519 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:22:37,291 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 69 success today
+Aug 03 03:22:41 etl-node-01 postgres[3109]: LOG:  checkpoint complete: wrote 1177 buffers
+2026-08-03 03:22:44,332 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:22:50,870 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 70 success today
+2026-08-03 03:22:52,756 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:22:53,259 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+2026-08-03 03:22:55,145 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:22:56,528 INFO  mifir_reporting.build_staging - processed 7570 rows in 14.0s
+2026-08-03 03:22:59,797 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:22:59,797 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:23:03,569 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 71 success today
+2026-08-03 03:23:16,268 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 72 success today
+2026-08-03 03:23:18,154 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+Aug 03 03:23:20 etl-node-01 postgres[3112]: LOG:  checkpoint complete: wrote 1336 buffers
+2026-08-03 03:23:22,806 INFO  mifir_reporting.refresh_marts - processed 8804 rows in 5.2s
+2026-08-03 03:23:24,692 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 03:23:25,195 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:23:25,195 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:23:29,847 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 73 success today
+2026-08-03 03:23:36,008 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:23:42,546 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 74 success today
+2026-08-03 03:23:44,432 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+2026-08-03 03:23:48,204 INFO  mifir_reporting.archive_outputs - processed 10038 rows in 7.4s
+2026-08-03 03:23:51,473 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:23:51,473 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:23:55,245 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 75 success today
+Aug 03 03:23:59 etl-node-01 postgres[3115]: LOG:  checkpoint complete: wrote 1495 buffers
+2026-08-03 03:24:08,824 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 76 success today
+2026-08-03 03:24:10,710 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:24:13,099 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:24:14,482 INFO  mifir_reporting.extract_source - processed 11272 rows in 9.6s
+2026-08-03 03:24:17,751 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:24:17,751 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:24:21,523 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 77 success today
+2026-08-03 03:24:24,792 INFO  audit.trail - user=svc-etl action=read resource=validate_batch result=allow
+2026-08-03 03:24:28,564 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:24:29,067 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 03:24:34,222 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 78 success today
+2026-08-03 03:24:36,108 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+Aug 03 03:24:38 etl-node-01 postgres[3118]: LOG:  checkpoint complete: wrote 1654 buffers
+2026-08-03 03:24:40,760 INFO  mifir_reporting.build_staging - processed 12506 rows in 11.8s
+2026-08-03 03:24:43,149 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:24:43,149 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:24:47,801 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 79 success today
+2026-08-03 03:25:00,500 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 80 success today
+2026-08-03 03:25:02,386 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+2026-08-03 03:25:06,158 INFO  mifir_reporting.refresh_marts - processed 13740 rows in 13.0s
+2026-08-03 03:25:09,427 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:25:09,427 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:25:13,199 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 81 success today
+Aug 03 03:25:17 etl-node-01 postgres[3121]: LOG:  checkpoint complete: wrote 1813 buffers
+2026-08-03 03:25:20,240 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:25:26,778 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 82 success today
+2026-08-03 03:25:28,664 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+2026-08-03 03:25:31,053 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:25:32,436 INFO  mifir_reporting.archive_outputs - processed 14974 rows in 4.2s
+2026-08-03 03:25:34,322 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 03:25:35,705 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:25:35,705 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:25:39,477 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 83 success today
+2026-08-03 03:25:52,176 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 84 success today
+2026-08-03 03:25:54,062 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:25:55,445 INFO  audit.trail - user=svc-etl action=read resource=extract_source result=allow
+Aug 03 03:25:56 etl-node-01 postgres[3124]: LOG:  checkpoint complete: wrote 1972 buffers
+2026-08-03 03:25:58,714 INFO  mifir_reporting.extract_source - processed 16208 rows in 6.4s
+2026-08-03 03:26:01,103 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:26:01,103 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:26:05,755 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 85 success today
+2026-08-03 03:26:12,796 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:26:18,454 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 86 success today
+2026-08-03 03:26:20,340 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:26:24,112 INFO  mifir_reporting.build_staging - processed 17442 rows in 8.6s
+2026-08-03 03:26:27,381 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:26:27,381 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:26:31,153 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 87 success today
+Aug 03 03:26:35 etl-node-01 postgres[3127]: LOG:  checkpoint complete: wrote 2131 buffers
+2026-08-03 03:26:39,577 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 03:26:44,732 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 88 success today
+2026-08-03 03:26:46,618 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+2026-08-03 03:26:49,007 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:26:50,390 INFO  mifir_reporting.refresh_marts - processed 18676 rows in 10.8s
+2026-08-03 03:26:53,659 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:26:53,659 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:26:57,431 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 89 success today
+2026-08-03 03:27:04,472 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:27:10,130 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 90 success today
+2026-08-03 03:27:12,016 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+Aug 03 03:27:14 etl-node-01 postgres[3130]: LOG:  checkpoint complete: wrote 2290 buffers
+2026-08-03 03:27:16,668 INFO  mifir_reporting.archive_outputs - processed 19910 rows in 12.0s
+2026-08-03 03:27:19,057 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:27:19,057 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:27:23,709 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 91 success today
+2026-08-03 03:27:26,098 INFO  audit.trail - user=svc-etl action=read resource=notify_owners result=allow
+2026-08-03 03:27:36,408 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 92 success today
+2026-08-03 03:27:38,294 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:27:42,066 INFO  mifir_reporting.extract_source - processed 21144 rows in 14.2s
+2026-08-03 03:27:44,832 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 03:27:45,335 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:27:45,335 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:27:49,107 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 93 success today
+Aug 03 03:27:53 etl-node-01 postgres[3133]: LOG:  checkpoint complete: wrote 2449 buffers
+2026-08-03 03:27:56,148 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:28:02,686 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 94 success today
+2026-08-03 03:28:04,572 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:28:07,841 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:28:08,344 INFO  mifir_reporting.build_staging - processed 22378 rows in 5.4s
+2026-08-03 03:28:11,613 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:28:11,613 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:28:15,385 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 95 success today
+2026-08-03 03:28:28,084 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 96 success today
+2026-08-03 03:28:30,850 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+Aug 03 03:28:32 etl-node-01 postgres[3136]: LOG:  checkpoint complete: wrote 2608 buffers
+2026-08-03 03:28:34,622 INFO  mifir_reporting.refresh_marts - processed 23612 rows in 7.6s
+2026-08-03 03:28:37,011 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:28:37,011 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:28:41,663 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 97 success today
+2026-08-03 03:28:48,704 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:28:49,207 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 03:28:54,362 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 98 success today
+2026-08-03 03:28:56,248 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+2026-08-03 03:28:57,631 INFO  audit.trail - user=svc-etl action=read resource=archive_outputs result=allow
+2026-08-03 03:29:00,020 INFO  mifir_reporting.archive_outputs - processed 24846 rows in 9.8s
+2026-08-03 03:29:03,289 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:29:03,289 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:29:07,061 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 99 success today
+Aug 03 03:29:11 etl-node-01 postgres[3139]: LOG:  checkpoint complete: wrote 2767 buffers
+2026-08-03 03:29:20,640 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 100 success today
+2026-08-03 03:29:22,526 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:29:25,795 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:29:26,298 INFO  mifir_reporting.extract_source - processed 26080 rows in 11.0s
+2026-08-03 03:29:29,567 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:29:29,567 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:29:33,339 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 101 success today
+2026-08-03 03:29:40,380 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:29:46,038 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 102 success today
+2026-08-03 03:29:48,804 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+Aug 03 03:29:50 etl-node-01 postgres[3142]: LOG:  checkpoint complete: wrote 2926 buffers
+2026-08-03 03:29:52,576 INFO  mifir_reporting.build_staging - processed 27314 rows in 13.2s
+2026-08-03 03:29:54,462 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 03:29:55,845 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:29:55,845 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:29:59,617 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 103 success today
+2026-08-03 03:30:12,316 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 104 success today
+2026-08-03 03:30:14,202 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+2026-08-03 03:30:18,854 INFO  mifir_reporting.refresh_marts - processed 28548 rows in 4.4s
+2026-08-03 03:30:21,243 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:30:21,243 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:30:25,015 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 105 success today
+2026-08-03 03:30:28,284 INFO  audit.trail - user=svc-etl action=read resource=publish_metrics result=allow
+Aug 03 03:30:29 etl-node-01 postgres[3145]: LOG:  checkpoint complete: wrote 3085 buffers
+2026-08-03 03:30:32,056 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:30:38,594 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 106 success today
+2026-08-03 03:30:40,480 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+2026-08-03 03:30:43,749 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:30:44,252 INFO  mifir_reporting.archive_outputs - processed 29782 rows in 6.6s
+2026-08-03 03:30:47,521 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:30:47,521 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:30:51,293 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 107 success today
+2026-08-03 03:30:59,717 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 03:31:04,872 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 108 success today
+2026-08-03 03:31:06,758 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+Aug 03 03:31:08 etl-node-01 postgres[3148]: LOG:  checkpoint complete: wrote 3244 buffers
+2026-08-03 03:31:10,530 INFO  mifir_reporting.extract_source - processed 31016 rows in 8.8s
+2026-08-03 03:31:13,799 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:31:13,799 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:31:17,571 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 109 success today
+2026-08-03 03:31:24,612 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:31:30,270 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 110 success today
+2026-08-03 03:31:32,156 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:31:36,808 INFO  mifir_reporting.build_staging - processed 32250 rows in 10.0s
+2026-08-03 03:31:39,197 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:31:39,197 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:31:43,849 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 111 success today
+Aug 03 03:31:47 etl-node-01 postgres[3151]: LOG:  checkpoint complete: wrote 3403 buffers
+2026-08-03 03:31:56,548 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 112 success today
+2026-08-03 03:31:58,434 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+2026-08-03 03:31:59,817 INFO  audit.trail - user=svc-etl action=read resource=refresh_marts result=allow
+2026-08-03 03:32:01,703 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:32:02,206 INFO  mifir_reporting.refresh_marts - processed 33484 rows in 12.2s
+2026-08-03 03:32:04,092 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 03:32:05,475 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:32:05,475 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:32:09,247 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 113 success today
+2026-08-03 03:32:16,288 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:32:22,826 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 114 success today
+2026-08-03 03:32:24,712 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+Aug 03 03:32:26 etl-node-01 postgres[3154]: LOG:  checkpoint complete: wrote 3562 buffers
+2026-08-03 03:32:28,484 INFO  mifir_reporting.archive_outputs - processed 34718 rows in 14.4s
+2026-08-03 03:32:31,753 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:32:31,753 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:32:35,525 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 115 success today
+2026-08-03 03:32:48,224 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 116 success today
+2026-08-03 03:32:50,110 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:32:54,762 INFO  mifir_reporting.extract_source - processed 35952 rows in 5.6s
+2026-08-03 03:32:57,151 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:32:57,151 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:33:01,803 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 117 success today
+Aug 03 03:33:05 etl-node-01 postgres[3157]: LOG:  checkpoint complete: wrote 3721 buffers
+2026-08-03 03:33:08,844 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:33:09,347 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 03:33:14,502 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 118 success today
+2026-08-03 03:33:16,388 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:33:19,657 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:33:20,160 INFO  mifir_reporting.build_staging - processed 37186 rows in 7.8s
+2026-08-03 03:33:23,429 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:33:23,429 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:33:27,201 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 119 success today
+2026-08-03 03:33:30,470 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+2026-08-03 03:33:40,780 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 120 success today
+2026-08-03 03:33:42,666 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+Aug 03 03:33:44 etl-node-01 postgres[3160]: LOG:  checkpoint complete: wrote 3880 buffers
+2026-08-03 03:33:46,438 INFO  mifir_reporting.refresh_marts - processed 38420 rows in 9.0s
+2026-08-03 03:33:49,707 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:33:49,707 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:33:53,479 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 121 success today
+2026-08-03 03:34:00,520 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:34:06,178 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 122 success today
+2026-08-03 03:34:08,064 INFO  airflow.task_runner - Running task mifir_reporting.archive_outputs (attempt 1 of 3)
+2026-08-03 03:34:12,716 INFO  mifir_reporting.archive_outputs - processed 39654 rows in 11.2s
+2026-08-03 03:34:14,602 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 03:34:15,105 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=archive_outputs
+2026-08-03 03:34:15,105 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:34:19,757 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 123 success today
+Aug 03 03:34:23 etl-node-01 postgres[3163]: LOG:  checkpoint complete: wrote 4039 buffers
+2026-08-03 03:34:32,456 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 124 success today
+2026-08-03 03:34:34,342 INFO  airflow.task_runner - Running task mifir_reporting.extract_source (attempt 1 of 3)
+2026-08-03 03:34:37,611 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 03:34:38,114 INFO  mifir_reporting.extract_source - processed 40888 rows in 13.4s
+2026-08-03 03:34:41,383 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=extract_source
+2026-08-03 03:34:41,383 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:34:45,155 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 125 success today
+2026-08-03 03:34:52,196 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:34:58,734 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 126 success today
+2026-08-03 03:35:00,620 INFO  airflow.task_runner - Running task mifir_reporting.build_staging (attempt 1 of 3)
+2026-08-03 03:35:01,123 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+Aug 03 03:35:02 etl-node-01 postgres[3166]: LOG:  checkpoint complete: wrote 4198 buffers
+2026-08-03 03:35:04,392 INFO  mifir_reporting.build_staging - processed 42122 rows in 4.6s
+2026-08-03 03:35:07,661 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=build_staging
+2026-08-03 03:35:07,661 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:35:11,433 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 127 success today
+2026-08-03 03:35:19,857 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 03:35:24,132 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 128 success today
+2026-08-03 03:35:26,018 INFO  airflow.task_runner - Running task mifir_reporting.refresh_marts (attempt 1 of 3)
+2026-08-03 03:35:30,670 INFO  mifir_reporting.refresh_marts - processed 43356 rows in 6.8s
+2026-08-03 03:35:33,059 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=mifir_reporting, task_id=refresh_marts
+2026-08-03 03:35:33,059 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 03:35:37,711 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 129 success today
+Aug 03 03:35:41 etl-node-01 postgres[3169]: LOG:  checkpoint complete: wrote 4357 buffers
+2026-08-03 03:35:44,752 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 03:36:12,036 INFO  dbt.runner - 52 of 88 START model reporting.stg_transaction_report
+2026-08-03 03:36:15,305 ERROR dbt.runner - Database Error in model stg_transaction_report (models/mifir/stg_transaction_report.sql)
+  column "counterparty_lei" does not exist
+  LINE 18:   p.counterparty_lei AS lei,
+                ^
+  HINT:  Perhaps you meant to reference the column "p.lei_code".
+Aug 03 03:36:18 reg-db postgres[5600]: ERROR:  column "counterparty_lei" does not exist at character 389
+2026-08-03 03:36:20,460 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_party.counterparty_lei does not exist
+2026-08-03 03:36:36,428 INFO  dbt.runner - 53 of 88 START model reporting.int_party_enrichment
+2026-08-03 03:36:39,697 ERROR dbt.runner - Database Error in model int_party_enrichment (models/mifir/int_party_enrichment.sql)
+  column "counterparty_lei" does not exist
+  LINE 18:   p.counterparty_lei AS lei,
+                ^
+  HINT:  Perhaps you meant to reference the column "p.lei_code".
+Aug 03 03:36:42 reg-db postgres[5601]: ERROR:  column "counterparty_lei" does not exist at character 389
+2026-08-03 03:36:44,852 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_party.counterparty_lei does not exist
+2026-08-03 03:37:00,820 INFO  dbt.runner - 54 of 88 START model reporting.fct_transaction_report
+2026-08-03 03:37:03,209 ERROR dbt.runner - Database Error in model fct_transaction_report (models/mifir/fct_transaction_report.sql)
+  column "counterparty_lei" does not exist
+  LINE 18:   p.counterparty_lei AS lei,
+                ^
+  HINT:  Perhaps you meant to reference the column "p.lei_code".
+Aug 03 03:37:06 reg-db postgres[5602]: ERROR:  column "counterparty_lei" does not exist at character 389
+2026-08-03 03:37:08,364 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_party.counterparty_lei does not exist
+2026-08-03 03:37:24,332 INFO  dbt.runner - 55 of 88 START model reporting.mart_mifir_submission
+2026-08-03 03:37:27,601 ERROR dbt.runner - Database Error in model mart_mifir_submission (models/mifir/mart_mifir_submission.sql)
+  column "counterparty_lei" does not exist
+  LINE 18:   p.counterparty_lei AS lei,
+                ^
+  HINT:  Perhaps you meant to reference the column "p.lei_code".
+Aug 03 03:37:30 reg-db postgres[5603]: ERROR:  column "counterparty_lei" does not exist at character 389
+2026-08-03 03:37:32,756 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_party.counterparty_lei does not exist
+2026-08-03 03:37:48,724 INFO  dbt.runner - 56 of 88 START model reporting.rpt_daily_control_totals
+2026-08-03 03:37:51,113 ERROR dbt.runner - Database Error in model rpt_daily_control_totals (models/mifir/rpt_daily_control_totals.sql)
+  column "counterparty_lei" does not exist
+  LINE 18:   p.counterparty_lei AS lei,
+                ^
+  HINT:  Perhaps you meant to reference the column "p.lei_code".
+Aug 03 03:37:54 reg-db postgres[5604]: ERROR:  column "counterparty_lei" does not exist at character 389
+2026-08-03 03:37:56,268 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_party.counterparty_lei does not exist
+2026-08-03 03:38:12,236 INFO  dbt.runner - 57 of 88 START model reporting.rpt_lei_exceptions
+2026-08-03 03:38:15,505 ERROR dbt.runner - Database Error in model rpt_lei_exceptions (models/mifir/rpt_lei_exceptions.sql)
+  column "counterparty_lei" does not exist
+  LINE 18:   p.counterparty_lei AS lei,
+                ^
+  HINT:  Perhaps you meant to reference the column "p.lei_code".
+Aug 03 03:38:18 reg-db postgres[5605]: ERROR:  column "counterparty_lei" does not exist at character 389
+2026-08-03 03:38:20,660 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_party.counterparty_lei does not exist
+2026-08-03 03:39:02,026 WARN  dbt.runner - 6 of 88 models FAILED, 82 completed successfully
+2026-08-03 03:39:08,564 ERROR mifir_reporting - submission file for 2026-08-03 not produced; regulatory deadline 07:00 CET
+2026-08-03 03:39:14,222 WARN  alerting - SEV-2: transaction reporting submission at risk
+2026-08-03 03:39:20,760 ERROR airflow.taskinstance - Task failed with exception: dbt returned non-zero
+2026-08-03 03:39:26,418 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=mifir_reporting, task_id=dbt_run_mifir
+2026-08-03 03:39:27,801 INFO  airflow.local_task_job - Task exited with return code 1
+2026-08-03 03:39:28,304 ERROR airflow.dagrun - DagRun mifir_reporting finished with failed tasks

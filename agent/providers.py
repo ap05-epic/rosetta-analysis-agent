@@ -234,6 +234,28 @@ _DEFAULT_SOLUTIONS = [
 ]
 
 
+def _severity(group: dict, error_lines: int, total_lines: int) -> str:
+    """Mock severity: a fatal line is critical; otherwise scale with how much of
+    the run is failing.
+
+    The share of failing lines matters more than the raw count — 13 errors in a
+    30-line log is an outage, the same 13 in a 500-line log is a contained
+    fault. Absolute counts alone make severity depend on log length.
+    """
+    if group["level"] == "CRITICAL":
+        return "critical"
+    rate = error_lines / max(total_lines, 1)
+    if group["level"] != "ERROR":
+        return "medium" if group["count"] >= 3 else "low"
+    if rate >= 0.25:
+        return "critical"
+    if rate >= 0.08 or error_lines >= 20:
+        return "high"
+    if rate >= 0.025 or error_lines >= 5:
+        return "medium"
+    return "low"
+
+
 def _playbook_lookup(text: str):
     low = text.lower()
     for keywords, title, solutions in _PLAYBOOK:
@@ -330,8 +352,12 @@ class MockProvider(LLMProvider):
                 continue  # cap new incidents, but keep scanning so cascades still merge
             inc = {
                 "title": title,
-                "severity": ("critical" if g["level"] == "CRITICAL" or g["count"] >= 5
-                             else "high" if g["level"] == "ERROR" else "medium"),
+                # Severity scales with the blast radius of the whole run, not the
+                # repeat count of one message — twenty copies of one error in one
+                # job is not worse than a fatal line. The mock can only measure
+                # volume; judging that a failure is contained (a fallback exists,
+                # nothing downstream depends on it) needs the model.
+                "severity": _severity(g, error_lines, summary.get("total_lines", 0)),
                 # a recognised failure mode outranks a frequent but unexplained
                 # symptom — core.sort_incidents orders on confidence
                 "confidence": (0.95 if _known(g) and g["count"] >= 3

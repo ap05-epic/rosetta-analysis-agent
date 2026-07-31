@@ -1,53 +1,79 @@
 # Demo logs
 
-Two generated sets. Both are deterministic — same bytes on every run — and both
-have documented ground truth so a demo can prove the analysis is correct rather
-than just plausible.
-
 ```bash
-python3 sample-logs/generate_demo_logs.py       # 5 narrative scenarios
-python3 sample-logs/generate_category_logs.py   # 12-log classifier sweep
-python3 sample-logs/verify_category_logs.py     # asserts every category lands
+python3 sample-logs/generate_bank_demo_logs.py   # the 5-log demo set  -> sample-logs/demo/
+python3 sample-logs/generate_category_logs.py    # 12-log classifier sweep (testing)
+python3 sample-logs/generate_demo_logs.py        # 5 earlier narrative scenarios
+python3 sample-logs/verify_category_logs.py      # asserts every category lands where intended
 ```
 
-## Set A — classifier coverage (`cat-*.log`)
+Everything is generated and deterministic — same bytes on every run. Ground
+truth lives in the generator docstrings. **Never hand-edit a `.log`**; the next
+regeneration discards it.
 
-One log per branch of `classifier/regex.py`, at varying incident severity.
-`verify_category_logs.py` replicates the classifier exactly and asserts each
-file lands where its name claims.
+---
 
-| File | Lines | Parser verdict | Agent severity | Root cause |
-|---|---:|---|---|---|
-| `cat-01-sql-schema-error.log` | 343 | FAIL · SQL_SCHEMA_ERROR | critical | migration renamed a column; 5 marts still select the old name |
-| `cat-02-sql-syntax-error.log` | 336 | FAIL · SQL_SYNTAX_ERROR | high | template emits a trailing comma before `FROM` |
-| `cat-03-sql-type-mismatch.log` | 318 | FAIL · SQL_TYPE_MISMATCH | high | upstream changed `account_id` int → varchar; join breaks |
-| `cat-04-db-resource-exhaustion.log` | 363 | FAIL · DB_RESOURCE_EXHAUSTION | high | runaway aggregation OOM-kills postgres |
-| `cat-05-db-connection-error.log` | 395 | FAIL · DB_CONNECTION_ERROR | critical | a report hoards the pool; three close jobs starve |
-| `cat-06-permission-error.log` | 326 | FAIL · PERMISSION_ERROR | high | credential rotation reached 2 of 6 consumers |
-| `cat-07-module-import-error.log` | 315 | FAIL · MODULE_IMPORT_ERROR | high | dependency added to requirements but not to the image |
-| `cat-08-timeout.log` | 351 | FAIL · TIMEOUT | high | upstream pricing API blows the 30s deadline |
-| `cat-09-return-code-failure.log` | 323 | FAIL · RETURN_CODE_FAILURE | high | verification script exits 2 on a checksum mismatch |
-| `cat-10-failure-generic.log` | 343 | FAIL · FAILURE_GENERIC | high | `ValueError`: 11 of 12 partitions — no machine-readable category |
-| `cat-11-unknown-format.log` | 465 | FAIL · UNKNOWN | high | bespoke matching-engine format; regex can say nothing |
-| `cat-12-healthy-pass.log` | 466 | PASS | healthy | clean run, benign warnings only |
+## The demo set — `sample-logs/demo/`
 
-The last two are the interesting demo pair. On `cat-10` the parser can only say
-"something failed"; on `cat-11` it cannot even say that — yet the agent explains
-both. That contrast is the product argument in two files.
+Five banking failure modes. Run them in order and the severity badge steps
+down on screen while the categories and formats stay varied.
 
-### Why the scenarios read the way they do
+| # | File | Parser verdict | Severity | What it proves |
+|---|---|---|---|---|
+| 1 | `01-payments-settlement-outage.log` | DB_CONNECTION_ERROR | **CRITICAL** | separates cause from cascade |
+| 2 | `02-regulatory-report-schema-drift.log` | SQL_SCHEMA_ERROR | **HIGH** | names the exact column and release |
+| 3 | `03-trade-capture-gateway.log` | UNKNOWN | **CRITICAL** | regex can't classify it at all |
+| 4 | `04-entitlement-rotation-blocked.log` | PERMISSION_ERROR | **MEDIUM** | one grant, no data change |
+| 5 | `05-internal-dashboard-timeout.log` | TIMEOUT | **LOW** | FAIL, but it can wait |
 
-The classifier returns the **first** matching category in `CATEGORY_PATTERNS`
-order, scanning the whole file. So each scenario has to avoid every pattern
-belonging to an earlier category — which is why the timeout log never says
+**1 — Payments settlement outage** (344 lines). A regulatory extract quietly
+opens 40 reader sessions; twenty lines later the pool is full and three payment
+streams miss the 22:00 cut-off. The cause and the symptoms sit far apart in the
+file, and the failing thing is not the thing that caused it.
+
+**2 — Regulatory report schema drift** (345 lines). Release 2026.31 renamed
+`counterparty_lei` to `lei_code`. Six MiFIR models fail and the submission
+deadline is hours away. Watch it name the column, the replacement, and the
+release.
+
+**3 — Trade capture gateway** (491 lines). A proprietary pipe-delimited format
+with `SEV=E` severity codes and hex return codes — no Airflow markers, no SQL,
+nothing the regex recognises. The parser returns `UNKNOWN`; the agent still
+finds the venue tag change that started it. **This is the strongest contrast
+slide in the deck.**
+
+**4 — Entitlement rotation blocked** (296 lines). A quarterly review revoked a
+grant a feed still needs. Real failure, contained impact, documented fallback —
+the fix is one `GRANT`.
+
+**5 — Internal dashboard timeout** (259 lines). A cache warm job blows its
+deadline. The parser can only say FAIL. Deciding this one waits until morning —
+internal only, cached data still serving, hourly retry — is judgement the regex
+cannot make.
+
+### A note on severity in mock mode
+
+`--mock` scales severity by the *share* of lines failing plus the presence of a
+fatal line. That reproduces the spread above, but it is counting, not reasoning.
+Recognising that log 5 is contained *because a fallback exists and nothing
+downstream depends on it* requires reading lines that aren't errors — which is
+what the model adds over pattern matching. Demo live where you can.
+
+---
+
+## Classifier coverage set — `cat-*.log`
+
+Twelve logs, one per branch of `classifier/regex.py` (nine `ErrorCategory`
+values plus `FAILURE_GENERIC`, `UNKNOWN` and `PASS`), 315–466 lines each.
+Built for testing, not for the stage.
+
+`verify_category_logs.py` replicates the classifier exactly and asserts all
+twelve land in the intended bucket. The classifier returns the **first**
+matching category scanning the whole file, so each scenario has to avoid every
+pattern belonging to an earlier one — which is why the timeout log never says
 "could not connect", and the return-code log never contains the word "timeout".
-Edit these files and re-run `verify_category_logs.py`; it fails loudly if a
-stray word moves a log into the wrong bucket.
 
-## Set B — narrative scenarios
-
-Longer incidents where the root cause is deliberately buried under unrelated
-errors, for showing the agent doing real work.
+## Narrative scenarios
 
 | File | Lines | Root cause |
 |---|---:|---|
@@ -57,13 +83,6 @@ errors, for showing the agent doing real work.
 | `platform-disk-cascade.log` | 277 | WAL archiving fails → disk fills → database PANIC → 503s |
 | `healthy-nightly-close.log` | 201 | nothing wrong — proves no false positives |
 
-`platform-disk-cascade.log` is the hardest: the true cause is a quiet
+`platform-disk-cascade.log` is the hardest of these: the true cause is a quiet
 `WARNING: archive_command failed` on **line 55**, 94 lines before the first
-error and in a different log format from everything around it.
-
-## Ground truth is in the generators
-
-Each scenario function carries a docstring naming its planted root cause, and
-`SCENARIOS` at the bottom of each generator lists the expected classifier
-verdict. To tune a scenario, edit the generator and re-run it — never hand-edit
-a `.log`, or the next regeneration silently discards your change.
+error and in a different format from everything around it.
