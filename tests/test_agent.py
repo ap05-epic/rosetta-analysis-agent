@@ -181,6 +181,48 @@ def test_dotenv_loader_never_overrides(tmp_path, monkeypatch):
     _load_dotenv(str(tmp_path / "missing.env"))      # absent file is a no-op
 
 
+def test_parser_understands_short_level_tokens():
+    """Bespoke formats use lvl=E / severity=W. Without this the whole file
+    reads as INFO and a real incident is reported healthy."""
+    text = (
+        '<2026-07-24T13:30:00.000Z> [SEQ:000001] FEED-GW lvl=I code=0x1004 msg="snapshot applied"\n'
+        '<2026-07-24T13:38:00.000Z> [SEQ:200001] FEED-GW lvl=W code=0x2F14 msg="sequence gap detected"\n'
+        '<2026-07-24T13:38:08.000Z> [SEQ:200003] MTCH lvl=E code=0x4A01 msg="book state divergent"\n'
+        '<2026-07-24T13:38:22.000Z> [SEQ:200006] SUPER lvl=F code=0x5000 msg="quoting halted"\n')
+    levels = [e.level for e in from_raw_text(text).entries]
+    assert levels == ["INFO", "WARNING", "ERROR", "CRITICAL"]
+    # an explicit key is required, so a stray capital letter stays INFO
+    assert from_raw_text("2026-01-01 ok, grade E for effort").entries[0].level == "INFO"
+
+
+def test_parser_flags_severe_system_events_without_a_level_token():
+    """Kernel and postgres lines carry severity in the syslog header, not the text."""
+    lines = [
+        "Jul 22 03:36:32 node-07 kernel: EXT4-fs (nvme0n1p3): no space left on device",
+        "Jul 31 02:08:12 db-01 kernel: Out of memory: Killed process 9110 (postgres)",
+        "Jul 22 03:36:34 node-07 postgres[9001]: PANIC:  could not write to file",
+    ]
+    for line in lines:
+        assert from_raw_text(line).entries[0].level in ("ERROR", "CRITICAL"), line
+
+
+def test_stack_trace_inherits_the_severity_of_its_error():
+    """The informative line of a traceback is a continuation; if it parses as
+    INFO the real cause never reaches the error summary."""
+    text = (
+        "2026-07-28 07:12:04,001 INFO  airflow.task_runner - Running task feature_store.write\n"
+        "2026-07-28 07:12:08,002 ERROR airflow.taskinstance - Task failed with exception\n"
+        "Traceback (most recent call last):\n"
+        "  File \"/opt/airflow/dags/feature_store/write.py\", line 12, in <module>\n"
+        "    import pyarrow.parquet as pq\n"
+        "ModuleNotFoundError: No module named 'pyarrow'\n"
+        "2026-07-28 07:12:09,003 INFO  airflow.scheduler - Heartbeat: 1 running\n")
+    entries = from_raw_text(text).entries
+    assert [e.level for e in entries] == [
+        "INFO", "ERROR", "ERROR", "ERROR", "ERROR", "ERROR", "INFO"]
+    assert "No module named" in entries[5].raw
+
+
 def test_openai_compat_drops_rejected_params(monkeypatch):
     """Deployments that 400 on temperature/reasoning_effort must not kill the run."""
     from types import SimpleNamespace

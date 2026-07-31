@@ -1,0 +1,465 @@
+<2026-07-24T13:30:00.000Z> [SEQ:100000] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=0.00
+<2026-07-24T13:30:01.383Z> [SEQ:100000] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44000 lag_us=120
+<2026-07-24T13:30:04.652Z> [SEQ:100001] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=1.01
+<2026-07-24T13:30:08.424Z> [SEQ:100002] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=2.02
+<2026-07-24T13:30:12.196Z> [SEQ:100003] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=0.03
+<2026-07-24T13:30:14.082Z> [SEQ:100003] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2003 util=0.33
+<2026-07-24T13:30:16.848Z> [SEQ:100004] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=1.04
+<2026-07-24T13:30:20.620Z> [SEQ:100005] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=2.05
+<2026-07-24T13:30:21.123Z> [SEQ:100005] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44015 lag_us=125
+<2026-07-24T13:30:24.392Z> [SEQ:100006] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=0.06
+<2026-07-24T13:30:28.164Z> [SEQ:100007] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=1.07
+<2026-07-24T13:30:32.816Z> [SEQ:100008] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=2.08
+<2026-07-24T13:30:36.588Z> [SEQ:100009] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=0.09
+<2026-07-24T13:30:40.360Z> [SEQ:100010] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=1.10
+<2026-07-24T13:30:41.743Z> [SEQ:100010] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44030 lag_us=130
+<2026-07-24T13:30:42.246Z> [SEQ:100010] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2010 util=0.40
+<2026-07-24T13:30:44.132Z> [SEQ:100011] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=2.11
+<2026-07-24T13:30:48.784Z> [SEQ:100012] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=0.12
+<2026-07-24T13:30:52.556Z> [SEQ:100013] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=1.13
+<2026-07-24T13:30:56.328Z> [SEQ:100014] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=2.14
+<2026-07-24T13:31:00.100Z> [SEQ:100015] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=0.15
+<2026-07-24T13:31:01.483Z> [SEQ:100015] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44045 lag_us=135
+<2026-07-24T13:31:04.752Z> [SEQ:100016] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=1.16
+<2026-07-24T13:31:08.524Z> [SEQ:100017] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=2.17
+<2026-07-24T13:31:10.410Z> [SEQ:100017] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2017 util=0.47
+<2026-07-24T13:31:12.296Z> [SEQ:100018] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=0.18
+<2026-07-24T13:31:16.068Z> [SEQ:100019] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=1.19
+<2026-07-24T13:31:20.720Z> [SEQ:100020] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=2.20
+<2026-07-24T13:31:21.223Z> [SEQ:100020] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44060 lag_us=140
+<2026-07-24T13:31:24.492Z> [SEQ:100021] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=0.21
+<2026-07-24T13:31:28.264Z> [SEQ:100022] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=1.22
+<2026-07-24T13:31:32.036Z> [SEQ:100023] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=2.23
+<2026-07-24T13:31:36.688Z> [SEQ:100024] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=0.24
+<2026-07-24T13:31:38.574Z> [SEQ:100024] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2024 util=0.54
+<2026-07-24T13:31:40.460Z> [SEQ:100025] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=1.25
+<2026-07-24T13:31:41.843Z> [SEQ:100025] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44075 lag_us=145
+<2026-07-24T13:31:44.232Z> [SEQ:100026] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=2.26
+<2026-07-24T13:31:48.004Z> [SEQ:100027] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=0.27
+<2026-07-24T13:31:52.656Z> [SEQ:100028] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=1.28
+<2026-07-24T13:31:56.428Z> [SEQ:100029] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=2.29
+<2026-07-24T13:32:00.200Z> [SEQ:100030] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=0.30
+<2026-07-24T13:32:01.583Z> [SEQ:100030] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44090 lag_us=150
+<2026-07-24T13:32:04.852Z> [SEQ:100031] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=1.31
+<2026-07-24T13:32:06.738Z> [SEQ:100031] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2031 util=0.61
+<2026-07-24T13:32:08.624Z> [SEQ:100032] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=2.32
+<2026-07-24T13:32:12.396Z> [SEQ:100033] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=0.33
+<2026-07-24T13:32:16.168Z> [SEQ:100034] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=1.34
+<2026-07-24T13:32:20.820Z> [SEQ:100035] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=2.35
+<2026-07-24T13:32:21.323Z> [SEQ:100035] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44105 lag_us=155
+<2026-07-24T13:32:24.592Z> [SEQ:100036] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=0.36
+<2026-07-24T13:32:28.364Z> [SEQ:100037] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=1.37
+<2026-07-24T13:32:32.136Z> [SEQ:100038] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=2.38
+<2026-07-24T13:32:34.022Z> [SEQ:100038] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2038 util=0.68
+<2026-07-24T13:32:36.788Z> [SEQ:100039] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=0.39
+<2026-07-24T13:32:40.560Z> [SEQ:100040] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=1.40
+<2026-07-24T13:32:41.063Z> [SEQ:100040] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44120 lag_us=160
+<2026-07-24T13:32:44.332Z> [SEQ:100041] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=2.41
+<2026-07-24T13:32:48.104Z> [SEQ:100042] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=0.42
+<2026-07-24T13:32:52.756Z> [SEQ:100043] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=1.43
+<2026-07-24T13:32:56.528Z> [SEQ:100044] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=2.44
+<2026-07-24T13:33:00.300Z> [SEQ:100045] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=0.45
+<2026-07-24T13:33:01.683Z> [SEQ:100045] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44135 lag_us=165
+<2026-07-24T13:33:02.186Z> [SEQ:100045] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2045 util=0.75
+<2026-07-24T13:33:04.072Z> [SEQ:100046] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=1.46
+<2026-07-24T13:33:08.724Z> [SEQ:100047] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=2.47
+<2026-07-24T13:33:12.496Z> [SEQ:100048] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=0.48
+<2026-07-24T13:33:16.268Z> [SEQ:100049] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=1.49
+<2026-07-24T13:33:20.040Z> [SEQ:100050] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=2.50
+<2026-07-24T13:33:21.423Z> [SEQ:100050] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44150 lag_us=170
+<2026-07-24T13:33:24.692Z> [SEQ:100051] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=0.51
+<2026-07-24T13:33:28.464Z> [SEQ:100052] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=1.52
+<2026-07-24T13:33:30.350Z> [SEQ:100052] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2052 util=0.82
+<2026-07-24T13:33:32.236Z> [SEQ:100053] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=2.53
+<2026-07-24T13:33:36.008Z> [SEQ:100054] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=0.54
+<2026-07-24T13:33:40.660Z> [SEQ:100055] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=1.55
+<2026-07-24T13:33:41.163Z> [SEQ:100055] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44165 lag_us=175
+<2026-07-24T13:33:44.432Z> [SEQ:100056] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=2.56
+<2026-07-24T13:33:48.204Z> [SEQ:100057] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=0.57
+<2026-07-24T13:33:52.856Z> [SEQ:100058] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=1.58
+<2026-07-24T13:33:56.628Z> [SEQ:100059] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=2.59
+<2026-07-24T13:33:58.514Z> [SEQ:100059] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2059 util=0.89
+<2026-07-24T13:34:00.400Z> [SEQ:100060] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=0.60
+<2026-07-24T13:34:01.783Z> [SEQ:100060] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44180 lag_us=180
+<2026-07-24T13:34:04.172Z> [SEQ:100061] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=1.61
+<2026-07-24T13:34:08.824Z> [SEQ:100062] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=2.62
+<2026-07-24T13:34:12.596Z> [SEQ:100063] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=0.63
+<2026-07-24T13:34:16.368Z> [SEQ:100064] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=1.64
+<2026-07-24T13:34:20.140Z> [SEQ:100065] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=2.65
+<2026-07-24T13:34:21.523Z> [SEQ:100065] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44195 lag_us=185
+<2026-07-24T13:34:24.792Z> [SEQ:100066] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=0.66
+<2026-07-24T13:34:26.678Z> [SEQ:100066] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2066 util=0.36
+<2026-07-24T13:34:28.564Z> [SEQ:100067] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=1.67
+<2026-07-24T13:34:32.336Z> [SEQ:100068] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=2.68
+<2026-07-24T13:34:36.108Z> [SEQ:100069] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=0.69
+<2026-07-24T13:34:40.760Z> [SEQ:100070] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=1.70
+<2026-07-24T13:34:41.263Z> [SEQ:100070] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44210 lag_us=190
+<2026-07-24T13:34:44.532Z> [SEQ:100071] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=2.71
+<2026-07-24T13:34:48.304Z> [SEQ:100072] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=0.72
+<2026-07-24T13:34:52.076Z> [SEQ:100073] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=1.73
+<2026-07-24T13:34:54.842Z> [SEQ:100073] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2073 util=0.43
+<2026-07-24T13:34:56.728Z> [SEQ:100074] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=2.74
+<2026-07-24T13:35:00.500Z> [SEQ:100075] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=0.75
+<2026-07-24T13:35:01.003Z> [SEQ:100075] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44225 lag_us=195
+<2026-07-24T13:35:04.272Z> [SEQ:100076] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=1.76
+<2026-07-24T13:35:08.044Z> [SEQ:100077] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=2.77
+<2026-07-24T13:35:12.696Z> [SEQ:100078] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=0.78
+<2026-07-24T13:35:16.468Z> [SEQ:100079] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=1.79
+<2026-07-24T13:35:20.240Z> [SEQ:100080] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=2.80
+<2026-07-24T13:35:21.623Z> [SEQ:100080] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44240 lag_us=200
+<2026-07-24T13:35:22.126Z> [SEQ:100080] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2080 util=0.50
+<2026-07-24T13:35:24.012Z> [SEQ:100081] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=0.81
+<2026-07-24T13:35:28.664Z> [SEQ:100082] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=1.82
+<2026-07-24T13:35:32.436Z> [SEQ:100083] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=2.83
+<2026-07-24T13:35:36.208Z> [SEQ:100084] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=0.84
+<2026-07-24T13:35:40.860Z> [SEQ:100085] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=1.85
+<2026-07-24T13:35:41.363Z> [SEQ:100085] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44255 lag_us=205
+<2026-07-24T13:35:44.632Z> [SEQ:100086] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=2.86
+<2026-07-24T13:35:48.404Z> [SEQ:100087] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=0.87
+<2026-07-24T13:35:50.290Z> [SEQ:100087] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2087 util=0.57
+<2026-07-24T13:35:52.176Z> [SEQ:100088] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=1.88
+<2026-07-24T13:35:56.828Z> [SEQ:100089] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=2.89
+<2026-07-24T13:36:00.600Z> [SEQ:100090] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=0.90
+<2026-07-24T13:36:01.103Z> [SEQ:100090] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44270 lag_us=120
+<2026-07-24T13:36:04.372Z> [SEQ:100091] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=1.91
+<2026-07-24T13:36:08.144Z> [SEQ:100092] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=2.92
+<2026-07-24T13:36:12.796Z> [SEQ:100093] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=0.93
+<2026-07-24T13:36:16.568Z> [SEQ:100094] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=1.94
+<2026-07-24T13:36:18.454Z> [SEQ:100094] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2094 util=0.64
+<2026-07-24T13:36:20.340Z> [SEQ:100095] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=2.95
+<2026-07-24T13:36:21.723Z> [SEQ:100095] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44285 lag_us=125
+<2026-07-24T13:36:24.112Z> [SEQ:100096] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=0.96
+<2026-07-24T13:36:28.764Z> [SEQ:100097] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=1.97
+<2026-07-24T13:36:32.536Z> [SEQ:100098] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=2.98
+<2026-07-24T13:36:36.308Z> [SEQ:100099] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=0.99
+<2026-07-24T13:36:40.080Z> [SEQ:100100] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=1.00
+<2026-07-24T13:36:41.463Z> [SEQ:100100] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44300 lag_us=130
+<2026-07-24T13:36:44.732Z> [SEQ:100101] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=2.01
+<2026-07-24T13:36:46.618Z> [SEQ:100101] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2101 util=0.71
+<2026-07-24T13:36:48.504Z> [SEQ:100102] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=0.02
+<2026-07-24T13:36:52.276Z> [SEQ:100103] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=1.03
+<2026-07-24T13:36:56.048Z> [SEQ:100104] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=2.04
+<2026-07-24T13:37:00.700Z> [SEQ:100105] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=0.05
+<2026-07-24T13:37:01.203Z> [SEQ:100105] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44315 lag_us=135
+<2026-07-24T13:37:04.472Z> [SEQ:100106] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=1.06
+<2026-07-24T13:37:08.244Z> [SEQ:100107] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=2.07
+<2026-07-24T13:37:12.016Z> [SEQ:100108] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=0.08
+<2026-07-24T13:37:14.782Z> [SEQ:100108] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2108 util=0.78
+<2026-07-24T13:37:16.668Z> [SEQ:100109] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=1.09
+<2026-07-24T13:37:20.440Z> [SEQ:100110] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=2.10
+<2026-07-24T13:37:21.823Z> [SEQ:100110] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44330 lag_us=140
+<2026-07-24T13:37:24.212Z> [SEQ:100111] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=0.11
+<2026-07-24T13:37:28.864Z> [SEQ:100112] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=1.12
+<2026-07-24T13:37:32.636Z> [SEQ:100113] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=2.13
+<2026-07-24T13:37:36.408Z> [SEQ:100114] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=0.14
+<2026-07-24T13:37:40.180Z> [SEQ:100115] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=1.15
+<2026-07-24T13:37:41.563Z> [SEQ:100115] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44345 lag_us=145
+<2026-07-24T13:37:42.066Z> [SEQ:100115] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2115 util=0.85
+<2026-07-24T13:37:44.832Z> [SEQ:100116] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=2.16
+<2026-07-24T13:37:48.604Z> [SEQ:100117] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=0.17
+<2026-07-24T13:37:52.376Z> [SEQ:100118] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=1.18
+<2026-07-24T13:37:56.148Z> [SEQ:100119] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=2.19
+<2026-07-24T13:38:00.800Z> [SEQ:100120] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=0.20
+<2026-07-24T13:38:01.303Z> [SEQ:100120] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44360 lag_us=150
+<2026-07-24T13:38:04.572Z> [SEQ:100121] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=1.21
+<2026-07-24T13:38:08.344Z> [SEQ:100122] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=2.22
+<2026-07-24T13:38:10.230Z> [SEQ:100122] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2122 util=0.32
+<2026-07-24T13:38:12.116Z> [SEQ:100123] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=0.23
+<2026-07-24T13:38:16.768Z> [SEQ:100124] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=1.24
+<2026-07-24T13:38:20.540Z> [SEQ:100125] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=2.25
+<2026-07-24T13:38:21.043Z> [SEQ:100125] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44375 lag_us=155
+<2026-07-24T13:38:24.312Z> [SEQ:100126] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=0.26
+<2026-07-24T13:38:28.084Z> [SEQ:100127] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=1.27
+<2026-07-24T13:38:32.736Z> [SEQ:100128] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=2.28
+<2026-07-24T13:38:36.508Z> [SEQ:100129] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=0.29
+<2026-07-24T13:38:38.394Z> [SEQ:100129] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2129 util=0.39
+<2026-07-24T13:38:40.280Z> [SEQ:100130] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=1.30
+<2026-07-24T13:38:41.663Z> [SEQ:100130] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44390 lag_us=160
+<2026-07-24T13:38:44.052Z> [SEQ:100131] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=2.31
+<2026-07-24T13:38:48.704Z> [SEQ:100132] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=0.32
+<2026-07-24T13:38:52.476Z> [SEQ:100133] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=1.33
+<2026-07-24T13:38:56.248Z> [SEQ:100134] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=2.34
+<2026-07-24T13:39:00.020Z> [SEQ:100135] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=0.35
+<2026-07-24T13:39:01.403Z> [SEQ:100135] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44405 lag_us=165
+<2026-07-24T13:39:04.672Z> [SEQ:100136] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=1.36
+<2026-07-24T13:39:06.558Z> [SEQ:100136] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2136 util=0.46
+<2026-07-24T13:39:08.444Z> [SEQ:100137] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=2.37
+<2026-07-24T13:39:12.216Z> [SEQ:100138] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=0.38
+<2026-07-24T13:39:16.868Z> [SEQ:100139] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=1.39
+<2026-07-24T13:39:20.640Z> [SEQ:100140] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=2.40
+<2026-07-24T13:39:21.143Z> [SEQ:100140] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44420 lag_us=170
+<2026-07-24T13:39:24.412Z> [SEQ:100141] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=0.41
+<2026-07-24T13:39:28.184Z> [SEQ:100142] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=1.42
+<2026-07-24T13:39:32.836Z> [SEQ:100143] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=2.43
+<2026-07-24T13:39:34.722Z> [SEQ:100143] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2143 util=0.53
+<2026-07-24T13:39:36.608Z> [SEQ:100144] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=0.44
+<2026-07-24T13:39:40.380Z> [SEQ:100145] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=1.45
+<2026-07-24T13:39:41.763Z> [SEQ:100145] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44435 lag_us=175
+<2026-07-24T13:39:44.152Z> [SEQ:100146] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=2.46
+<2026-07-24T13:39:48.804Z> [SEQ:100147] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=0.47
+<2026-07-24T13:39:52.576Z> [SEQ:100148] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=1.48
+<2026-07-24T13:39:56.348Z> [SEQ:100149] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=2.49
+<2026-07-24T13:40:00.120Z> [SEQ:100150] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=0.50
+<2026-07-24T13:40:01.503Z> [SEQ:100150] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44450 lag_us=180
+<2026-07-24T13:40:02.006Z> [SEQ:100150] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2150 util=0.60
+<2026-07-24T13:40:04.772Z> [SEQ:100151] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=1.51
+<2026-07-24T13:40:08.544Z> [SEQ:100152] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=2.52
+<2026-07-24T13:40:12.316Z> [SEQ:100153] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=0.53
+<2026-07-24T13:40:16.088Z> [SEQ:100154] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=1.54
+<2026-07-24T13:40:20.740Z> [SEQ:100155] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=2.55
+<2026-07-24T13:40:21.243Z> [SEQ:100155] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44465 lag_us=185
+<2026-07-24T13:40:24.512Z> [SEQ:100156] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=0.56
+<2026-07-24T13:40:28.284Z> [SEQ:100157] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=1.57
+<2026-07-24T13:40:30.170Z> [SEQ:100157] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2157 util=0.67
+<2026-07-24T13:40:32.056Z> [SEQ:100158] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=2.58
+<2026-07-24T13:40:36.708Z> [SEQ:100159] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=0.59
+<2026-07-24T13:40:40.480Z> [SEQ:100160] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=1.60
+<2026-07-24T13:40:41.863Z> [SEQ:100160] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44480 lag_us=190
+<2026-07-24T13:40:44.252Z> [SEQ:100161] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=2.61
+<2026-07-24T13:40:48.024Z> [SEQ:100162] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=0.62
+<2026-07-24T13:40:52.676Z> [SEQ:100163] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=1.63
+<2026-07-24T13:40:56.448Z> [SEQ:100164] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=2.64
+<2026-07-24T13:40:58.334Z> [SEQ:100164] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2164 util=0.74
+<2026-07-24T13:41:00.220Z> [SEQ:100165] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=0.65
+<2026-07-24T13:41:01.603Z> [SEQ:100165] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44495 lag_us=195
+<2026-07-24T13:41:04.872Z> [SEQ:100166] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=1.66
+<2026-07-24T13:41:08.644Z> [SEQ:100167] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=2.67
+<2026-07-24T13:41:12.416Z> [SEQ:100168] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=0.68
+<2026-07-24T13:41:16.188Z> [SEQ:100169] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=1.69
+<2026-07-24T13:41:20.840Z> [SEQ:100170] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=2.70
+<2026-07-24T13:41:21.343Z> [SEQ:100170] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44510 lag_us=200
+<2026-07-24T13:41:24.612Z> [SEQ:100171] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=0.71
+<2026-07-24T13:41:26.498Z> [SEQ:100171] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2171 util=0.81
+<2026-07-24T13:41:28.384Z> [SEQ:100172] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=1.72
+<2026-07-24T13:41:32.156Z> [SEQ:100173] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=2.73
+<2026-07-24T13:41:36.808Z> [SEQ:100174] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=0.74
+<2026-07-24T13:41:40.580Z> [SEQ:100175] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=1.75
+<2026-07-24T13:41:41.083Z> [SEQ:100175] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44525 lag_us=205
+<2026-07-24T13:41:44.352Z> [SEQ:100176] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=2.76
+<2026-07-24T13:41:48.124Z> [SEQ:100177] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=0.77
+<2026-07-24T13:41:52.776Z> [SEQ:100178] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=1.78
+<2026-07-24T13:41:54.662Z> [SEQ:100178] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2178 util=0.88
+<2026-07-24T13:41:56.548Z> [SEQ:100179] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=2.79
+<2026-07-24T13:42:00.320Z> [SEQ:100180] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=0.80
+<2026-07-24T13:42:01.703Z> [SEQ:100180] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44540 lag_us=120
+<2026-07-24T13:42:04.092Z> [SEQ:100181] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=1.81
+<2026-07-24T13:42:08.744Z> [SEQ:100182] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=2.82
+<2026-07-24T13:42:12.516Z> [SEQ:100183] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=0.83
+<2026-07-24T13:42:16.288Z> [SEQ:100184] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=1.84
+<2026-07-24T13:42:20.060Z> [SEQ:100185] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=2.85
+<2026-07-24T13:42:21.443Z> [SEQ:100185] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44555 lag_us=125
+<2026-07-24T13:42:22.826Z> [SEQ:100185] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2185 util=0.35
+<2026-07-24T13:42:24.712Z> [SEQ:100186] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=0.86
+<2026-07-24T13:42:28.484Z> [SEQ:100187] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=1.87
+<2026-07-24T13:42:32.256Z> [SEQ:100188] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=2.88
+<2026-07-24T13:42:36.028Z> [SEQ:100189] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=0.89
+<2026-07-24T13:42:40.680Z> [SEQ:100190] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=1.90
+<2026-07-24T13:42:41.183Z> [SEQ:100190] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44570 lag_us=130
+<2026-07-24T13:42:44.452Z> [SEQ:100191] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=2.91
+<2026-07-24T13:42:48.224Z> [SEQ:100192] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=0.92
+<2026-07-24T13:42:50.110Z> [SEQ:100192] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2192 util=0.42
+<2026-07-24T13:42:52.876Z> [SEQ:100193] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=1.93
+<2026-07-24T13:42:56.648Z> [SEQ:100194] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=2.94
+<2026-07-24T13:43:00.420Z> [SEQ:100195] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=0.95
+<2026-07-24T13:43:01.803Z> [SEQ:100195] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44585 lag_us=135
+<2026-07-24T13:43:04.192Z> [SEQ:100196] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=1.96
+<2026-07-24T13:43:08.844Z> [SEQ:100197] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=2.97
+<2026-07-24T13:43:12.616Z> [SEQ:100198] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=0.98
+<2026-07-24T13:43:16.388Z> [SEQ:100199] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=1.99
+<2026-07-24T13:43:18.274Z> [SEQ:100199] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2199 util=0.49
+<2026-07-24T13:43:20.160Z> [SEQ:100200] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=2.00
+<2026-07-24T13:43:21.543Z> [SEQ:100200] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44600 lag_us=140
+<2026-07-24T13:43:24.812Z> [SEQ:100201] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=0.01
+<2026-07-24T13:43:28.584Z> [SEQ:100202] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=1.02
+<2026-07-24T13:43:32.356Z> [SEQ:100203] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=2.03
+<2026-07-24T13:43:36.128Z> [SEQ:100204] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=0.04
+<2026-07-24T13:43:40.780Z> [SEQ:100205] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=1.05
+<2026-07-24T13:43:41.283Z> [SEQ:100205] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44615 lag_us=145
+<2026-07-24T13:43:44.552Z> [SEQ:100206] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=2.06
+<2026-07-24T13:43:46.438Z> [SEQ:100206] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2206 util=0.56
+<2026-07-24T13:43:48.324Z> [SEQ:100207] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=0.07
+<2026-07-24T13:43:52.096Z> [SEQ:100208] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=1.08
+<2026-07-24T13:43:56.748Z> [SEQ:100209] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=2.09
+<2026-07-24T13:44:00.520Z> [SEQ:100210] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=0.10
+<2026-07-24T13:44:01.023Z> [SEQ:100210] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44630 lag_us=150
+<2026-07-24T13:44:04.292Z> [SEQ:100211] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=1.11
+<2026-07-24T13:44:08.064Z> [SEQ:100212] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=2.12
+<2026-07-24T13:44:12.716Z> [SEQ:100213] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=0.13
+<2026-07-24T13:44:14.602Z> [SEQ:100213] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2213 util=0.63
+<2026-07-24T13:44:16.488Z> [SEQ:100214] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=1.14
+<2026-07-24T13:44:20.260Z> [SEQ:100215] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=2.15
+<2026-07-24T13:44:21.643Z> [SEQ:100215] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44645 lag_us=155
+<2026-07-24T13:44:24.032Z> [SEQ:100216] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=0.16
+<2026-07-24T13:44:28.684Z> [SEQ:100217] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=1.17
+<2026-07-24T13:44:32.456Z> [SEQ:100218] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=2.18
+<2026-07-24T13:44:36.228Z> [SEQ:100219] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=0.19
+<2026-07-24T13:44:40.000Z> [SEQ:100220] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=1.20
+<2026-07-24T13:44:41.383Z> [SEQ:100220] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44660 lag_us=160
+<2026-07-24T13:44:42.766Z> [SEQ:100220] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2220 util=0.70
+<2026-07-24T13:44:44.652Z> [SEQ:100221] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=2.21
+<2026-07-24T13:44:48.424Z> [SEQ:100222] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=0.22
+<2026-07-24T13:44:52.196Z> [SEQ:100223] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=1.23
+<2026-07-24T13:44:56.848Z> [SEQ:100224] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=2.24
+<2026-07-24T13:45:00.620Z> [SEQ:100225] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=0.25
+<2026-07-24T13:45:01.123Z> [SEQ:100225] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44675 lag_us=165
+<2026-07-24T13:45:04.392Z> [SEQ:100226] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=1.26
+<2026-07-24T13:45:08.164Z> [SEQ:100227] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=2.27
+<2026-07-24T13:45:10.050Z> [SEQ:100227] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2227 util=0.77
+<2026-07-24T13:45:12.816Z> [SEQ:100228] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=0.28
+<2026-07-24T13:45:16.588Z> [SEQ:100229] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=1.29
+<2026-07-24T13:45:20.360Z> [SEQ:100230] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=2.30
+<2026-07-24T13:45:21.743Z> [SEQ:100230] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44690 lag_us=170
+<2026-07-24T13:45:24.132Z> [SEQ:100231] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=0.31
+<2026-07-24T13:45:28.784Z> [SEQ:100232] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=1.32
+<2026-07-24T13:45:32.556Z> [SEQ:100233] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=2.33
+<2026-07-24T13:45:36.328Z> [SEQ:100234] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=0.34
+<2026-07-24T13:45:38.214Z> [SEQ:100234] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2234 util=0.84
+<2026-07-24T13:45:40.100Z> [SEQ:100235] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=1.35
+<2026-07-24T13:45:41.483Z> [SEQ:100235] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44705 lag_us=175
+<2026-07-24T13:45:44.752Z> [SEQ:100236] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=2.36
+<2026-07-24T13:45:48.524Z> [SEQ:100237] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=0.37
+<2026-07-24T13:45:52.296Z> [SEQ:100238] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=1.38
+<2026-07-24T13:45:56.068Z> [SEQ:100239] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=2.39
+<2026-07-24T13:46:00.720Z> [SEQ:100240] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=0.40
+<2026-07-24T13:46:01.223Z> [SEQ:100240] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44720 lag_us=180
+<2026-07-24T13:46:04.492Z> [SEQ:100241] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=1.41
+<2026-07-24T13:46:06.378Z> [SEQ:100241] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2241 util=0.31
+<2026-07-24T13:46:08.264Z> [SEQ:100242] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=2.42
+<2026-07-24T13:46:12.036Z> [SEQ:100243] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=0.43
+<2026-07-24T13:46:16.688Z> [SEQ:100244] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=1.44
+<2026-07-24T13:46:20.460Z> [SEQ:100245] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=2.45
+<2026-07-24T13:46:21.843Z> [SEQ:100245] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44735 lag_us=185
+<2026-07-24T13:46:24.232Z> [SEQ:100246] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=0.46
+<2026-07-24T13:46:28.004Z> [SEQ:100247] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=1.47
+<2026-07-24T13:46:32.656Z> [SEQ:100248] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=2.48
+<2026-07-24T13:46:34.542Z> [SEQ:100248] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2248 util=0.38
+<2026-07-24T13:46:36.428Z> [SEQ:100249] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=0.49
+<2026-07-24T13:46:40.200Z> [SEQ:100250] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=1.50
+<2026-07-24T13:46:41.583Z> [SEQ:100250] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44750 lag_us=190
+<2026-07-24T13:46:44.852Z> [SEQ:100251] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=2.51
+<2026-07-24T13:46:48.624Z> [SEQ:100252] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=0.52
+<2026-07-24T13:46:52.396Z> [SEQ:100253] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=1.53
+<2026-07-24T13:46:56.168Z> [SEQ:100254] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=2.54
+<2026-07-24T13:47:00.820Z> [SEQ:100255] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=0.55
+<2026-07-24T13:47:01.323Z> [SEQ:100255] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44765 lag_us=195
+<2026-07-24T13:47:02.706Z> [SEQ:100255] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2255 util=0.45
+<2026-07-24T13:47:04.592Z> [SEQ:100256] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=1.56
+<2026-07-24T13:47:08.364Z> [SEQ:100257] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=2.57
+<2026-07-24T13:47:12.136Z> [SEQ:100258] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=0.58
+<2026-07-24T13:47:16.788Z> [SEQ:100259] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=1.59
+<2026-07-24T13:47:20.560Z> [SEQ:100260] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=2.60
+<2026-07-24T13:47:21.063Z> [SEQ:100260] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44780 lag_us=200
+<2026-07-24T13:47:24.332Z> [SEQ:100261] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=0.61
+<2026-07-24T13:47:28.104Z> [SEQ:100262] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=1.62
+<2026-07-24T13:47:30.870Z> [SEQ:100262] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2262 util=0.52
+<2026-07-24T13:47:32.756Z> [SEQ:100263] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=2.63
+<2026-07-24T13:47:36.528Z> [SEQ:100264] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=0.64
+<2026-07-24T13:47:40.300Z> [SEQ:100265] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=1.65
+<2026-07-24T13:47:41.683Z> [SEQ:100265] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44795 lag_us=205
+<2026-07-24T13:47:44.072Z> [SEQ:100266] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=2.66
+<2026-07-24T13:47:48.724Z> [SEQ:100267] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=0.67
+<2026-07-24T13:47:52.496Z> [SEQ:100268] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=1.68
+<2026-07-24T13:47:56.268Z> [SEQ:100269] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=2.69
+<2026-07-24T13:47:58.154Z> [SEQ:100269] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2269 util=0.59
+<2026-07-24T13:48:00.040Z> [SEQ:100270] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=0.70
+<2026-07-24T13:48:01.423Z> [SEQ:100270] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44810 lag_us=120
+<2026-07-24T13:48:04.692Z> [SEQ:100271] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=1.71
+<2026-07-24T13:48:08.464Z> [SEQ:100272] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=2.72
+<2026-07-24T13:48:12.236Z> [SEQ:100273] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=0.73
+<2026-07-24T13:48:16.008Z> [SEQ:100274] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=1.74
+<2026-07-24T13:48:20.660Z> [SEQ:100275] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=2.75
+<2026-07-24T13:48:21.163Z> [SEQ:100275] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44825 lag_us=125
+<2026-07-24T13:48:24.432Z> [SEQ:100276] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=0.76
+<2026-07-24T13:48:26.318Z> [SEQ:100276] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2276 util=0.66
+<2026-07-24T13:48:28.204Z> [SEQ:100277] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=1.77
+<2026-07-24T13:48:32.856Z> [SEQ:100278] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=2.78
+<2026-07-24T13:48:36.628Z> [SEQ:100279] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=0.79
+<2026-07-24T13:48:40.400Z> [SEQ:100280] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=180 spread=1.80
+<2026-07-24T13:48:41.783Z> [SEQ:100280] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44840 lag_us=130
+<2026-07-24T13:48:44.172Z> [SEQ:100281] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=181 spread=2.81
+<2026-07-24T13:48:48.824Z> [SEQ:100282] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=182 spread=0.82
+<2026-07-24T13:48:52.596Z> [SEQ:100283] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=183 spread=1.83
+<2026-07-24T13:48:54.482Z> [SEQ:100283] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2283 util=0.73
+<2026-07-24T13:48:56.368Z> [SEQ:100284] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=184 spread=2.84
+<2026-07-24T13:49:00.140Z> [SEQ:100285] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=185 spread=0.85
+<2026-07-24T13:49:01.523Z> [SEQ:100285] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44855 lag_us=135
+<2026-07-24T13:49:04.792Z> [SEQ:100286] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=186 spread=1.86
+<2026-07-24T13:49:08.564Z> [SEQ:100287] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=187 spread=2.87
+<2026-07-24T13:49:12.336Z> [SEQ:100288] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=188 spread=0.88
+<2026-07-24T13:49:16.108Z> [SEQ:100289] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=189 spread=1.89
+<2026-07-24T13:49:20.760Z> [SEQ:100290] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=190 spread=2.90
+<2026-07-24T13:49:21.263Z> [SEQ:100290] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44870 lag_us=140
+<2026-07-24T13:49:22.646Z> [SEQ:100290] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2290 util=0.80
+<2026-07-24T13:49:24.532Z> [SEQ:100291] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=191 spread=0.91
+<2026-07-24T13:49:28.304Z> [SEQ:100292] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=192 spread=1.92
+<2026-07-24T13:49:32.076Z> [SEQ:100293] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=193 spread=2.93
+<2026-07-24T13:49:36.728Z> [SEQ:100294] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=194 spread=0.94
+<2026-07-24T13:49:40.500Z> [SEQ:100295] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=195 spread=1.95
+<2026-07-24T13:49:40.500Z> [SEQ:200001] FEED-GW    lvl=W code=0x2F14 msg="sequence gap detected" expected=884120 received=884137 gap=17
+<2026-07-24T13:49:41.003Z> [SEQ:100295] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44885 lag_us=145
+<2026-07-24T13:49:43.769Z> [SEQ:200002] FEED-GW    lvl=W code=0x2F14 msg="sequence gap detected" expected=884138 received=884191 gap=53
+<2026-07-24T13:49:44.272Z> [SEQ:100296] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=196 spread=2.96
+<2026-07-24T13:49:48.044Z> [SEQ:100297] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=197 spread=0.97
+<2026-07-24T13:49:48.044Z> [SEQ:200003] MTCH-ENGINE lvl=E code=0x4A01 msg="book state divergent, quoting suspended" symbol=EURUSD
+<2026-07-24T13:49:50.810Z> [SEQ:100297] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2297 util=0.87
+<2026-07-24T13:49:51.313Z> [SEQ:200004] MTCH-ENGINE lvl=E code=0x4A01 msg="book state divergent, quoting suspended" symbol=GBPUSD
+<2026-07-24T13:49:52.696Z> [SEQ:100298] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=198 spread=1.98
+<2026-07-24T13:49:56.468Z> [SEQ:100299] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=199 spread=2.99
+<2026-07-24T13:49:56.468Z> [SEQ:200005] RISK-CHK   lvl=E code=0x4B22 msg="stale book, limit checks bypassed" acct=A2044
+<2026-07-24T13:50:00.240Z> [SEQ:100300] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=200 spread=0.00
+<2026-07-24T13:50:01.623Z> [SEQ:100300] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44900 lag_us=150
+<2026-07-24T13:50:02.126Z> [SEQ:200006] SUPERVISOR lvl=F code=0x5000 msg="quoting halted on 2 symbols pending resync"
+<2026-07-24T13:50:04.012Z> [SEQ:100301] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=201 spread=1.01
+<2026-07-24T13:50:08.664Z> [SEQ:100302] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=202 spread=2.02
+<2026-07-24T13:50:10.550Z> [SEQ:200100] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=4
+<2026-07-24T13:50:12.436Z> [SEQ:100303] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=203 spread=0.03
+<2026-07-24T13:50:14.322Z> [SEQ:200101] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=8
+<2026-07-24T13:50:16.208Z> [SEQ:100304] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=204 spread=1.04
+<2026-07-24T13:50:18.094Z> [SEQ:100304] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2304 util=0.34
+<2026-07-24T13:50:18.094Z> [SEQ:200102] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=12
+<2026-07-24T13:50:20.860Z> [SEQ:100305] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=205 spread=2.05
+<2026-07-24T13:50:21.363Z> [SEQ:100305] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44915 lag_us=155
+<2026-07-24T13:50:22.746Z> [SEQ:200103] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=16
+<2026-07-24T13:50:24.632Z> [SEQ:100306] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=206 spread=0.06
+<2026-07-24T13:50:26.518Z> [SEQ:200104] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=20
+<2026-07-24T13:50:28.404Z> [SEQ:100307] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=207 spread=1.07
+<2026-07-24T13:50:30.290Z> [SEQ:200105] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=24
+<2026-07-24T13:50:32.176Z> [SEQ:100308] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=208 spread=2.08
+<2026-07-24T13:50:34.062Z> [SEQ:200106] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=28
+<2026-07-24T13:50:36.828Z> [SEQ:100309] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=209 spread=0.09
+<2026-07-24T13:50:38.714Z> [SEQ:200107] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=32
+<2026-07-24T13:50:40.600Z> [SEQ:100310] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=210 spread=1.10
+<2026-07-24T13:50:41.103Z> [SEQ:100310] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44930 lag_us=160
+<2026-07-24T13:50:42.486Z> [SEQ:200108] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=36
+<2026-07-24T13:50:44.372Z> [SEQ:100311] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=211 spread=2.11
+<2026-07-24T13:50:46.258Z> [SEQ:100311] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2311 util=0.41
+<2026-07-24T13:50:46.258Z> [SEQ:200109] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=40
+<2026-07-24T13:50:48.144Z> [SEQ:100312] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=212 spread=0.12
+<2026-07-24T13:50:50.030Z> [SEQ:200110] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=44
+<2026-07-24T13:50:52.796Z> [SEQ:100313] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=213 spread=1.13
+<2026-07-24T13:50:54.682Z> [SEQ:200111] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=48
+<2026-07-24T13:50:56.568Z> [SEQ:100314] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=214 spread=2.14
+<2026-07-24T13:50:58.454Z> [SEQ:200112] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=52
+<2026-07-24T13:51:00.340Z> [SEQ:100315] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=215 spread=0.15
+<2026-07-24T13:51:01.723Z> [SEQ:100315] FEED-GW    lvl=I code=0x1004 msg="snapshot applied" seqno=44945 lag_us=165
+<2026-07-24T13:51:02.226Z> [SEQ:200113] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=56
+<2026-07-24T13:51:04.112Z> [SEQ:100316] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=216 spread=1.16
+<2026-07-24T13:51:06.878Z> [SEQ:200114] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=60
+<2026-07-24T13:51:08.764Z> [SEQ:100317] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=217 spread=2.17
+<2026-07-24T13:51:10.650Z> [SEQ:200115] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=64
+<2026-07-24T13:51:12.536Z> [SEQ:100318] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=218 spread=0.18
+<2026-07-24T13:51:14.422Z> [SEQ:100318] RISK-CHK   lvl=I code=0x1010 msg="limit check ok" acct=A2318 util=0.48
+<2026-07-24T13:51:14.422Z> [SEQ:200116] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=68
+<2026-07-24T13:51:16.308Z> [SEQ:100319] MTCH-ENGINE lvl=I code=0x1000 msg="book rebuilt" depth=219 spread=1.19
+<2026-07-24T13:51:18.194Z> [SEQ:200117] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=72
+<2026-07-24T13:51:22.846Z> [SEQ:200118] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=76
+<2026-07-24T13:51:26.618Z> [SEQ:200119] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=80
+<2026-07-24T13:51:30.390Z> [SEQ:200120] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=84
+<2026-07-24T13:51:34.162Z> [SEQ:200121] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=88
+<2026-07-24T13:51:38.814Z> [SEQ:200122] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=92
+<2026-07-24T13:51:42.586Z> [SEQ:200123] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=96
+<2026-07-24T13:51:46.358Z> [SEQ:200124] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=99
+<2026-07-24T13:51:50.130Z> [SEQ:200125] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=99
+<2026-07-24T13:51:54.782Z> [SEQ:200126] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=99
+<2026-07-24T13:51:58.554Z> [SEQ:200127] FEED-GW    lvl=W code=0x2F20 msg="resync in progress" pct=99
+<2026-07-24T13:52:20.180Z> [SEQ:200200] SUPERVISOR lvl=I code=0x1200 msg="resync complete, quoting resumed" halted_for_ms=148220

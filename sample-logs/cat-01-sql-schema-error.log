@@ -1,0 +1,343 @@
+2026-08-03 04:15:00,000 INFO  migrate.runner - Applying migration 0117_rename_customer_tier
+Aug 03 04:15:04 warehouse-db postgres[7301]: LOG:  statement: ALTER TABLE dim_customer RENAME COLUMN customer_tier TO tier_code
+2026-08-03 04:15:09,807 INFO  migrate.runner - Migration 0117 applied (1 of 2 statements)
+2026-08-03 04:15:12,196 WARN  migrate.runner - Statement 2 of 2 skipped: dependent view refresh was not scheduled in this release
+2026-08-03 04:15:40,360 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 60 success today
+2026-08-03 04:15:42,246 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+Aug 03 04:15:44 etl-node-01 postgres[3100]: LOG:  checkpoint complete: wrote 700 buffers
+2026-08-03 04:15:46,018 INFO  warehouse_build.extract_source - processed 1400 rows in 4.0s
+2026-08-03 04:15:49,287 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:15:49,287 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:15:54,442 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 61 success today
+2026-08-03 04:16:01,483 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:16:08,524 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 62 success today
+2026-08-03 04:16:10,410 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:16:14,182 INFO  warehouse_build.build_staging - processed 2634 rows in 6.2s
+2026-08-03 04:16:16,068 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 04:16:17,451 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:16:17,451 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:16:22,606 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 63 success today
+2026-08-03 04:16:25,875 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+Aug 03 04:16:26 etl-node-01 postgres[3103]: LOG:  checkpoint complete: wrote 859 buffers
+2026-08-03 04:16:36,688 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 64 success today
+2026-08-03 04:16:38,574 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+2026-08-03 04:16:41,843 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:16:42,346 INFO  warehouse_build.refresh_marts - processed 3868 rows in 8.4s
+2026-08-03 04:16:45,615 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:16:45,615 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:16:50,770 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 65 success today
+2026-08-03 04:16:57,811 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:17:04,852 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 66 success today
+2026-08-03 04:17:06,738 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+Aug 03 04:17:08 etl-node-01 postgres[3106]: LOG:  checkpoint complete: wrote 1018 buffers
+2026-08-03 04:17:10,510 INFO  warehouse_build.archive_outputs - processed 5102 rows in 10.6s
+2026-08-03 04:17:13,779 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:17:13,779 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:17:18,054 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 67 success today
+2026-08-03 04:17:26,478 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 04:17:32,136 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 68 success today
+2026-08-03 04:17:34,022 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:17:38,674 INFO  warehouse_build.extract_source - processed 6336 rows in 12.8s
+2026-08-03 04:17:41,063 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:17:41,063 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:17:46,218 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 69 success today
+Aug 03 04:17:50 etl-node-01 postgres[3109]: LOG:  checkpoint complete: wrote 1177 buffers
+2026-08-03 04:17:53,259 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:18:00,300 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 70 success today
+2026-08-03 04:18:02,186 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:18:03,569 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+2026-08-03 04:18:05,455 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:18:06,838 INFO  warehouse_build.build_staging - processed 7570 rows in 14.0s
+2026-08-03 04:18:09,227 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:18:09,227 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:18:14,382 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 71 success today
+2026-08-03 04:18:28,464 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 72 success today
+2026-08-03 04:18:30,350 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+Aug 03 04:18:32 etl-node-01 postgres[3112]: LOG:  checkpoint complete: wrote 1336 buffers
+2026-08-03 04:18:34,122 INFO  warehouse_build.refresh_marts - processed 8804 rows in 5.2s
+2026-08-03 04:18:36,008 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 04:18:37,391 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:18:37,391 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:18:42,546 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 73 success today
+2026-08-03 04:18:49,587 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:18:56,628 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 74 success today
+2026-08-03 04:18:58,514 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+2026-08-03 04:19:02,286 INFO  warehouse_build.archive_outputs - processed 10038 rows in 7.4s
+2026-08-03 04:19:05,555 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:19:05,555 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:19:10,710 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 75 success today
+Aug 03 04:19:14 etl-node-01 postgres[3115]: LOG:  checkpoint complete: wrote 1495 buffers
+2026-08-03 04:19:24,792 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 76 success today
+2026-08-03 04:19:26,678 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:19:29,067 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:19:30,450 INFO  warehouse_build.extract_source - processed 11272 rows in 9.6s
+2026-08-03 04:19:33,719 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:19:33,719 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:19:38,874 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 77 success today
+2026-08-03 04:19:41,263 INFO  audit.trail - user=svc-etl action=read resource=validate_batch result=allow
+2026-08-03 04:19:45,035 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:19:46,418 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 04:19:52,076 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 78 success today
+2026-08-03 04:19:54,842 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+Aug 03 04:19:56 etl-node-01 postgres[3118]: LOG:  checkpoint complete: wrote 1654 buffers
+2026-08-03 04:19:58,614 INFO  warehouse_build.build_staging - processed 12506 rows in 11.8s
+2026-08-03 04:20:01,003 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:20:01,003 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:20:06,158 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 79 success today
+2026-08-03 04:20:20,240 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 80 success today
+2026-08-03 04:20:22,126 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+2026-08-03 04:20:26,778 INFO  warehouse_build.refresh_marts - processed 13740 rows in 13.0s
+2026-08-03 04:20:29,167 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:20:29,167 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:20:34,322 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 81 success today
+Aug 03 04:20:38 etl-node-01 postgres[3121]: LOG:  checkpoint complete: wrote 1813 buffers
+2026-08-03 04:20:41,363 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:20:48,404 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 82 success today
+2026-08-03 04:20:50,290 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+2026-08-03 04:20:53,559 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:20:54,062 INFO  warehouse_build.archive_outputs - processed 14974 rows in 4.2s
+2026-08-03 04:20:56,828 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 04:20:57,331 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:20:57,331 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:21:02,486 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 83 success today
+2026-08-03 04:21:16,568 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 84 success today
+2026-08-03 04:21:18,454 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:21:19,837 INFO  audit.trail - user=svc-etl action=read resource=extract_source result=allow
+Aug 03 04:21:20 etl-node-01 postgres[3124]: LOG:  checkpoint complete: wrote 1972 buffers
+2026-08-03 04:21:22,226 INFO  warehouse_build.extract_source - processed 16208 rows in 6.4s
+2026-08-03 04:21:25,495 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:21:25,495 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:21:30,650 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 85 success today
+2026-08-03 04:21:37,691 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:21:44,732 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 86 success today
+2026-08-03 04:21:46,618 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:21:50,390 INFO  warehouse_build.build_staging - processed 17442 rows in 8.6s
+2026-08-03 04:21:53,659 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:21:53,659 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:21:58,814 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 87 success today
+Aug 03 04:22:02 etl-node-01 postgres[3127]: LOG:  checkpoint complete: wrote 2131 buffers
+2026-08-03 04:22:06,358 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 04:22:12,016 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 88 success today
+2026-08-03 04:22:14,782 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+2026-08-03 04:22:17,171 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:22:18,554 INFO  warehouse_build.refresh_marts - processed 18676 rows in 10.8s
+2026-08-03 04:22:21,823 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:22:21,823 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:22:26,098 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 89 success today
+2026-08-03 04:22:33,139 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:22:40,180 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 90 success today
+2026-08-03 04:22:42,066 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+Aug 03 04:22:44 etl-node-01 postgres[3130]: LOG:  checkpoint complete: wrote 2290 buffers
+2026-08-03 04:22:46,718 INFO  warehouse_build.archive_outputs - processed 19910 rows in 12.0s
+2026-08-03 04:22:49,107 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:22:49,107 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:22:54,262 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 91 success today
+2026-08-03 04:22:57,531 INFO  audit.trail - user=svc-etl action=read resource=notify_owners result=allow
+2026-08-03 04:23:08,344 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 92 success today
+2026-08-03 04:23:10,230 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:23:14,002 INFO  warehouse_build.extract_source - processed 21144 rows in 14.2s
+2026-08-03 04:23:16,768 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 04:23:17,271 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:23:17,271 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:23:22,426 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 93 success today
+Aug 03 04:23:26 etl-node-01 postgres[3133]: LOG:  checkpoint complete: wrote 2449 buffers
+2026-08-03 04:23:29,467 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:23:36,508 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 94 success today
+2026-08-03 04:23:38,394 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:23:41,663 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:23:42,166 INFO  warehouse_build.build_staging - processed 22378 rows in 5.4s
+2026-08-03 04:23:45,435 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:23:45,435 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:23:50,590 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 95 success today
+2026-08-03 04:24:04,672 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 96 success today
+2026-08-03 04:24:06,558 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+Aug 03 04:24:08 etl-node-01 postgres[3136]: LOG:  checkpoint complete: wrote 2608 buffers
+2026-08-03 04:24:10,330 INFO  warehouse_build.refresh_marts - processed 23612 rows in 7.6s
+2026-08-03 04:24:13,599 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:24:13,599 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:24:18,754 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 97 success today
+2026-08-03 04:24:25,795 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:24:26,298 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 04:24:32,836 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 98 success today
+2026-08-03 04:24:34,722 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+2026-08-03 04:24:35,225 INFO  audit.trail - user=svc-etl action=read resource=archive_outputs result=allow
+2026-08-03 04:24:38,494 INFO  warehouse_build.archive_outputs - processed 24846 rows in 9.8s
+2026-08-03 04:24:41,763 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:24:41,763 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:24:46,038 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 99 success today
+Aug 03 04:24:50 etl-node-01 postgres[3139]: LOG:  checkpoint complete: wrote 2767 buffers
+2026-08-03 04:25:00,120 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 100 success today
+2026-08-03 04:25:02,006 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:25:05,275 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:25:06,658 INFO  warehouse_build.extract_source - processed 26080 rows in 11.0s
+2026-08-03 04:25:09,047 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:25:09,047 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:25:14,202 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 101 success today
+2026-08-03 04:25:21,243 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:25:28,284 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 102 success today
+2026-08-03 04:25:30,170 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+Aug 03 04:25:32 etl-node-01 postgres[3142]: LOG:  checkpoint complete: wrote 2926 buffers
+2026-08-03 04:25:34,822 INFO  warehouse_build.build_staging - processed 27314 rows in 13.2s
+2026-08-03 04:25:36,708 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 04:25:37,211 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:25:37,211 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:25:42,366 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 103 success today
+2026-08-03 04:25:56,448 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 104 success today
+2026-08-03 04:25:58,334 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+2026-08-03 04:26:02,106 INFO  warehouse_build.refresh_marts - processed 28548 rows in 4.4s
+2026-08-03 04:26:05,375 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:26:05,375 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:26:10,530 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 105 success today
+2026-08-03 04:26:13,799 INFO  audit.trail - user=svc-etl action=read resource=publish_metrics result=allow
+Aug 03 04:26:14 etl-node-01 postgres[3145]: LOG:  checkpoint complete: wrote 3085 buffers
+2026-08-03 04:26:17,571 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:26:24,612 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 106 success today
+2026-08-03 04:26:26,498 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+2026-08-03 04:26:29,767 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:26:30,270 INFO  warehouse_build.archive_outputs - processed 29782 rows in 6.6s
+2026-08-03 04:26:33,539 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:26:33,539 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:26:38,694 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 107 success today
+2026-08-03 04:26:46,238 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 04:26:52,776 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 108 success today
+2026-08-03 04:26:54,662 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+Aug 03 04:26:56 etl-node-01 postgres[3148]: LOG:  checkpoint complete: wrote 3244 buffers
+2026-08-03 04:26:58,434 INFO  warehouse_build.extract_source - processed 31016 rows in 8.8s
+2026-08-03 04:27:01,703 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:27:01,703 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:27:06,858 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 109 success today
+2026-08-03 04:27:13,019 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:27:20,060 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 110 success today
+2026-08-03 04:27:22,826 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:27:26,598 INFO  warehouse_build.build_staging - processed 32250 rows in 10.0s
+2026-08-03 04:27:29,867 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:27:29,867 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:27:34,142 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 111 success today
+Aug 03 04:27:38 etl-node-01 postgres[3151]: LOG:  checkpoint complete: wrote 3403 buffers
+2026-08-03 04:27:48,224 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 112 success today
+2026-08-03 04:27:50,110 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+2026-08-03 04:27:51,493 INFO  audit.trail - user=svc-etl action=read resource=refresh_marts result=allow
+2026-08-03 04:27:53,379 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:27:54,762 INFO  warehouse_build.refresh_marts - processed 33484 rows in 12.2s
+2026-08-03 04:27:56,648 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 04:27:57,151 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:27:57,151 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:28:02,306 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 113 success today
+2026-08-03 04:28:09,347 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:28:16,388 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 114 success today
+2026-08-03 04:28:18,274 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+Aug 03 04:28:20 etl-node-01 postgres[3154]: LOG:  checkpoint complete: wrote 3562 buffers
+2026-08-03 04:28:22,046 INFO  warehouse_build.archive_outputs - processed 34718 rows in 14.4s
+2026-08-03 04:28:25,315 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:28:25,315 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:28:30,470 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 115 success today
+2026-08-03 04:28:44,552 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 116 success today
+2026-08-03 04:28:46,438 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:28:50,210 INFO  warehouse_build.extract_source - processed 35952 rows in 5.6s
+2026-08-03 04:28:53,479 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:28:53,479 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:28:58,634 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 117 success today
+Aug 03 04:29:02 etl-node-01 postgres[3157]: LOG:  checkpoint complete: wrote 3721 buffers
+2026-08-03 04:29:05,675 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:29:06,178 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-08-03 04:29:12,716 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 118 success today
+2026-08-03 04:29:14,602 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:29:17,871 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:29:18,374 INFO  warehouse_build.build_staging - processed 37186 rows in 7.8s
+2026-08-03 04:29:21,643 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:29:21,643 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:29:26,798 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 119 success today
+2026-08-03 04:29:29,187 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+2026-08-03 04:29:40,000 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 120 success today
+2026-08-03 04:29:42,766 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+Aug 03 04:29:44 etl-node-01 postgres[3160]: LOG:  checkpoint complete: wrote 3880 buffers
+2026-08-03 04:29:46,538 INFO  warehouse_build.refresh_marts - processed 38420 rows in 9.0s
+2026-08-03 04:29:49,807 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:29:49,807 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:29:54,082 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 121 success today
+2026-08-03 04:30:01,123 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:30:08,164 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 122 success today
+2026-08-03 04:30:10,050 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+2026-08-03 04:30:14,702 INFO  warehouse_build.archive_outputs - processed 39654 rows in 11.2s
+2026-08-03 04:30:16,588 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-08-03 04:30:17,091 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:30:17,091 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:30:22,246 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 123 success today
+Aug 03 04:30:26 etl-node-01 postgres[3163]: LOG:  checkpoint complete: wrote 4039 buffers
+2026-08-03 04:30:36,328 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 124 success today
+2026-08-03 04:30:38,214 INFO  airflow.task_runner - Running task warehouse_build.extract_source (attempt 1 of 3)
+2026-08-03 04:30:41,483 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:30:42,866 INFO  warehouse_build.extract_source - processed 40888 rows in 13.4s
+2026-08-03 04:30:45,255 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=extract_source
+2026-08-03 04:30:45,255 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:30:50,410 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 125 success today
+2026-08-03 04:30:57,451 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:31:04,492 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 126 success today
+2026-08-03 04:31:06,378 INFO  airflow.task_runner - Running task warehouse_build.build_staging (attempt 1 of 3)
+2026-08-03 04:31:07,761 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+Aug 03 04:31:08 etl-node-01 postgres[3166]: LOG:  checkpoint complete: wrote 4198 buffers
+2026-08-03 04:31:10,150 INFO  warehouse_build.build_staging - processed 42122 rows in 4.6s
+2026-08-03 04:31:13,419 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=build_staging
+2026-08-03 04:31:13,419 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:31:18,574 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 127 success today
+2026-08-03 04:31:26,118 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-08-03 04:31:32,656 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 128 success today
+2026-08-03 04:31:34,542 INFO  airflow.task_runner - Running task warehouse_build.refresh_marts (attempt 1 of 3)
+2026-08-03 04:31:38,314 INFO  warehouse_build.refresh_marts - processed 43356 rows in 6.8s
+2026-08-03 04:31:41,583 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=refresh_marts
+2026-08-03 04:31:41,583 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:31:46,738 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 129 success today
+Aug 03 04:31:50 etl-node-01 postgres[3169]: LOG:  checkpoint complete: wrote 4357 buffers
+2026-08-03 04:31:53,779 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-08-03 04:32:00,820 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 130 success today
+2026-08-03 04:32:02,706 INFO  airflow.task_runner - Running task warehouse_build.archive_outputs (attempt 1 of 3)
+2026-08-03 04:32:05,095 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-08-03 04:32:06,478 INFO  warehouse_build.archive_outputs - processed 44590 rows in 8.0s
+2026-08-03 04:32:09,747 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=warehouse_build, task_id=archive_outputs
+2026-08-03 04:32:09,747 INFO  airflow.local_task_job - Task exited with return code 0
+2026-08-03 04:32:14,022 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 131 success today
+2026-08-03 04:32:48,724 INFO  dbt.runner - 48 of 71 START model warehouse.mart_customer_value
+2026-08-03 04:32:51,113 ERROR dbt.runner - Database Error in model mart_customer_value (models/marts/mart_customer_value.sql)
+  column "customer_tier" does not exist
+  LINE 22:   d.customer_tier AS tier,
+                ^
+  HINT:  Perhaps you meant to reference the column "d.tier_code".
+Aug 03 04:32:54 warehouse-db postgres[7400]: ERROR:  column "customer_tier" does not exist at character 412
+2026-08-03 04:32:56,268 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_tier does not exist
+2026-08-03 04:33:14,122 INFO  dbt.runner - 49 of 71 START model warehouse.mart_tier_migration
+2026-08-03 04:33:17,391 ERROR dbt.runner - Database Error in model mart_tier_migration (models/marts/mart_tier_migration.sql)
+  column "customer_tier" does not exist
+  LINE 22:   d.customer_tier AS tier,
+                ^
+  HINT:  Perhaps you meant to reference the column "d.tier_code".
+Aug 03 04:33:20 warehouse-db postgres[7401]: ERROR:  column "customer_tier" does not exist at character 412
+2026-08-03 04:33:22,546 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_tier does not exist
+2026-08-03 04:33:40,400 INFO  dbt.runner - 50 of 71 START model warehouse.mart_retention
+2026-08-03 04:33:43,669 ERROR dbt.runner - Database Error in model mart_retention (models/marts/mart_retention.sql)
+  column "customer_tier" does not exist
+  LINE 22:   d.customer_tier AS tier,
+                ^
+  HINT:  Perhaps you meant to reference the column "d.tier_code".
+Aug 03 04:33:46 warehouse-db postgres[7402]: ERROR:  column "customer_tier" does not exist at character 412
+2026-08-03 04:33:48,824 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_tier does not exist
+2026-08-03 04:34:06,678 INFO  dbt.runner - 51 of 71 START model warehouse.rpt_exec_summary
+2026-08-03 04:34:09,067 ERROR dbt.runner - Database Error in model rpt_exec_summary (models/marts/rpt_exec_summary.sql)
+  column "customer_tier" does not exist
+  LINE 22:   d.customer_tier AS tier,
+                ^
+  HINT:  Perhaps you meant to reference the column "d.tier_code".
+Aug 03 04:34:12 warehouse-db postgres[7403]: ERROR:  column "customer_tier" does not exist at character 412
+2026-08-03 04:34:14,222 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_tier does not exist
+2026-08-03 04:34:32,076 INFO  dbt.runner - 52 of 71 START model warehouse.rpt_segment_mix
+2026-08-03 04:34:35,345 ERROR dbt.runner - Database Error in model rpt_segment_mix (models/marts/rpt_segment_mix.sql)
+  column "customer_tier" does not exist
+  LINE 22:   d.customer_tier AS tier,
+                ^
+  HINT:  Perhaps you meant to reference the column "d.tier_code".
+Aug 03 04:34:38 warehouse-db postgres[7404]: ERROR:  column "customer_tier" does not exist at character 412
+2026-08-03 04:34:40,500 ERROR dbt.adapter - psycopg2.errors.UndefinedColumn: column dim_customer.customer_tier does not exist
+2026-08-03 04:35:28,404 WARN  dbt.runner - 5 of 71 models FAILED, 66 completed successfully
+2026-08-03 04:35:32,176 ERROR airflow.taskinstance - Task failed with exception: dbt returned non-zero
+2026-08-03 04:35:36,828 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=warehouse_build, task_id=dbt_run_marts
+2026-08-03 04:35:37,331 INFO  airflow.local_task_job - Task exited with return code 1
+2026-08-03 04:35:38,714 ERROR airflow.dagrun - DagRun warehouse_build finished with failed tasks

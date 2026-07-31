@@ -24,6 +24,7 @@ _LINE_NO_KEYS = ("line_number", "lineno", "line_no", "n", "index")
 
 _LEVEL_NORMALIZE = {
     "WARN": "WARNING", "ERR": "ERROR", "FATAL": "CRITICAL", "CRIT": "CRITICAL",
+    "PANIC": "CRITICAL", "EMERG": "CRITICAL", "ALERT": "CRITICAL",
     "TRACE": "DEBUG", "NOTICE": "INFO", "FAIL": "ERROR", "SEVERE": "ERROR",
 }
 
@@ -90,8 +91,28 @@ _TS_PATTERNS = [
 
 _LEVEL_PATTERN = re.compile(
     r"(?:^|[\s\[\(:])(?:level[=:]\s*)?"
-    r"(CRITICAL|FATAL|SEVERE|ERROR|ERR|WARNING|WARN|NOTICE|INFO|DEBUG|TRACE)"
+    r"(CRITICAL|CRIT|PANIC|EMERG|ALERT|FATAL|SEVERE|ERROR|ERR|WARNING|WARN|NOTICE|INFO|DEBUG|TRACE)"
     r"(?:[\s\]\):=,]|$)", re.IGNORECASE)
+
+# Severe system events that syslog emits with no level token in the text
+# (the priority lives in the syslog header, which the line itself doesn't carry).
+_SEVERE_EVENT = re.compile(
+    r"out of memory|killed process|no space left on device|kernel panic|"
+    r"segmentation fault|segfault|read-only file system|i/o error", re.IGNORECASE)
+
+# Stack traces and indented continuations belong to the entry above them.
+_CONTINUATION = re.compile(
+    r"^\s+\S"
+    r"|^Traceback \(most recent call last\)"
+    r"|^Caused by:"
+    r"|^\w[\w.]*(?:Error|Exception)\b", re.IGNORECASE)
+
+# Single-letter levels ("lvl=E", "severity=W") used by C++/trading/embedded
+# loggers. The explicit key is required so this can't fire on a stray letter.
+_SHORT_LEVEL_PATTERN = re.compile(
+    r"\b(?:lvl|level|sev|severity)\s*[=:]\s*([EWIDFCTN])\b", re.IGNORECASE)
+_SHORT_LEVEL_MAP = {"F": "CRITICAL", "C": "CRITICAL", "E": "ERROR", "W": "WARNING",
+                    "N": "INFO", "I": "INFO", "D": "DEBUG", "T": "DEBUG"}
 
 # source: svc=name, [service-name], "LEVEL logger - msg" (log4j), "proc[pid]:" (syslog)
 _SOURCE_PATTERNS = [
@@ -125,10 +146,14 @@ def _parse_line(line: str, line_number: int) -> LogEntry:
             break
 
     level = None
-    m = _LEVEL_PATTERN.search(line)
+    # explicit short form first — "lvl=E" is authoritative over a stray
+    # "INFO" appearing inside the message text
+    m = _SHORT_LEVEL_PATTERN.search(line)
     if m:
+        level = _SHORT_LEVEL_MAP[m.group(1).upper()]
+    elif (m := _LEVEL_PATTERN.search(line)):
         level = normalize_level(m.group(1))
-    elif _STATUS_5XX.search(line) or _EXCEPTION.search(line):
+    elif _STATUS_5XX.search(line) or _EXCEPTION.search(line) or _SEVERE_EVENT.search(line):
         level = "ERROR"
     elif _STATUS_4XX.search(line):
         level = "WARNING"
@@ -161,6 +186,13 @@ def from_raw_text(text: str, log_source: str = "raw-log") -> ParsedLog:
         for i, line in enumerate(text.splitlines(), start=1)
         if line.strip()
     ]
+    # A stack trace carries the severity of the error that raised it — without
+    # this, "ModuleNotFoundError: ..." reads as INFO and the real cause is
+    # invisible to the error summary.
+    for i, e in enumerate(entries):
+        if i and e.level == "INFO" and _CONTINUATION.match(e.raw) \
+                and entries[i - 1].level in ("ERROR", "CRITICAL"):
+            e.level = entries[i - 1].level
     return ParsedLog(log_source=log_source, entries=entries)
 
 

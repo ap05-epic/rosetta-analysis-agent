@@ -1,0 +1,326 @@
+2026-07-29 03:40:00,000 INFO  iam.rotator - rotated secret svc-etl/warehouse (version 41 -> 42)
+2026-07-29 03:40:06,538 WARN  iam.rotator - 2 of 6 consumers acknowledged the new version
+2026-07-29 03:40:30,050 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 60 success today
+2026-07-29 03:40:32,816 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+Jul 29 03:40:34 etl-node-01 postgres[3100]: LOG:  checkpoint complete: wrote 700 buffers
+2026-07-29 03:40:36,588 INFO  market_data_load.extract_source - processed 1400 rows in 4.0s
+2026-07-29 03:40:39,857 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:40:39,857 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:40:42,246 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 61 success today
+2026-07-29 03:40:49,287 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:40:54,442 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 62 success today
+2026-07-29 03:40:56,328 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:41:00,100 INFO  market_data_load.build_staging - processed 2634 rows in 6.2s
+2026-07-29 03:41:02,866 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-29 03:41:03,369 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:41:03,369 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:41:06,638 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 63 success today
+2026-07-29 03:41:09,027 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+Jul 29 03:41:10 etl-node-01 postgres[3103]: LOG:  checkpoint complete: wrote 859 buffers
+2026-07-29 03:41:18,834 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 64 success today
+2026-07-29 03:41:20,720 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+2026-07-29 03:41:23,109 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:41:24,492 INFO  market_data_load.refresh_marts - processed 3868 rows in 8.4s
+2026-07-29 03:41:27,761 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:41:27,761 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:41:30,150 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 65 success today
+2026-07-29 03:41:37,191 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:41:42,346 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 66 success today
+2026-07-29 03:41:44,232 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+Jul 29 03:41:46 etl-node-01 postgres[3106]: LOG:  checkpoint complete: wrote 1018 buffers
+2026-07-29 03:41:48,004 INFO  market_data_load.archive_outputs - processed 5102 rows in 10.6s
+2026-07-29 03:41:51,273 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:41:51,273 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:41:54,542 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 67 success today
+2026-07-29 03:42:02,086 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-29 03:42:06,738 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 68 success today
+2026-07-29 03:42:08,624 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:42:12,396 INFO  market_data_load.extract_source - processed 6336 rows in 12.8s
+2026-07-29 03:42:15,665 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:42:15,665 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:42:18,054 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 69 success today
+Jul 29 03:42:22 etl-node-01 postgres[3109]: LOG:  checkpoint complete: wrote 1177 buffers
+2026-07-29 03:42:25,095 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:42:30,250 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 70 success today
+2026-07-29 03:42:32,136 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:42:33,519 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+2026-07-29 03:42:35,405 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:42:36,788 INFO  market_data_load.build_staging - processed 7570 rows in 14.0s
+2026-07-29 03:42:39,177 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:42:39,177 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:42:42,446 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 71 success today
+2026-07-29 03:42:54,642 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 72 success today
+2026-07-29 03:42:56,528 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+Jul 29 03:42:58 etl-node-01 postgres[3112]: LOG:  checkpoint complete: wrote 1336 buffers
+2026-07-29 03:43:00,300 INFO  market_data_load.refresh_marts - processed 8804 rows in 5.2s
+2026-07-29 03:43:02,186 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-29 03:43:03,569 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:43:03,569 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:43:06,838 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 73 success today
+2026-07-29 03:43:13,879 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:43:18,154 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 74 success today
+2026-07-29 03:43:20,040 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+2026-07-29 03:43:24,692 INFO  market_data_load.archive_outputs - processed 10038 rows in 7.4s
+2026-07-29 03:43:27,081 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:43:27,081 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:43:30,350 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 75 success today
+Jul 29 03:43:34 etl-node-01 postgres[3115]: LOG:  checkpoint complete: wrote 1495 buffers
+2026-07-29 03:43:42,546 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 76 success today
+2026-07-29 03:43:44,432 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:43:47,701 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:43:48,204 INFO  market_data_load.extract_source - processed 11272 rows in 9.6s
+2026-07-29 03:43:51,473 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:43:51,473 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:43:54,742 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 77 success today
+2026-07-29 03:43:57,131 INFO  audit.trail - user=svc-etl action=read resource=validate_batch result=allow
+2026-07-29 03:44:01,783 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:44:02,286 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-29 03:44:06,058 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 78 success today
+2026-07-29 03:44:08,824 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+Jul 29 03:44:10 etl-node-01 postgres[3118]: LOG:  checkpoint complete: wrote 1654 buffers
+2026-07-29 03:44:12,596 INFO  market_data_load.build_staging - processed 12506 rows in 11.8s
+2026-07-29 03:44:15,865 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:44:15,865 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:44:18,254 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 79 success today
+2026-07-29 03:44:30,450 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 80 success today
+2026-07-29 03:44:32,336 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+2026-07-29 03:44:36,108 INFO  market_data_load.refresh_marts - processed 13740 rows in 13.0s
+2026-07-29 03:44:39,377 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:44:39,377 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:44:42,646 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 81 success today
+Jul 29 03:44:46 etl-node-01 postgres[3121]: LOG:  checkpoint complete: wrote 1813 buffers
+2026-07-29 03:44:49,687 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:44:54,842 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 82 success today
+2026-07-29 03:44:56,728 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+2026-07-29 03:44:59,117 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:45:00,500 INFO  market_data_load.archive_outputs - processed 14974 rows in 4.2s
+2026-07-29 03:45:02,386 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-29 03:45:03,769 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:45:03,769 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:45:06,158 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 83 success today
+2026-07-29 03:45:18,354 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 84 success today
+2026-07-29 03:45:20,240 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:45:21,623 INFO  audit.trail - user=svc-etl action=read resource=extract_source result=allow
+Jul 29 03:45:22 etl-node-01 postgres[3124]: LOG:  checkpoint complete: wrote 1972 buffers
+2026-07-29 03:45:24,012 INFO  market_data_load.extract_source - processed 16208 rows in 6.4s
+2026-07-29 03:45:27,281 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:45:27,281 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:45:30,550 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 85 success today
+2026-07-29 03:45:37,591 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:45:42,746 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 86 success today
+2026-07-29 03:45:44,632 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:45:48,404 INFO  market_data_load.build_staging - processed 17442 rows in 8.6s
+2026-07-29 03:45:51,673 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:45:51,673 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:45:54,062 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 87 success today
+Jul 29 03:45:58 etl-node-01 postgres[3127]: LOG:  checkpoint complete: wrote 2131 buffers
+2026-07-29 03:46:02,486 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-29 03:46:06,258 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 88 success today
+2026-07-29 03:46:08,144 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+2026-07-29 03:46:11,413 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:46:12,796 INFO  market_data_load.refresh_marts - processed 18676 rows in 10.8s
+2026-07-29 03:46:15,185 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:46:15,185 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:46:18,454 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 89 success today
+2026-07-29 03:46:25,495 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:46:30,650 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 90 success today
+2026-07-29 03:46:32,536 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+Jul 29 03:46:34 etl-node-01 postgres[3130]: LOG:  checkpoint complete: wrote 2290 buffers
+2026-07-29 03:46:36,308 INFO  market_data_load.archive_outputs - processed 19910 rows in 12.0s
+2026-07-29 03:46:39,577 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:46:39,577 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:46:42,846 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 91 success today
+2026-07-29 03:46:45,235 INFO  audit.trail - user=svc-etl action=read resource=notify_owners result=allow
+2026-07-29 03:46:54,162 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 92 success today
+2026-07-29 03:46:56,048 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:47:00,700 INFO  market_data_load.extract_source - processed 21144 rows in 14.2s
+2026-07-29 03:47:02,586 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-29 03:47:03,089 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:47:03,089 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:47:06,358 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 93 success today
+Jul 29 03:47:10 etl-node-01 postgres[3133]: LOG:  checkpoint complete: wrote 2449 buffers
+2026-07-29 03:47:13,399 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:47:18,554 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 94 success today
+2026-07-29 03:47:20,440 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:47:23,709 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:47:24,212 INFO  market_data_load.build_staging - processed 22378 rows in 5.4s
+2026-07-29 03:47:27,481 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:47:27,481 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:47:30,750 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 95 success today
+2026-07-29 03:47:42,066 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 96 success today
+2026-07-29 03:47:44,832 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+Jul 29 03:47:46 etl-node-01 postgres[3136]: LOG:  checkpoint complete: wrote 2608 buffers
+2026-07-29 03:47:48,604 INFO  market_data_load.refresh_marts - processed 23612 rows in 7.6s
+2026-07-29 03:47:51,873 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:47:51,873 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:47:54,262 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 97 success today
+2026-07-29 03:48:01,303 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:48:02,686 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-29 03:48:06,458 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 98 success today
+2026-07-29 03:48:08,344 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+2026-07-29 03:48:09,727 INFO  audit.trail - user=svc-etl action=read resource=archive_outputs result=allow
+2026-07-29 03:48:12,116 INFO  market_data_load.archive_outputs - processed 24846 rows in 9.8s
+2026-07-29 03:48:15,385 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:48:15,385 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:48:18,654 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 99 success today
+Jul 29 03:48:22 etl-node-01 postgres[3139]: LOG:  checkpoint complete: wrote 2767 buffers
+2026-07-29 03:48:30,850 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 100 success today
+2026-07-29 03:48:32,736 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:48:35,125 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:48:36,508 INFO  market_data_load.extract_source - processed 26080 rows in 11.0s
+2026-07-29 03:48:39,777 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:48:39,777 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:48:42,166 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 101 success today
+2026-07-29 03:48:49,207 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:48:54,362 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 102 success today
+2026-07-29 03:48:56,248 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+Jul 29 03:48:58 etl-node-01 postgres[3142]: LOG:  checkpoint complete: wrote 2926 buffers
+2026-07-29 03:49:00,020 INFO  market_data_load.build_staging - processed 27314 rows in 13.2s
+2026-07-29 03:49:02,786 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-29 03:49:03,289 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:49:03,289 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:49:06,558 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 103 success today
+2026-07-29 03:49:18,754 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 104 success today
+2026-07-29 03:49:20,640 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+2026-07-29 03:49:24,412 INFO  market_data_load.refresh_marts - processed 28548 rows in 4.4s
+2026-07-29 03:49:27,681 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:49:27,681 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:49:30,070 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 105 success today
+2026-07-29 03:49:33,339 INFO  audit.trail - user=svc-etl action=read resource=publish_metrics result=allow
+Jul 29 03:49:34 etl-node-01 postgres[3145]: LOG:  checkpoint complete: wrote 3085 buffers
+2026-07-29 03:49:37,111 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:49:42,266 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 106 success today
+2026-07-29 03:49:44,152 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+2026-07-29 03:49:47,421 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:49:48,804 INFO  market_data_load.archive_outputs - processed 29782 rows in 6.6s
+2026-07-29 03:49:51,193 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:49:51,193 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:49:54,462 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 107 success today
+2026-07-29 03:50:02,006 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-29 03:50:06,658 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 108 success today
+2026-07-29 03:50:08,544 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+Jul 29 03:50:10 etl-node-01 postgres[3148]: LOG:  checkpoint complete: wrote 3244 buffers
+2026-07-29 03:50:12,316 INFO  market_data_load.extract_source - processed 31016 rows in 8.8s
+2026-07-29 03:50:15,585 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:50:15,585 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:50:18,854 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 109 success today
+2026-07-29 03:50:25,015 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:50:30,170 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 110 success today
+2026-07-29 03:50:32,056 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:50:36,708 INFO  market_data_load.build_staging - processed 32250 rows in 10.0s
+2026-07-29 03:50:39,097 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:50:39,097 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:50:42,366 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 111 success today
+Jul 29 03:50:46 etl-node-01 postgres[3151]: LOG:  checkpoint complete: wrote 3403 buffers
+2026-07-29 03:50:54,562 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 112 success today
+2026-07-29 03:50:56,448 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+2026-07-29 03:50:57,831 INFO  audit.trail - user=svc-etl action=read resource=refresh_marts result=allow
+2026-07-29 03:50:59,717 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:51:00,220 INFO  market_data_load.refresh_marts - processed 33484 rows in 12.2s
+2026-07-29 03:51:02,106 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-29 03:51:03,489 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:51:03,489 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:51:06,758 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 113 success today
+2026-07-29 03:51:13,799 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:51:18,074 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 114 success today
+2026-07-29 03:51:20,840 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+Jul 29 03:51:22 etl-node-01 postgres[3154]: LOG:  checkpoint complete: wrote 3562 buffers
+2026-07-29 03:51:24,612 INFO  market_data_load.archive_outputs - processed 34718 rows in 14.4s
+2026-07-29 03:51:27,001 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:51:27,001 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:51:30,270 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 115 success today
+2026-07-29 03:51:42,466 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 116 success today
+2026-07-29 03:51:44,352 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:51:48,124 INFO  market_data_load.extract_source - processed 35952 rows in 5.6s
+2026-07-29 03:51:51,393 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:51:51,393 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:51:54,662 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 117 success today
+Jul 29 03:51:58 etl-node-01 postgres[3157]: LOG:  checkpoint complete: wrote 3721 buffers
+2026-07-29 03:52:01,703 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:52:02,206 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-29 03:52:06,858 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 118 success today
+2026-07-29 03:52:08,744 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:52:11,133 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:52:12,516 INFO  market_data_load.build_staging - processed 37186 rows in 7.8s
+2026-07-29 03:52:15,785 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:52:15,785 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:52:18,174 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 119 success today
+2026-07-29 03:52:21,443 INFO  audit.trail - user=svc-etl action=read resource=load_dimension result=allow
+2026-07-29 03:52:30,370 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 120 success today
+2026-07-29 03:52:32,256 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+Jul 29 03:52:34 etl-node-01 postgres[3160]: LOG:  checkpoint complete: wrote 3880 buffers
+2026-07-29 03:52:36,028 INFO  market_data_load.refresh_marts - processed 38420 rows in 9.0s
+2026-07-29 03:52:39,297 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:52:39,297 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:52:42,566 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 121 success today
+2026-07-29 03:52:49,607 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:52:54,762 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 122 success today
+2026-07-29 03:52:56,648 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+2026-07-29 03:53:00,420 INFO  market_data_load.archive_outputs - processed 39654 rows in 11.2s
+2026-07-29 03:53:02,306 INFO  airflow.metrics - emitted 32 statsd gauges to metrics-relay:8125
+2026-07-29 03:53:03,689 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:53:03,689 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:53:06,078 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 123 success today
+Jul 29 03:53:10 etl-node-01 postgres[3163]: LOG:  checkpoint complete: wrote 4039 buffers
+2026-07-29 03:53:18,274 INFO  airflow.scheduler - Heartbeat: 2 running, 0 queued, 124 success today
+2026-07-29 03:53:20,160 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+2026-07-29 03:53:23,429 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:53:24,812 INFO  market_data_load.extract_source - processed 40888 rows in 13.4s
+2026-07-29 03:53:27,201 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:53:27,201 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:53:30,470 INFO  airflow.scheduler - Heartbeat: 1 running, 1 queued, 125 success today
+2026-07-29 03:53:37,511 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:53:42,666 INFO  airflow.scheduler - Heartbeat: 3 running, 2 queued, 126 success today
+2026-07-29 03:53:44,552 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:53:45,055 INFO  audit.trail - user=svc-etl action=read resource=build_staging result=allow
+Jul 29 03:53:46 etl-node-01 postgres[3166]: LOG:  checkpoint complete: wrote 4198 buffers
+2026-07-29 03:53:48,324 INFO  market_data_load.build_staging - processed 42122 rows in 4.6s
+2026-07-29 03:53:51,593 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:53:51,593 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:53:54,862 INFO  airflow.scheduler - Heartbeat: 2 running, 3 queued, 127 success today
+2026-07-29 03:54:02,406 INFO  airflow.metrics - emitted 37 statsd gauges to metrics-relay:8125
+2026-07-29 03:54:06,178 INFO  airflow.scheduler - Heartbeat: 1 running, 0 queued, 128 success today
+2026-07-29 03:54:08,064 INFO  airflow.task_runner - Running task market_data_load.refresh_marts (attempt 1 of 3)
+2026-07-29 03:54:12,716 INFO  market_data_load.refresh_marts - processed 43356 rows in 6.8s
+2026-07-29 03:54:15,105 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=refresh_marts
+2026-07-29 03:54:15,105 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:54:18,374 INFO  airflow.scheduler - Heartbeat: 3 running, 1 queued, 129 success today
+Jul 29 03:54:22 etl-node-01 postgres[3169]: LOG:  checkpoint complete: wrote 4357 buffers
+2026-07-29 03:54:25,415 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:54:30,570 INFO  airflow.scheduler - Heartbeat: 2 running, 2 queued, 130 success today
+2026-07-29 03:54:32,456 INFO  airflow.task_runner - Running task market_data_load.archive_outputs (attempt 1 of 3)
+2026-07-29 03:54:35,725 DEBUG airflow.dagrun - DagRun state refreshed, 0 tasks deferred
+2026-07-29 03:54:36,228 INFO  market_data_load.archive_outputs - processed 44590 rows in 8.0s
+2026-07-29 03:54:39,497 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=archive_outputs
+2026-07-29 03:54:39,497 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:54:42,766 INFO  airflow.scheduler - Heartbeat: 1 running, 3 queued, 131 success today
+2026-07-29 03:54:54,082 INFO  airflow.scheduler - Heartbeat: 3 running, 0 queued, 132 success today
+2026-07-29 03:54:56,848 INFO  airflow.task_runner - Running task market_data_load.extract_source (attempt 1 of 3)
+Jul 29 03:54:58 etl-node-01 postgres[3172]: LOG:  checkpoint complete: wrote 4516 buffers
+2026-07-29 03:55:00,620 INFO  market_data_load.extract_source - processed 45824 rows in 10.2s
+2026-07-29 03:55:02,506 INFO  airflow.metrics - emitted 42 statsd gauges to metrics-relay:8125
+2026-07-29 03:55:03,009 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=extract_source
+2026-07-29 03:55:03,009 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:55:06,278 INFO  airflow.scheduler - Heartbeat: 2 running, 1 queued, 133 success today
+2026-07-29 03:55:09,547 INFO  audit.trail - user=svc-etl action=read resource=validate_batch result=allow
+2026-07-29 03:55:13,319 DEBUG airflow.executor - Sent task instance to CeleryExecutor queue=default
+2026-07-29 03:55:18,474 INFO  airflow.scheduler - Heartbeat: 1 running, 2 queued, 134 success today
+2026-07-29 03:55:20,360 INFO  airflow.task_runner - Running task market_data_load.build_staging (attempt 1 of 3)
+2026-07-29 03:55:24,132 INFO  market_data_load.build_staging - processed 47058 rows in 12.4s
+2026-07-29 03:55:27,401 INFO  airflow.taskinstance - Marking task as SUCCESS. dag_id=market_data_load, task_id=build_staging
+2026-07-29 03:55:27,401 INFO  airflow.local_task_job - Task exited with return code 0
+2026-07-29 03:55:30,670 INFO  airflow.scheduler - Heartbeat: 3 running, 3 queued, 135 success today
+Jul 29 03:55:34 etl-node-01 postgres[3175]: LOG:  checkpoint complete: wrote 4675 buffers
+2026-07-29 03:56:04,492 INFO  airflow.task_runner - Running task market_data_load.write_curated (attempt 1 of 3)
+Jul 29 03:56:09 warehouse-db postgres[4402]: ERROR:  permission denied for table curated.fx_rates
+2026-07-29 03:56:11,533 ERROR airflow.taskinstance - Task failed with exception
+psycopg2.errors.InsufficientPrivilege: permission denied for table curated.fx_rates
+    at /opt/airflow/dags/market_data_load/write_curated.py, line 58, in execute
+2026-07-29 03:56:28,004 ERROR objectstore.client - PUT s3://curated-zone/fx/2026-07-29/part-0001.parquet returned 403 Forbidden (token version 41)
+2026-07-29 03:56:31,273 ERROR objectstore.client - PUT s3://curated-zone/fx/2026-07-29/part-0002.parquet returned 403 Forbidden (token version 41)
+2026-07-29 03:56:44,852 WARN  market_data_load - 0 of 18 partitions written; curated zone left at yesterday's snapshot
+2026-07-29 03:57:06,478 ERROR api.gateway - downstream request unauthorized: consumer presented secret version 41, expected 42
+2026-07-29 03:57:34,642 INFO  oncall.bot - paged data-platform: curated refresh blocked on credentials
+2026-07-29 03:57:54,382 ERROR airflow.taskinstance - Marking task as FAILED. dag_id=market_data_load, task_id=write_curated
+2026-07-29 03:57:55,765 INFO  airflow.local_task_job - Task exited with return code 1
+2026-07-29 03:57:56,268 ERROR airflow.dagrun - DagRun market_data_load finished with failed tasks
